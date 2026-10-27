@@ -1,0 +1,15 @@
+parameter,value,unit,status,start,lower,upper,at_bound,se_linear_unit_weights,se_linear_scaled,rel_se_pct,note
+mu_max,0.21745966166323133,1/h,fitted,0.3,0.05,1.5,no,0.003557353716114573,0.012642247671199232,5.813605877294905,growth rate at 30 C; biomass sd is large and growth sampled every 2 h
+X_max,9.337457291080693,g/L,fitted,11.5,8.0,20.0,no,0.06768168420430583,0.24052952919432682,2.5759639021223153,plateau of 10-11.5 g/L is visible in every run
+q_max,1.2971856533470723,g/g/h,fitted,1.0,0.2,5.0,no,0.00964892311238163,0.03429067938746362,2.643467363286424,early specific uptake; correlated with Y_P/k(T) through the ethanol rate
+P_max,118.54617216578723,g/L,fitted,150.0,108.0,500.0,no,0.6451055057536661,2.292598439353344,1.933928694169169,likely above observed ethanol (extrapolated); see bound flag
+Y_P,0.47798317191516804,g/g,fitted,0.47,0.3,0.511,no,0.0011890022099480103,0.004225517510860268,0.88403060173219,catabolic yield; glycerol and CO2 not separated
+rho_CO2,0.987055199119149,g/g,fitted,0.96,0.8,1.2,no,0.003430553082515923,0.012191619158336586,1.2351506956466491,compare with stoichiometric 0.955
+k34,0.971386252184295,-,fitted,1.0,0.2,1.5,no,0.0023573990579847793,0.008377806968109625,0.8624588776370862,"34 C estimated from R4, R5 (R6 held out, R7 excluded)"
+k37,0.6687342174755848,-,fitted,0.8,0.2,1.5,no,0.002296935942137424,0.008162931038833308,1.2206540095477219,37 C rests on ONE run (R8)
+K_s,1.0,g/L,fixed,1.0,,,n/a,,,,"Monod constant; sparse low-sugar data cannot determine it; fixed a priori, sensitivity 0.2-5"
+n_inh,1.0,-,fixed,1.0,,,n/a,,,,"ethanol-inhibition exponent fixed at 1 (linear), per user decision"
+mu_max*k34,0.2112373257443111,1/h,derived,,,,n/a,,0.01230958902682661,5.827374013306039,effective maximum rate at that temperature
+mu_max*k37,0.14542271667486642,1/h,derived,,,,n/a,,0.008645186899806435,5.944866866388691,effective maximum rate at that temperature
+q_max*k34,1.2600683101920485,g/g/h,derived,,,,n/a,,0.033491826272244965,2.6579373515980604,effective maximum rate at that temperature
+q_max*k37,0.8674724328116096,g/g/h,derived,,,,n/a,,0.023914967868082827,2.7568562369838996,effective maximum rate at that temperature
