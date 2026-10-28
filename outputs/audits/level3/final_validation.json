@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-28 19:50:39",
+  "created": "2026-10-28 19:52:30",
   "phase": "full",
   "status": "passed",
   "all_passed": true,
@@ -32,12 +32,11 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 0.0,
+      "runtime_s": 0.01,
       "log": "outputs/audits/level3/final_validation_logs/02_git_status.log",
       "tail": [
-        "?? src/make_level3_report.py",
-        "?? submission/",
-        "?? tests/test_level3.py"
+        "## arena/b48e5f7c-fermentation-kinetics...origin/arena/b48e5f7c-fermentation-kinetics",
+        " D fermentation_kinetics_final_submission.zip"
       ]
     },
     {
@@ -67,12 +66,12 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 31.12,
+      "runtime_s": 35.22,
       "log": "outputs/audits/level3/final_validation_logs/04_level3_workflow.log",
       "tail": [
         "[level3] === stage answers ===",
         "[level3] answers written (0.0s)",
-        "[level3] done in 30.1s"
+        "[level3] done in 34.1s"
       ]
     },
     {
@@ -83,7 +82,7 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 1.05,
+      "runtime_s": 1.01,
       "log": "outputs/audits/level3/final_validation_logs/05_level3_report.log",
       "tail": [
         "wrote reports/level3.md: 46575 characters, 21 tracked claims"
@@ -113,7 +112,7 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 1.03,
+      "runtime_s": 1.1,
       "log": "outputs/audits/level3/final_validation_logs/07_submission_snapshot_provisional.log",
       "tail": [
         "submission snapshot: 127 files, 4.08 MB, OK"
@@ -129,7 +128,7 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 0.27,
+      "runtime_s": 0.29,
       "log": "outputs/audits/level3/final_validation_logs/08_submission_verification.log",
       "tail": [
         "[PASS] S-15 archive not checked at this stage (created after this audit)",
@@ -147,12 +146,12 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 5.07,
+      "runtime_s": 5.06,
       "log": "outputs/audits/level3/final_validation_logs/09_full_test_suite.log",
       "tail": [
         "........................................................................ [ 88%]",
         ".........                                                                [100%]",
-        "81 passed in 4.70s"
+        "81 passed in 4.68s"
       ]
     },
     {
@@ -163,7 +162,7 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 1.19,
+      "runtime_s": 1.1,
       "log": "outputs/audits/level3/final_validation_logs/10_submission_snapshot_final.log",
       "tail": [
         "submission snapshot: 127 files, 4.08 MB, OK"
@@ -179,7 +178,7 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 0.29,
+      "runtime_s": 0.27,
       "log": "outputs/audits/level3/final_validation_logs/11_submission_verification_final.log",
       "tail": [
         "[PASS] S-15 archive not checked at this stage (created after this audit)",
@@ -215,8 +214,8 @@
       "log": "outputs/audits/level3/final_validation_logs/13_zip_integrity_and_listing.log",
       "tail": [
         "exists: True",
-        "bytes: 9269115",
-        "sha256: 92e05432062ac0fb7a8712d0304fc681348fe9cb7eefe50918b798a5176fe498",
+        "bytes: 9269877",
+        "sha256: 85bccfa4fdf4ac82f6dc739307acc95e79f9ad5131a8a6a7fce6f2e324bca341",
         "entries: 575",
         "testzip: None"
       ]

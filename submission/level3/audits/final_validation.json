@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-28 19:50:37",
+  "created": "2026-10-28 19:52:28",
   "phase": "pre-archive",
   "status": "passed",
   "all_passed": true,
@@ -32,12 +32,11 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 0.0,
+      "runtime_s": 0.01,
       "log": "outputs/audits/level3/final_validation_logs/02_git_status.log",
       "tail": [
-        "?? src/make_level3_report.py",
-        "?? submission/",
-        "?? tests/test_level3.py"
+        "## arena/b48e5f7c-fermentation-kinetics...origin/arena/b48e5f7c-fermentation-kinetics",
+        " D fermentation_kinetics_final_submission.zip"
       ]
     },
     {
@@ -67,12 +66,12 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 31.12,
+      "runtime_s": 35.22,
       "log": "outputs/audits/level3/final_validation_logs/04_level3_workflow.log",
       "tail": [
         "[level3] === stage answers ===",
         "[level3] answers written (0.0s)",
-        "[level3] done in 30.1s"
+        "[level3] done in 34.1s"
       ]
     },
     {
@@ -83,7 +82,7 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 1.05,
+      "runtime_s": 1.01,
       "log": "outputs/audits/level3/final_validation_logs/05_level3_report.log",
       "tail": [
         "wrote reports/level3.md: 46575 characters, 21 tracked claims"
@@ -113,7 +112,7 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 1.03,
+      "runtime_s": 1.1,
       "log": "outputs/audits/level3/final_validation_logs/07_submission_snapshot_provisional.log",
       "tail": [
         "submission snapshot: 127 files, 4.08 MB, OK"
@@ -129,7 +128,7 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 0.27,
+      "runtime_s": 0.29,
       "log": "outputs/audits/level3/final_validation_logs/08_submission_verification.log",
       "tail": [
         "[PASS] S-15 archive not checked at this stage (created after this audit)",
@@ -147,12 +146,12 @@
       ],
       "cwd": ".",
       "exit_code": 0,
-      "runtime_s": 5.07,
+      "runtime_s": 5.06,
       "log": "outputs/audits/level3/final_validation_logs/09_full_test_suite.log",
       "tail": [
         "........................................................................ [ 88%]",
         ".........                                                                [100%]",
-        "81 passed in 4.70s"
+        "81 passed in 4.68s"
       ]
     }
   ],

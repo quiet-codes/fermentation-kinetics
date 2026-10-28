@@ -1,10 +1,10 @@
 {
-  "created": "2026-10-28 19:50:39",
+  "created": "2026-10-28 19:52:30",
   "archive": {
     "name": "fermentation_kinetics_final_submission.zip",
     "path": "/home/user/fermentation-kinetics/fermentation_kinetics_final_submission.zip",
-    "bytes": 9269115,
-    "sha256": "92e05432062ac0fb7a8712d0304fc681348fe9cb7eefe50918b798a5176fe498",
+    "bytes": 9269877,
+    "sha256": "85bccfa4fdf4ac82f6dc739307acc95e79f9ad5131a8a6a7fce6f2e324bca341",
     "entries": 575,
     "testzip_bad_member": null,
     "validated": true
@@ -72,7 +72,7 @@
           "--branch"
         ],
         "exit_code": 0,
-        "runtime_s": 0.0,
+        "runtime_s": 0.01,
         "log": "outputs/audits/level3/final_validation_logs/02_git_status.log"
       },
       {
@@ -95,7 +95,7 @@
           "200"
         ],
         "exit_code": 0,
-        "runtime_s": 31.12,
+        "runtime_s": 35.22,
         "log": "outputs/audits/level3/final_validation_logs/04_level3_workflow.log"
       },
       {
@@ -105,7 +105,7 @@
           "src/make_level3_report.py"
         ],
         "exit_code": 0,
-        "runtime_s": 1.05,
+        "runtime_s": 1.01,
         "log": "outputs/audits/level3/final_validation_logs/05_level3_report.log"
       },
       {
@@ -125,7 +125,7 @@
           "scripts/build_submission.py"
         ],
         "exit_code": 0,
-        "runtime_s": 1.03,
+        "runtime_s": 1.1,
         "log": "outputs/audits/level3/final_validation_logs/07_submission_snapshot_provisional.log"
       },
       {
@@ -137,7 +137,7 @@
           "fermentation_kinetics_final_submission.zip"
         ],
         "exit_code": 0,
-        "runtime_s": 0.27,
+        "runtime_s": 0.29,
         "log": "outputs/audits/level3/final_validation_logs/08_submission_verification.log"
       },
       {
@@ -149,7 +149,7 @@
           "-q"
         ],
         "exit_code": 0,
-        "runtime_s": 5.07,
+        "runtime_s": 5.06,
         "log": "outputs/audits/level3/final_validation_logs/09_full_test_suite.log"
       },
       {
@@ -159,7 +159,7 @@
           "scripts/build_submission.py"
         ],
         "exit_code": 0,
-        "runtime_s": 1.19,
+        "runtime_s": 1.1,
         "log": "outputs/audits/level3/final_validation_logs/10_submission_snapshot_final.log"
       },
       {
@@ -171,7 +171,7 @@
           "fermentation_kinetics_final_submission.zip"
         ],
         "exit_code": 0,
-        "runtime_s": 0.29,
+        "runtime_s": 0.27,
         "log": "outputs/audits/level3/final_validation_logs/11_submission_verification_final.log"
       },
       {

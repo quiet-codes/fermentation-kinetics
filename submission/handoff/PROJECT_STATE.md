@@ -43,8 +43,12 @@ Brief Q5 (37 C, 260 g/L): does not complete; 105.37 g/L ethanol and 30.26 g/L TR
 - Consistency audit: 31/31 checks passed (`outputs/audits/level3/consistency_report.md`).
 - Submission verification: 14/14 checks passed; manifest hashes, required structure, figure links, no
   caches or secrets, raw checksums, frozen selection, frozen Level 1 hash, eight carbon balances.
-- Final validation chain: recorded stage by stage with exit codes in
+- Final validation chain: 13 stages, recorded with commands, exit codes and logs in
   `outputs/audits/level3/final_validation.json`; archive validated in `outputs/audits/level3/final_zip_validation.json`.
+  The nine pre-archive stages are written into the record *before* the snapshot is built, so the archive
+  contains this run's results; the four archive stages necessarily live outside it (D-47).
+- Archive reproducibility: rebuilding `fermentation_kinetics_final_submission.zip` twice from identical
+  inputs produces identical bytes (D-46). Windows execution of the whole chain is still outstanding.
 - **Linux/sandbox only. Actual Windows execution has not been performed and is still pending.**
 
 ## Unresolved limitations (unchanged from earlier phases unless noted)

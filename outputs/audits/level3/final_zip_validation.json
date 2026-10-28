@@ -1,9 +1,9 @@
 {
-  "created": "2026-10-28 19:50:39",
+  "created": "2026-10-28 19:52:30",
   "zip_path": "/home/user/fermentation-kinetics/fermentation_kinetics_final_submission.zip",
   "zip_name": "fermentation_kinetics_final_submission.zip",
-  "zip_bytes": 9269115,
-  "zip_sha256": "92e05432062ac0fb7a8712d0304fc681348fe9cb7eefe50918b798a5176fe498",
+  "zip_bytes": 9269877,
+  "zip_sha256": "85bccfa4fdf4ac82f6dc739307acc95e79f9ad5131a8a6a7fce6f2e324bca341",
   "file_count": 575,
   "testzip_bad_member": null,
   "required_entries_checked": 46,

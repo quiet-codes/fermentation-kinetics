@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-28 19:50:09",
+  "created": "2026-10-28 19:51:56",
   "total_rows": 1572,
   "rows_by_model": {
     "M5": 858,
@@ -70,6 +70,6 @@
     "M2": "M2_6e9b23aa9ac14c14",
     "M6": "M6_e4a9bd02db37c356"
   },
-  "runtime_s": 11.0,
+  "runtime_s": 10.9,
   "note": "Ranking uses the 120 h primary horizon only; the 240 h rows are a diagnostic."
 }
