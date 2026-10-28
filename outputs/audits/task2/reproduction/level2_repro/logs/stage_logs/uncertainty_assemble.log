@@ -1,0 +1,24 @@
+# stage uncertainty_assemble
+# started 2026-10-27 14:59:07
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/uncertainty.py --stage assemble --models M5,M0 --data-dir data/raw --root .
+
+model parameter    value    ci_lo    ci_hi ci_open_lo ci_open_hi  linear_se_scaled  jackknife_rel_sd                                                       identifiability
+   M5    mu_max   0.1643   0.1552   0.1741      False      False            0.0048            0.0785 partly determined (run-to-run spread exceeds the within-fit interval)
+   M5     X_max  11.1092  10.7225  11.5048      False      False            0.2007            0.0213                              determined (within this model structure)
+   M5     q_max   1.4175   1.3723   1.4626      False      False            0.0230            0.0348 partly determined (run-to-run spread exceeds the within-fit interval)
+   M5     P_max 194.4874 170.4617 235.4231      False      False           15.3267            0.1267                determined only jointly (ridge, |r| >= 0.9 with n_inh)
+   M5       Y_P   0.4806   0.4760   0.4853      False      False            0.0024            0.0052                              determined (within this model structure)
+   M5   rho_CO2   0.9783   0.9652   0.9915      False      False            0.0067            0.0071                              determined (within this model structure)
+   M5       k34   1.0865   1.0716   1.1017      False      False            0.0077            0.0550 partly determined (run-to-run spread exceeds the within-fit interval)
+   M5       k37   0.8049   0.7867   0.8238      False      False            0.0093            0.0545  determined by ONE run (R8): precision is conditional, no replication
+   M5    beta_P   0.0488   0.0442   0.0536      False      False            0.0024            0.2093 partly determined (run-to-run spread exceeds the within-fit interval)
+   M5     n_inh   2.4208   1.9992   3.1211      False      False            0.2655            0.1734                determined only jointly (ridge, |r| >= 0.9 with P_max)
+   M0    mu_max   0.2175   0.1864   0.2530      False      False            0.0126            0.1439                              determined (within this model structure)
+   M0     X_max   9.3375   8.8121   9.9082      False      False            0.2405            0.0821 partly determined (run-to-run spread exceeds the within-fit interval)
+   M0     q_max   1.2972   1.2204   1.3807      False      False            0.0343            0.0594                              determined (within this model structure)
+   M0     P_max 118.5462 113.5275 125.2193      False      False            2.2926            0.0946 partly determined (run-to-run spread exceeds the within-fit interval)
+   M0       Y_P   0.4780   0.4697   0.4864      False      False            0.0042            0.0036                              determined (within this model structure)
+   M0   rho_CO2   0.9871   0.9634   1.0112      False      False            0.0122            0.0069                              determined (within this model structure)
+   M0       k34   0.9714   0.9547   0.9887      False      False            0.0084            0.0630 partly determined (run-to-run spread exceeds the within-fit interval)
+   M0       k37   0.6687   0.6526   0.6852      False      False            0.0082            0.0173  determined by ONE run (R8): precision is conditional, no replication

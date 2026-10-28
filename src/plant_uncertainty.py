@@ -69,12 +69,12 @@ def summarise(vals, feas_total):
 
 
 def stage_predict(a):
-    t, w, fdir = C.dirs(a.root); runs, tc = C.load_data(a.data_dir); fr = json.load(open(os.path.join(t, "model_selection_frozen.json"))); pref = fr["preferred"]
+    t, w, fdir = C.dirs(a.root); runs, tc = C.load_data(a.data_dir); fr = json.load(open(os.path.join(t, "model_selection_frozen.json"), encoding="utf-8")); pref = fr["preferred"]
     rng = np.random.default_rng(20261028); rows = []; spread = []
     for v in (pref, "M0"):
-        fj = C.json.load(open(os.path.join(w, f"fit_{v}.json"))); names, start, lo, hi, *_ = M.spec(v); th0 = np.array(fj["theta"])
+        fj = C.json.load(open(os.path.join(w, f"fit_{v}.json"), encoding="utf-8")); names, start, lo, hi, *_ = M.spec(v); th0 = np.array(fj["theta"])
         ens, acc = draw_ensemble(fj, names, lo, hi, a.n_draws, rng)
-        pj = C.json.load(open(os.path.join(w, f"profile_{v}.json"))) if os.path.exists(os.path.join(w, f"profile_{v}.json")) else None
+        pj = C.json.load(open(os.path.join(w, f"profile_{v}.json"), encoding="utf-8")) if os.path.exists(os.path.join(w, f"profile_{v}.json")) else None
         prof_sets = []
         if pj:
             thr = pj["c_hat"] * 3.84
@@ -95,12 +95,12 @@ def stage_predict(a):
                                  beyond_48h_data=bool(np.isfinite(best["t_end"]) and best["t_end"] > 48.0), gaussian_accept_rate=acc))
     # structure spread: every candidate at its own optimum
     for v in M.VARIANTS:
-        fj = C.json.load(open(os.path.join(w, f"fit_{v}.json"))); th0 = np.array(fj["theta"])
+        fj = C.json.load(open(os.path.join(w, f"fit_{v}.json"), encoding="utf-8")); th0 = np.array(fj["theta"])
         for (T, S0) in SCEN:
             r = margin(v, th0, T, S0)
             spread.append(dict(model=v, k=fj["k"], reduced_chi2=fj["red"], params_at_bound=int(sum(fj["at_bound"])), T_C=T, S0_gL=S0, **{k: r[k] for k in ("P48", "S48", "S96", "t_end", "P_end", "wash", "daily_margin_Rs", "feasible")}))
     # labelled secondary: preferred model refitted with R6 added (R6 no longer blind; not used for selection)
-    fj = C.json.load(open(os.path.join(w, f"fit_{pref}.json"))); th0 = np.array(fj["theta"])
+    fj = C.json.load(open(os.path.join(w, f"fit_{pref}.json"), encoding="utf-8")); th0 = np.array(fj["theta"])
     pol = fit.default_policy(train=fit.TRAIN + ["R6"], allow_holdout_in_train=True); recs = fit.make_records(pol["train"], runs, tc)
     best, out, counter, fun = C.fit_variant(pref, recs, pol, n_lhs=0, warm=th0, max_nfev=300)
     for (T, S0) in SCEN:
@@ -120,8 +120,8 @@ def num_grad(f, th, lo, hi, rel=1e-4):
 
 
 def stage_design(a):
-    t, w, fdir = C.dirs(a.root); fr = json.load(open(os.path.join(t, "model_selection_frozen.json"))); v = fr["preferred"]
-    fj = C.json.load(open(os.path.join(w, f"fit_{v}.json"))); names, start, lo, hi, *_ = M.spec(v); th0 = np.array(fj["theta"]); c_hat = fj["red"]
+    t, w, fdir = C.dirs(a.root); fr = json.load(open(os.path.join(t, "model_selection_frozen.json"), encoding="utf-8")); v = fr["preferred"]
+    fj = C.json.load(open(os.path.join(w, f"fit_{v}.json"), encoding="utf-8")); names, start, lo, hi, *_ = M.spec(v); th0 = np.array(fj["theta"]); c_hat = fj["red"]
     cov = np.array([[np.nan if x is None else x for x in r] for r in fj["cov"]]); assert np.all(np.isfinite(cov)), "parameters at a bound: linearised design not defined"
     pol = fit.default_policy()
     # gradients of plant quantities
@@ -172,8 +172,8 @@ def stage_design(a):
 
 
 def stage_ksens(a):
-    t, w, fdir = C.dirs(a.root); fr = json.load(open(os.path.join(t, "model_selection_frozen.json"))); v = fr["preferred"]
-    rows = json.load(open(os.path.join(w, f"fixedgrid_{v}.json"))); names = M.spec(v)[0]; out = []
+    t, w, fdir = C.dirs(a.root); fr = json.load(open(os.path.join(t, "model_selection_frozen.json"), encoding="utf-8")); v = fr["preferred"]
+    rows = json.load(open(os.path.join(w, f"fixedgrid_{v}.json"), encoding="utf-8")); names = M.spec(v)[0]; out = []
     for r in rows:
         if r["fixed_parameter"] != "K_s": continue
         th = np.array([r[n] for n in names])
@@ -185,8 +185,8 @@ def stage_ksens(a):
 
 
 def stage_discriminate(a):
-    t, w, fdir = C.dirs(a.root); fr = json.load(open(os.path.join(t, "model_selection_frozen.json"))); pol = fit.default_policy()
-    ths = {v: np.array(C.json.load(open(os.path.join(w, f"fit_{v}.json")))["theta"]) for v in ("M0", "M2", "M5", "M6")}
+    t, w, fdir = C.dirs(a.root); fr = json.load(open(os.path.join(t, "model_selection_frozen.json"), encoding="utf-8")); pol = fit.default_policy()
+    ths = {v: np.array(C.json.load(open(os.path.join(w, f"fit_{v}.json"), encoding="utf-8"))["theta"]) for v in ("M0", "M2", "M5", "M6")}
     tdense = np.array([0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 30, 36, 42, 48.0]); t96 = np.concatenate([tdense, [60, 72, 84, 96.0]]); rows = []
     for T in (33.0, 34.0, 36.0, 37.0):
         for S0 in (220.0, 260.0):
@@ -204,7 +204,7 @@ def stage_discriminate(a):
 
 def stage_plot(a):
     t, w, fdir = C.dirs(a.root); sp = pd.read_csv(os.path.join(t, "structure_spread.csv")); pu = pd.read_csv(os.path.join(t, "plant_prediction_uncertainty.csv"))
-    fr = json.load(open(os.path.join(t, "model_selection_frozen.json"))); pref = fr["preferred"]
+    fr = json.load(open(os.path.join(t, "model_selection_frozen.json"), encoding="utf-8")); pref = fr["preferred"]
     models = [m for m in sp.model.unique() if "refit" not in m]; scen = SCEN
     fig, ax = plt.subplots(1, 3, figsize=(16, 4.8)); xs = np.arange(len(scen)); wd = 0.1
     for k, m in enumerate(models):

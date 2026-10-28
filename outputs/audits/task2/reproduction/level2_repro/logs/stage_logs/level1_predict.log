@@ -1,0 +1,15 @@
+# stage level1_predict
+# started 2026-10-27 14:50:34
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/fit.py --stage predict --data-dir data/raw --root .
+# note: Level 1 prediction only; frozen Level 1 fit is intentionally NOT refit.
+
+         scope variable  n   rmse    bias  rel_rmse_pct  mean_z  rms_z  observed  predicted
+timecourse_t>0        X 13  0.797  -0.265        10.240  -0.303  2.057       NaN        NaN
+  endpoint_48h        X  1  1.534  -1.534           NaN  -3.331    NaN     10.87      9.336
+timecourse_t>0        S 13  7.510  -4.976         4.807  -3.893  5.608       NaN        NaN
+  endpoint_48h        S  1 10.009 -10.009           NaN -11.284    NaN     48.70     38.691
+timecourse_t>0        P 13  2.725   1.756         5.762   1.613  3.058       NaN        NaN
+  endpoint_48h        P  1  1.694   1.694           NaN   1.167    NaN    100.10    101.794
+timecourse_t>0        C 13  3.803   2.968         8.368   2.189  2.685       NaN        NaN
+  endpoint_48h        C  1  6.376   6.376           NaN   3.217    NaN     94.10    100.476

@@ -1,0 +1,20 @@
+# stage uncertainty_fixedgrid
+# started 2026-10-27 14:56:37
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/uncertainty.py --stage fixedgrid --models M5,M0 --data-dir data/raw --root .
+
+M5 K_s 0.05 977.1
+M5 K_s 0.2 997.5
+M5 K_s 1.0 1116.4
+M5 K_s 5.0 1831.6
+M5 K_s 20.0 5194.4
+M0 K_s 0.05 3619.0
+M0 K_s 0.2 3633.2
+M0 K_s 1.0 3675.3
+M0 K_s 5.0 4091.6
+M0 K_s 20.0 6776.6
+M0 n_inh 0.5 4863.6
+M0 n_inh 1.0 3675.3
+M0 n_inh 1.5 3174.0
+M0 n_inh 2.0 2960.2
+M0 n_inh 3.0 2800.6

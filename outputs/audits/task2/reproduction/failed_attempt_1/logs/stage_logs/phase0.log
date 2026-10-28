@@ -1,0 +1,8 @@
+# stage phase0
+# started 2026-10-27 14:45:37
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/phase0_inspect.py --data-dir data/raw --root .
+# note: Phase 0 prerequisite verification (no fitting).
+
+Phase 0 outputs written to .
+{'PASS': 74, 'INFO': 58, 'FLAG': 5}

@@ -1,0 +1,101 @@
+{
+  "created": "2026-10-27",
+  "scope": "Task 2 only. Commands shown are the significant executed commands; short inspection commands (grep/sed/nl) are grouped where they were repeated over the same files.",
+  "environment": {
+    "branch": "arena/30692720-fermentation-kinetics",
+    "sandbox_python": "/tmp/fk-audit-venv/bin/python (3.11.2)",
+    "packages": "numpy 2.4.6, scipy 1.17.1, pandas 3.1.0, matplotlib 3.11.2, pytest 9.1.1"
+  },
+  "commands": [
+    {
+      "category": "status/capacity",
+      "command": "git status --short --branch; nproc; grep -c ^processor /proc/cpuinfo; free -h; git branch --show-current",
+      "result": "Only outputs/audits/ untracked before Task 2 edits; 2 CPUs; 3.8 GiB RAM; branch correct."
+    },
+    {
+      "category": "static inspection",
+      "command": "grep -RIn 'open(' src/*.py; grep -RIn 'D-24\\|multistart converged' --include='*.md' --include='*.csv' .; sed -n '70,90p' docs/assignment_brief.md; grep -RIn '^def sd_' src/*.py; grep -RIn '0.04\\|0.03 \\*' src/*.py",
+      "result": "Identified implicit text open() calls, D-24 wording/filter, brief uncertainty strings and implemented sd formulas."
+    },
+    {
+      "category": "UTF-8 fix",
+      "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python - <<'PY'  # AST rewrite adding encoding='utf-8' and newline='\\n' to text open() calls",
+      "result": "35 text open() calls updated in src/compare.py, src/fit.py, src/make_level1_report.py, src/make_level2_report.py, src/plant_uncertainty.py, src/uncertainty.py."
+    },
+    {
+      "category": "UTF-8 fix check",
+      "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m compileall -q src tests; /tmp/fk-audit-venv/bin/python src/make_level1_report.py /tmp/fk-utf8-check/level1.md; /tmp/fk-audit-venv/bin/python src/make_level2_report.py /tmp/fk-utf8-check/level2.md; cmp reports/level1.md /tmp/fk-utf8-check/level1.md; cmp reports/level2.md /tmp/fk-utf8-check/level2.md",
+      "result": "Compile OK; both generated reports byte-identical on Linux. compileall created untracked cpython-311 .pyc files which were subsequently deleted."
+    },
+    {
+      "category": "UTF-8 simulation",
+      "command": "PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python src/make_level1_report.py /tmp/fk-utf8-check/level1_cp.md; PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python src/make_level2_report.py /tmp/fk-utf8-check/level2_cp.md; cmp reports/level1.md /tmp/fk-utf8-check/level1_cp.md; cmp reports/level2.md /tmp/fk-utf8-check/level2_cp.md",
+      "result": "Both byte-identical under the Linux cp1252 file-write simulation."
+    },
+    {
+      "category": "tests",
+      "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider",
+      "result": "60 passed (48 original + 12 new Task 2 tests)."
+    },
+    {
+      "category": "tests",
+      "command": "PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider",
+      "result": "60 passed under cp1252 simulation."
+    },
+    {
+      "category": "tests",
+      "command": "PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_report_claims.py::test_level1_report_equals_generator_output tests/test_report_claims.py::test_level2_report_equals_generator_output",
+      "result": "2 passed; original report-equality tests unmodified."
+    },
+    {
+      "category": "CO2 sensitivity",
+      "command": "PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONIOENCODING=utf-8 /tmp/fk-audit-venv/bin/python src/task2_co2_floor_sensitivity.py --mode level1 --output outputs/audits/task2/sensitivity/level1_verification.json",
+      "result": "Recomputed CO2_floor_0 and CO2_floor_0.5; floor 0.5 exact, floor 0 differs slightly (max |change| 13.8879% vs 13.8788%)."
+    },
+    {
+      "category": "CO2 sensitivity",
+      "command": "PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python src/run_task2_sensitivities.py",
+      "result": "Level 2 floors 0.0 and 0.5 refit in parallel; both select M5 with explicit convergence; total 200.73 s."
+    },
+    {
+      "category": "Level 2 reproduction attempt 1 (failed)",
+      "command": "PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python src/reproduce_level2.py --mode all --run-id level2_repro --max-workers 2",
+      "result": "compare_fit passed (163.6 s) but the scheduler marked 14 dependent stages skipped; retained as outputs/audits/task2/reproduction/failed_attempt_1."
+    },
+    {
+      "category": "scheduler regression check",
+      "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python - <<'PY'  # synthetic 5-stage DAG through reproduce_level2.run_stages",
+      "result": "All 5 synthetic stages passed after adding a progress flag."
+    },
+    {
+      "category": "Level 2 reproduction rerun",
+      "command": "PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python src/reproduce_level2.py --mode all --run-id level2_repro --max-workers 2",
+      "result": "20/20 stages passed; consistency audit completed; D-24 preferred M5 in isolated root."
+    },
+    {
+      "category": "targeted numerical check",
+      "command": "PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 /tmp/fk-audit-venv/bin/python - <<'PY'  # recompute LORO M5 R8 fold from original and reproduced fit thetas",
+      "result": "Original theta gives 1629.1999; reproduced theta gives 731.1355, confirming warm-start sensitivity."
+    },
+    {
+      "category": "evidence generation",
+      "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python - <<'PY'  # generate D-03, D-24 and Windows UTF-8 JSON/Markdown evidence",
+      "result": "Created d03_verification.*, d24_convergence_check.*, windows_utf8_fix.*."
+    },
+    {
+      "category": "evidence generation",
+      "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python - <<'PY'  # generate key_metrics.json, reproduction_findings.*",
+      "result": "Created targeted reproduction metrics and findings."
+    },
+    {
+      "category": "final checks",
+      "command": "git status --short; git diff --name-only; git diff --stat; (cd data/raw && sha256sum -c CHECKSUMS.sha256); find outputs/audits/task2 \\( -name '*.pyc' -o -name '__pycache__' \\) -print; find outputs/audits/task2 -name 'test_*.py' -print; PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider; PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider",
+      "result": "Only 6 tracked source files modified; raw checksums OK; no nested test modules or pyc artifacts; final pytest 60 passed in both environments."
+    }
+  ],
+  "not_executed": [
+    "Actual Windows pytest run (no Windows host in sandbox).",
+    "Original assignment PDF inspection (file unavailable).",
+    "Level 3 work or final ZIP build (explicitly out of scope)."
+  ]
+}

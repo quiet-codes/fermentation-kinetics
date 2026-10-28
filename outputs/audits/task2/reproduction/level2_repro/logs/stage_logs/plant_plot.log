@@ -1,0 +1,5 @@
+# stage plant_plot
+# started 2026-10-27 14:59:26
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py --stage plot --data-dir data/raw --root .
+

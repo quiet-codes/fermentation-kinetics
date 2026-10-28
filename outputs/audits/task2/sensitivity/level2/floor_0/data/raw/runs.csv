@@ -1,0 +1,9 @@
+run,temperature_C,initial_TRS_g_L_as_glucose,initial_sugars_sucrose_plus_reducing_g_L,inoculum_biomass_g_L,notes
+R1,30,160,154.3,2.5,
+R2,30,220,212.2,2.5,
+R3,30,260,250.8,2.5,Biomass by OD600 calibration (dry-weight oven under repair)
+R4,34,160,154.3,2.5,
+R5,34,220,212.2,2.5,R7 repeats these conditions
+R6,34,260,250.8,2.5,
+R7,34,220,212.2,2.5,Repeat of R5 conditions
+R8,37,220,212.2,2.5,

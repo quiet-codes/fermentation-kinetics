@@ -5,7 +5,7 @@ import sys
 OUT = sys.argv[1] if len(sys.argv) > 1 else 'reports/level1.md'
 import json, pandas as pd, numpy as np
 T='outputs/tables/'
-P=pd.read_csv(T+'level1_parameters.csv'); fr=json.load(open(T+'level1_frozen.json'))
+P=pd.read_csv(T+'level1_parameters.csv'); fr=json.load(open(T+'level1_frozen.json', encoding="utf-8"))
 D=pd.read_csv(T+'level1_fit_diagnostics.csv'); H=pd.read_csv(T+'heldout_metrics.csv')
 S=pd.read_csv(T+'level1_sensitivity.csv'); N=pd.read_csv(T+'level1_summary_numbers.csv').set_index('name').value
 MS=pd.read_csv(T+'level1_multistart.csv'); HP=pd.read_csv(T+'heldout_predictions.csv')
@@ -181,5 +181,5 @@ Re-running `--stage all` refits and refreezes the parameters before R6 is read, 
 ## 10. Files
 Code: `src/kinetics.py`, `src/fit.py`, `src/level1_summary.py`, `tests/test_model.py`. Tables: `level1_parameters.csv`, `heldout_metrics.csv`, `heldout_predictions.csv`, `level1_fit_diagnostics.csv`, `level1_t0_diagnostics.csv`, `level1_multistart.csv`, `level1_sensitivity.csv`, `level1_correlations.csv`, `level1_summary_numbers.csv`, `level1_frozen.json`. Figures: `level1_fits.png`, `heldout_prediction.png`.
 """
-open(OUT,'w').write(rep)
+open(OUT,'w', encoding="utf-8", newline="\n").write(rep)
 print(len(rep))

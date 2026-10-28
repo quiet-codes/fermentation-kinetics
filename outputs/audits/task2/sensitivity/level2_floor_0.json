@@ -1,0 +1,285 @@
+{
+  "purpose": "Additional Level 2 CO2-floor sensitivity: refit all seven candidates under an alternative floor and recompute D-24 with explicit multistart convergence.",
+  "floor": 0.0,
+  "original_floor": 0.1,
+  "root": "/home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level2/floor_0",
+  "original_root": "/home/user/fermentation-kinetics",
+  "data_dir": "data/raw",
+  "seed": 20261027,
+  "n_lhs": 6,
+  "models": [
+    "M0",
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6"
+  ],
+  "runtime_s": 199.62,
+  "fits": {
+    "chi2": {
+      "M0": 4252.224209977155,
+      "M1": 4341.920165708336,
+      "M2": 1937.9476758863864,
+      "M3": 3105.2531046094987,
+      "M4": 4059.759674048412,
+      "M5": 1218.7074771112684,
+      "M6": 1763.2056365892438
+    },
+    "c_hat": {
+      "M0": 14.612454329818402,
+      "M1": 14.869589608590191,
+      "M2": 6.682578192711677,
+      "M3": 10.707769326239651,
+      "M4": 13.95106417198767,
+      "M5": 4.216980889658368,
+      "M6": 6.080019436514633
+    },
+    "n_near_best": {
+      "M0": "8/8",
+      "M1": "8/8",
+      "M2": "8/8",
+      "M3": "8/8",
+      "M4": "8/8",
+      "M5": "8/8",
+      "M6": "8/8"
+    },
+    "params_at_bound": {
+      "M0": 0,
+      "M1": 0,
+      "M2": 0,
+      "M3": 1,
+      "M4": 0,
+      "M5": 0,
+      "M6": 0
+    },
+    "ode_failures": {
+      "M0": 0,
+      "M1": 0,
+      "M2": 0,
+      "M3": 0,
+      "M4": 0,
+      "M5": 0,
+      "M6": 0
+    }
+  },
+  "selection": {
+    "n_obs": 299,
+    "c_hat": 4.216980889658368,
+    "metrics": {
+      "M0": {
+        "k": 8,
+        "chi2": 4252.224209977155,
+        "red": 14.612454329818402,
+        "qaicc": 1024.8540286112675,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M1": {
+        "k": 7,
+        "chi2": 4341.920165708336,
+        "red": 14.869589608590191,
+        "qaicc": 1044.0125397309366,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M2": {
+        "k": 9,
+        "chi2": 1937.9476758863864,
+        "red": 6.682578192711677,
+        "qaicc": 478.18092563167284,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M3": {
+        "k": 9,
+        "chi2": 3105.2531046094987,
+        "red": 10.707769326239651,
+        "qaicc": 754.9916248657591,
+        "params_at_bound": 1,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M4": {
+        "k": 8,
+        "chi2": 4059.759674048412,
+        "red": 13.95106417198767,
+        "qaicc": 979.2136662371485,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M5": {
+        "k": 10,
+        "chi2": 1218.7074771112684,
+        "red": 4.216980889658368,
+        "qaicc": 309.7638888888889,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M6": {
+        "k": 9,
+        "chi2": 1763.2056365892438,
+        "red": 6.080019436514633,
+        "qaicc": 436.7432137070881,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      }
+    },
+    "eligible_with_convergence": [
+      "M0",
+      "M1",
+      "M2",
+      "M4",
+      "M5",
+      "M6"
+    ],
+    "eligible_without_convergence": [
+      "M0",
+      "M1",
+      "M2",
+      "M4",
+      "M5",
+      "M6"
+    ],
+    "best_qaicc_model_with_convergence": "M5",
+    "preferred_with_convergence": "M5",
+    "best_qaicc_model_without_convergence": "M5",
+    "preferred_without_convergence": "M5",
+    "convergence_condition_changes_selection": false
+  },
+  "parameter_changes_vs_original_floor_0p10": {
+    "M0": {
+      "max_abs_change_pct": 13.887945897949484,
+      "mean_abs_change_pct": 3.475599150605767,
+      "per_parameter_pct": {
+        "mu_max": -13.887945897949484,
+        "X_max": 0.3681294869964761,
+        "q_max": 7.150716724311321,
+        "P_max": -3.2892005059788767,
+        "Y_P": -0.30973725663142665,
+        "rho_CO2": 0.7341766767824698,
+        "k34": 0.6413421842008356,
+        "k37": 1.4235444719952468
+      }
+    },
+    "M1": {
+      "max_abs_change_pct": 16.393420368052347,
+      "mean_abs_change_pct": 4.797915374204428,
+      "per_parameter_pct": {
+        "mu_max": -16.393420368052347,
+        "X_max": 1.685582902546541,
+        "q_max": 8.60451674141454,
+        "P_max": -4.765697130476983,
+        "Y_P": -0.24096990478069596,
+        "rho_CO2": 0.7067896008992981,
+        "k37": 1.1884309712605863
+      }
+    },
+    "M2": {
+      "max_abs_change_pct": 9.735570988496002,
+      "mean_abs_change_pct": 2.373974031542566,
+      "per_parameter_pct": {
+        "mu_max": -9.735570988496002,
+        "X_max": 0.2926474356944804,
+        "q_max": 5.455373213153883,
+        "P_max": -2.317709525486884,
+        "Y_P": -0.3084430888069947,
+        "rho_CO2": 0.6371215043316643,
+        "k34": 0.13806411916065453,
+        "k37": 0.6923727459167229,
+        "beta_P": -1.7884636628358075
+      }
+    },
+    "M3": {
+      "max_abs_change_pct": 2.213417246792192,
+      "mean_abs_change_pct": 0.6745818067000999,
+      "per_parameter_pct": {
+        "mu_max": -2.213417246792192,
+        "X_max": 0.46305925656372554,
+        "q_max": 0.6480117518208767,
+        "P_max": -0.6941239188602003,
+        "Y_P": -0.054402270093396064,
+        "rho_CO2": 0.00029626112922341314,
+        "k34": 0.55290825684873,
+        "k37": 1.4450167304454122,
+        "n_inh": -5.677471439630542e-07
+      }
+    },
+    "M4": {
+      "max_abs_change_pct": 12.406626590098849,
+      "mean_abs_change_pct": 3.450758275130576,
+      "per_parameter_pct": {
+        "mu_max": -12.406626590098849,
+        "X_max": 3.6300789168947647,
+        "q_max": 5.901325436963463,
+        "P_max": -2.6129070600561226,
+        "Y_P": -0.31242772649639317,
+        "rho_CO2": 0.6586785289151582,
+        "k34": 0.6299986296040779,
+        "k37": 1.4540233120157808
+      }
+    },
+    "M5": {
+      "max_abs_change_pct": 2.229879480076361,
+      "mean_abs_change_pct": 0.7212315250568089,
+      "per_parameter_pct": {
+        "mu_max": -1.08266320344864,
+        "X_max": 0.2891603133078485,
+        "q_max": 0.6712183319650583,
+        "P_max": 1.2471848240846737,
+        "Y_P": -0.036386339741650876,
+        "rho_CO2": -0.0070486430421505784,
+        "k34": 0.07449650485738707,
+        "k37": 0.5376028164429502,
+        "beta_P": 1.0366747936013692,
+        "n_inh": 2.229879480076361
+      }
+    },
+    "M6": {
+      "max_abs_change_pct": 8.905080886150344,
+      "mean_abs_change_pct": 2.5213642443437694,
+      "per_parameter_pct": {
+        "mu_max": -8.905080886150344,
+        "X_max": 3.2317392553559925,
+        "q_max": 4.604708407670891,
+        "P_max": -1.9525488457551814,
+        "Y_P": -0.3013723288189127,
+        "rho_CO2": 0.5990209781141276,
+        "k34": 0.10894764581276789,
+        "k37": 0.6369587560035669,
+        "beta_P": -2.351901095412137
+      }
+    }
+  },
+  "environment": {
+    "python": "3.11.2",
+    "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+    "numpy": "2.4.6",
+    "pandas": "3.1.0",
+    "scipy": "1.17.1",
+    "co2_floor": 0.0,
+    "default_co2_floor": 0.0
+  },
+  "note": "This is an additional sensitivity calculation in an isolated root; it does NOT alter the frozen M5/D-24 decision."
+}

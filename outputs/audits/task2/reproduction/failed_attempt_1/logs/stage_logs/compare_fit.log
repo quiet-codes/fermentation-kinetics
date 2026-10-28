@@ -1,0 +1,13 @@
+# stage compare_fit
+# started 2026-10-27 14:45:35
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/compare.py --stage fit --data-dir data/raw --root .
+# note: Seven Level 2 candidate fits (training runs only).
+
+M0 k=8 chi2=3675.25 red=12.63 starts_near_best=8/8 fail=0 18s
+M1 k=7 chi2=3803.47 red=13.03 starts_near_best=8/8 fail=0 21s
+M2 k=9 chi2=1683.21 red=5.80 starts_near_best=8/8 fail=0 26s
+M3 k=9 chi2=2746.26 red=9.47 starts_near_best=8/8 fail=0 27s
+M4 k=8 chi2=3518.07 red=12.09 starts_near_best=8/8 fail=0 18s
+M5 k=10 chi2=1116.38 red=3.86 starts_near_best=8/8 fail=0 25s
+M6 k=9 chi2=1530.24 red=5.28 starts_near_best=8/8 fail=0 27s

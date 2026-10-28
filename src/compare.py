@@ -113,7 +113,7 @@ def stage_fit(a):
         json.dump(dict(variant=vname, names=names, theta=best["theta"].tolist(), chi2=best["chi2"], n_obs=n_obs, k=len(names),
                        red=red, cov=np.where(np.isnan(cov), None, cov).tolist(), at_bound=at_bound(best["theta"], lo, hi).tolist(),
                        n_starts=len(out), n_near_best=near, chi2_all=chi.tolist(), failures=counter["failures"],
-                       status=best["status"], runtime=round(time.time() - t0, 1)), open(os.path.join(w, f"fit_{vname}.json"), "w"))
+                       status=best["status"], runtime=round(time.time() - t0, 1)), open(os.path.join(w, f"fit_{vname}.json"), "w", encoding="utf-8", newline="\n"))
         print(vname, "k=%d chi2=%.2f red=%.2f starts_near_best=%d/%d fail=%d %.0fs" % (len(names), best["chi2"], red, near, len(out), counter["failures"], time.time() - t0), flush=True)
 
 
@@ -121,7 +121,7 @@ def stage_loro(a):
     t, w, f = dirs(a.root); runs, tc = load_data(a.data_dir)
     policy = fit.default_policy()
     for vname in a.models.split(","):
-        fj = json.load(open(os.path.join(w, f"fit_{vname}.json"))); th0 = np.array(fj["theta"]); rows = []
+        fj = json.load(open(os.path.join(w, f"fit_{vname}.json"), encoding="utf-8")); th0 = np.array(fj["theta"]); rows = []
         for held in TRAIN:
             tr = [r for r in TRAIN if r != held]
             pol = fit.default_policy(train=tr)
@@ -137,7 +137,7 @@ def stage_loro(a):
             rows.append(dict(model=vname, held_out_run=held, chi2_per_point=float(np.mean(allz ** 2)), n=len(allz),
                              **{f"rms_z_{v}": float(np.sqrt(np.mean(z ** 2))) for v, z in zs.items()},
                              theta=best["theta"].tolist(), train_chi2=best["chi2"]))
-        json.dump(rows, open(os.path.join(w, f"loro_{vname}.json"), "w"))
+        json.dump(rows, open(os.path.join(w, f"loro_{vname}.json"), "w", encoding="utf-8", newline="\n"))
         print(vname, "LORO chi2/pt:", {r["held_out_run"]: round(r["chi2_per_point"], 1) for r in rows}, flush=True)
 
 
@@ -164,12 +164,12 @@ def lag1(z):
 
 def stage_select(a):
     t, w, fdir = dirs(a.root); runs, tc = load_data(a.data_dir); policy = fit.default_policy()
-    fits = {v: json.load(open(os.path.join(w, f"fit_{v}.json"))) for v in M.VARIANTS}
+    fits = {v: json.load(open(os.path.join(w, f"fit_{v}.json"), encoding="utf-8")) for v in M.VARIANTS}
     c_hat = fits[MOST_COMPLEX]["red"]; N = fits[MOST_COMPLEX]["n_obs"]
     rows, prow, resid = [], [], []
     for v, fj in fits.items():
         th = np.array(fj["theta"]); rt = residual_table(v, th, runs, tc, policy, TRAIN); rt = rt[rt.in_objective]; resid.append(rt)
-        loro = json.load(open(os.path.join(w, f"loro_{v}.json"))) if os.path.exists(os.path.join(w, f"loro_{v}.json")) else None
+        loro = json.load(open(os.path.join(w, f"loro_{v}.json"), encoding="utf-8")) if os.path.exists(os.path.join(w, f"loro_{v}.json")) else None
         ls = {}
         if loro:
             c = {r["held_out_run"]: r["chi2_per_point"] for r in loro}
@@ -204,7 +204,7 @@ def stage_select(a):
     pd.concat(resid).to_csv(os.path.join(t, "model_residuals.csv"), index=False)
     fr = dict(preferred=pref.model, best_QAICc_model=best.model, rule="D-24", c_hat=c_hat, model_comparison_sha256=fit.sha256(os.path.join(t, "model_comparison.csv")),
               candidate_parameters_sha256=fit.sha256(os.path.join(t, "candidate_parameters.csv")), r6_used_for_selection=False)
-    json.dump(fr, open(os.path.join(t, "model_selection_frozen.json"), "w"), indent=2)
+    json.dump(fr, open(os.path.join(t, "model_selection_frozen.json"), "w", encoding="utf-8", newline="\n"), indent=2)
     # figure: QAICc and pooled residual-vs-time for M0 and the preferred model
     allr = pd.concat(resid)
     fig, ax = plt.subplots(2, 4, figsize=(16, 7), gridspec_kw=dict(height_ratios=[1, 1.2]))
@@ -227,7 +227,7 @@ def stage_select(a):
 
 def stage_r6diag(a):
     t, w, fdir = dirs(a.root)
-    fr = json.load(open(os.path.join(t, "model_selection_frozen.json")))
+    fr = json.load(open(os.path.join(t, "model_selection_frozen.json"), encoding="utf-8"))
     if fit.sha256(os.path.join(t, "model_comparison.csv")) != fr["model_comparison_sha256"] or fit.sha256(os.path.join(t, "candidate_parameters.csv")) != fr["candidate_parameters_sha256"]:
         raise SystemExit("selection tables changed after freezing; refusing to look at R6")
     runs, tc = load_data(a.data_dir); policy = fit.default_policy()

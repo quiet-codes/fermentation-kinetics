@@ -5,13 +5,13 @@ import sys
 OUT = sys.argv[1] if len(sys.argv) > 1 else 'reports/level2.md'
 import json, numpy as np, pandas as pd
 T='outputs/tables/'
-cmp=pd.read_csv(T+'model_comparison.csv').set_index('model'); fz=json.load(open(T+'model_selection_frozen.json')); r6=pd.read_csv(T+'model_r6_diagnostic.csv').set_index('model')
+cmp=pd.read_csv(T+'model_comparison.csv').set_index('model'); fz=json.load(open(T+'model_selection_frozen.json', encoding="utf-8")); r6=pd.read_csv(T+'model_r6_diagnostic.csv').set_index('model')
 U=pd.read_csv(T+'parameter_uncertainty.csv'); FX=pd.read_csv(T+'fixed_parameter_sensitivity.csv'); R7=pd.read_csv(T+'r7_inclusion_effect.csv')
 CB=pd.read_csv(T+'carbon_balance_all_runs.csv').set_index('run'); YL=pd.read_csv(T+'ethanol_yields.csv').set_index('run'); DEC=pd.read_csv(T+'yield_gap_decomposition.csv').set_index('run')
 PO=pd.read_csv(T+'ethanol_yield_pooled.csv').set_index('set'); RV=pd.read_csv(T+'r7_review.csv').set_index('quantity')
 PU=pd.read_csv(T+'plant_prediction_uncertainty.csv'); SP=pd.read_csv(T+'structure_spread.csv'); KS=pd.read_csv(T+'plant_Ks_sensitivity.csv'); VD=pd.read_csv(T+'variance_decomposition.csv')
 ED=pd.read_csv(T+'experiment_design.csv'); DS=pd.read_csv(T+'experiment_discrimination.csv'); LS=pd.read_csv(T+'plant_linearised_sd.csv'); CP=pd.read_csv(T+'candidate_parameters.csv')
-loro=pd.concat([pd.DataFrame(json.load(open(T+f'work/loro_{m}.json'))).assign(model=m) for m in cmp.index]); LP=loro.pivot(index='model',columns='held_out_run',values='chi2_per_point')
+loro=pd.concat([pd.DataFrame(json.load(open(T+f'work/loro_{m}.json', encoding="utf-8"))).assign(model=m) for m in cmp.index]); LP=loro.pivot(index='model',columns='held_out_run',values='chi2_per_point')
 pref=fz['preferred']; chat=fz['c_hat']
 f=lambda x,n=3: f"{x:.{n}g}"
 # --- model comparison table
@@ -326,4 +326,4 @@ Code: `src/models.py`, `src/compare.py`, `src/uncertainty.py`, `src/plant_uncert
 Tables: `model_comparison.csv`, `candidate_parameters.csv`, `model_residuals.csv`, `model_selection_frozen.json`, `model_r6_diagnostic.csv`, `parameter_uncertainty.csv`, `parameter_profiles.csv`, `parameter_correlations_material.csv`, `fixed_parameter_sensitivity.csv`, `r7_inclusion_effect.csv`, `carbon_balance_all_runs.csv`, `ethanol_yields.csv`, `ethanol_yield_pooled.csv`, `yield_gap_decomposition.csv`, `r7_review.csv`, `plant_prediction_uncertainty.csv`, `structure_spread.csv`, `plant_Ks_sensitivity.csv`, `plant_linearised_sd.csv`, `variance_decomposition.csv`, `experiment_design.csv`, `experiment_discrimination.csv`, and `work/` (per-model fit, LORO, profile JSON).
 Figures: `model_comparison_residuals.png`, `parameter_profiles_M5.png`, `parameter_profiles_M0.png`, `carbon_balance_all_runs.png`, `ethanol_yield_gap.png`, `plant_uncertainty.png`.
 """
-open(OUT,'w').write(rep); print(len(rep))
+open(OUT,'w', encoding="utf-8", newline="\n").write(rep); print(len(rep))

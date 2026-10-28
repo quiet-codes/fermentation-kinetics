@@ -1,0 +1,55 @@
+{
+  "created": "2026-10-27 14:55:50",
+  "decision": "D-03: Uncertainty table read in row order (biomass, TRS, ethanol, CO2, by-products, pH).",
+  "decision_source": "handoff/DECISIONS.md line 7",
+  "original_assignment_pdf_available": false,
+  "available_brief": "docs/assignment_brief.md",
+  "brief_is_extracted_text": true,
+  "brief_strings_present": {
+    "\u00b1(3.5% + 0.08 g/L)": true,
+    "\u00b1(1% + 0.4 g/L)": true,
+    "\u00b1(1.2% + 0.25 g/L)": true,
+    "About \u00b12%": true,
+    "About \u00b13%": true,
+    "\u00b10.04": true
+  },
+  "source_patterns_present": {
+    "def sd_X(x): return 0.035 * np.asarray(x, float) + 0.08": true,
+    "def sd_S(s): return 0.01 * np.asarray(s, float) + 0.4": true,
+    "def sd_E(e): return 0.012 * np.asarray(e, float) + 0.25": true,
+    "def sd_CO2(c): return 0.02 * np.asarray(c, float)": true,
+    "def sd_G(g): return 0.03 * np.asarray(g, float)": true,
+    "PH_SD = 0.04": true,
+    "def sd_C(c, floor=CO2_FLOOR): return 0.02 * np.asarray(c, float) + floor": true,
+    "def sd_C(c): return 0.02 * c": true
+  },
+  "all_source_patterns_present": true,
+  "implemented_mapping": {
+    "biomass": "0.035*measured + 0.08 g/L",
+    "TRS": "0.01*measured + 0.4 g/L",
+    "ethanol": "0.012*measured + 0.25 g/L",
+    "CO2_fitting": "0.02*measured + 0.10 g/L floor",
+    "CO2_phase0_and_carbon_balance": "0.02*measured (no floor)",
+    "glycerol_and_detected_lactic": "0.03*measured",
+    "pH": "absolute 0.04"
+  },
+  "verifiable": [
+    "The implementation matches the documented row-order interpretation of the extracted brief.",
+    "Biomass/TRS/ethanol formulas and pH absolute 0.04 appear in phase0_inspect.py/fit.py/carbon_balance.py.",
+    "The 0.10 g/L CO2 floor is used in fitting and frozen Level 1/Level 2 records, but not in Phase 0/carbon balance.",
+    "Glycerol/detected lactic acid use 3% of measured value; n.d. lactic is handled separately in carbon_balance.py."
+  ],
+  "not_definitively_verifiable": [
+    "Row alignment of the PDF-extracted uncertainty table (the table is unlabelled in the brief).",
+    "Exact meaning of \"about \u00b12%\" for CO2 and \"about \u00b13%\" for by-products (whether additive floors, absolute errors, or different conventions were intended).",
+    "Whether the original PDF contained additional requirements, caveats, or units omitted by extraction."
+  ],
+  "limits": "Original assignment PDF is unavailable. The extracted brief's uncertainty table is unlabelled and read in row order; the exact meaning of 'about \u00b12%' / 'about \u00b13%' and row alignment cannot be definitively verified. Do not infer additional requirements.",
+  "commands": [
+    "grep -n 'D-03' handoff/DECISIONS.md docs/requirements_traceability.csv reports/*.md",
+    "sed -n '70,90p' docs/assignment_brief.md",
+    "grep -RIn '^def sd_' src/carbon_balance.py src/phase0_inspect.py",
+    "grep -RIn '0.04\\|0.03 \\*' src/*.py",
+    "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_task2_consistency.py::test_d03_uncertainty_mapping_documented_and_implemented_consistently"
+  ]
+}

@@ -1,0 +1,55 @@
+# stage carbon_balance
+# started 2026-10-27 14:45:35
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/carbon_balance.py --data-dir data/raw --root .
+
+run  C_in_total_Cmol_L  C_out_total_Cmol_L  unaccounted_Cmol_L  recovery_pct  recovery_95_lo  recovery_95_hi  recovery_consumed_basis_pct  closes_within_95
+ R1              5.533               5.500               0.034        99.387          96.223         102.803                       99.374              True
+ R2              7.508               7.377               0.132        98.247          95.249         101.441                       98.223              True
+ R3              8.744               8.892              -0.148       101.694          98.755         104.752                      101.926              True
+ R4              5.294               5.545              -0.251       104.745         101.458         108.344                      104.847             False
+ R5              7.362               7.372              -0.011       100.144          97.045         103.320                      100.150              True
+ R6              8.827               8.863              -0.036       100.408          97.540         103.403                      100.507              True
+ R7              7.458               7.533              -0.074       100.998          97.971         104.020                      101.163              True
+ R8              7.355               7.551              -0.196       102.663          99.659         105.721                      103.492              True
+run  yield_g_per_g  yield_95_lo  yield_95_hi  yield_pct_of_theory  yield_catabolic_after_biomass_sugar
+ R1         0.4410       0.4244       0.4587              86.2343                               0.4717
+ R2         0.4519       0.4360       0.4688              88.3571                               0.4755
+ R3         0.4669       0.4494       0.4853              91.2862                               0.4925
+ R4         0.4794       0.4616       0.4983              93.7431                               0.5154
+ R5         0.4570       0.4399       0.4746              89.3475                               0.4814
+ R6         0.4693       0.4507       0.4888              91.7600                               0.4929
+ R7         0.4381       0.4205       0.4558              85.6582                               0.4649
+ R8         0.4733       0.4531       0.4945              92.5393                               0.5053
+                    set  n_runs  pooled_yield_sum_ratio  slope_through_origin  bootstrap_95_lo  bootstrap_95_hi  mean_of_run_yields  pct_of_theory  theory                                                                               note
+             all 8 runs       8                  0.4594                0.4593           0.4503           0.4683              0.4596        89.8276  0.5114 bootstrap over runs (10,000), ratio of sums; run-to-run spread, not measurement sd
+   7 runs (R7 excluded)       7                  0.4624                0.4622           0.4540           0.4705              0.4627        90.4148  0.5114 bootstrap over runs (10,000), ratio of sums; run-to-run spread, not measurement sd
+6 Level-1 training runs       6                  0.4611                0.4608           0.4519           0.4705              0.4616        90.1656  0.5114 bootstrap over runs (10,000), ratio of sums; run-to-run spread, not measurement sd
+               R7 alone       1                  0.4381                0.4381              NaN              NaN              0.4381        85.6582  0.5114 bootstrap over runs (10,000), ratio of sums; run-to-run spread, not measurement sd
+               R5 alone       1                  0.4570                0.4570              NaN              NaN              0.4570        89.3475  0.5114 bootstrap over runs (10,000), ratio of sums; run-to-run spread, not measurement sd
+run  yield_pct_of_theory  gap_pct_of_consumed_carbon  biomass_pct_pts  biomass_95_lo  biomass_95_hi  glycerol_pct_pts  glycerol_95_lo  glycerol_95_hi  lactic_pct_pts  lactic_95_lo  lactic_95_hi  excess_CO2_pct_pts  excess_CO2_95_lo  excess_CO2_95_hi  unaccounted_pct_pts  unaccounted_95_lo  unaccounted_95_hi  check_sum_minus_gap
+ R1                86.23                       13.77             6.51           5.76           7.28              4.55            4.27            4.85            0.06          0.00          0.12                2.02              0.52              3.53                 0.63              -2.86               3.85                 -0.0
+ R2                88.36                       11.64             4.96           4.40           5.52              4.44            4.16            4.72            0.04          0.00          0.09                0.43             -0.99              1.88                 1.78              -1.46               4.81                  0.0
+ R3                91.29                        8.71             5.20           4.63           5.78              4.66            4.36            4.96            0.04          0.00          0.08                0.74             -0.77              2.24                -1.93              -5.42               1.41                  0.0
+ R4                93.74                        6.26             6.97           6.19           7.77              4.62            4.33            4.92            0.06          0.00          0.13               -0.55             -2.07              0.97                -4.85              -8.52              -1.49                 -0.0
+ R5                89.35                       10.65             5.08           4.49           5.65              4.64            4.35            4.94            0.05          0.00          0.09                1.04             -0.44              2.52                -0.15              -3.47               3.09                 -0.0
+ R6                91.76                        8.24             4.79           4.22           5.36              4.40            4.11            4.68            0.05          0.00          0.09               -0.49             -1.94              0.99                -0.51              -4.25               3.04                  0.0
+ R7                85.66                       14.34             5.77           5.11           6.44              4.46            4.16            4.76            4.68          4.38          4.99                0.59             -0.83              2.01                -1.16              -4.70               2.36                  0.0
+ R8                92.54                        7.46             6.34           5.60           7.08              4.61            4.30            4.92            0.06          0.00          0.12               -0.06             -1.54              1.47                -3.49              -7.58               0.44                 -0.0
+                                                                        quantity      R7      R5  difference  sd_of_difference      z     unit
+                                                                       final TRS  28.700   6.600      22.100             0.830 26.622      g/L
+                                                                    ethanol 48 h  84.200  96.600     -12.400             1.891 -6.559      g/L
+                                                                        CO2 48 h  82.100  95.500     -13.400             2.519 -5.320      g/L
+                                                                    biomass 48 h  11.590  11.290       0.300             0.679  0.442      g/L
+                                                                        glycerol   8.760  10.030      -1.270             0.400 -3.179      g/L
+                                                                        final pH   3.840   4.400      -0.560             0.057 -9.899        -
+                                              lactic acid (n.d. = 0.1 +/- 0.058)   9.000   0.100       8.900             0.276 32.235      g/L
+                                                              lactic acid carbon   0.300     NaN         NaN               NaN    NaN  C-mol/L
+                  lactic acid as glucose equivalent (1 glucose -> 2 lactic acid)   9.000     NaN         NaN               NaN    NaN      g/L
+                                                                    TRS consumed 192.200 211.400     -19.200               NaN    NaN      g/L
+share of the R5-R7 TRS-consumption gap that lactic acid carbon could account for   0.469     NaN         NaN               NaN    NaN fraction
+                                           ethanol per TRS consumed, as measured   0.438   0.457      -0.019               NaN    NaN      g/g
+          ethanol per TRS consumed after removing lactic-acid glucose equivalent   0.460   0.457       0.003               NaN    NaN      g/g
+                            carbon recovery, lactate counted (total-input basis) 100.998 100.144         NaN               NaN    NaN        %
+                                                carbon recovery, lactate omitted  96.979 100.098         NaN               NaN    NaN        %
+                                carbon recovery, consumed basis, lactate counted 101.163 100.150         NaN               NaN    NaN        %

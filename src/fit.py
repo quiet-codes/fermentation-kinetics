@@ -320,7 +320,7 @@ def stage_fit(args):
                   fixed=policy["fixed"], co2_floor=policy["co2_floor"], jacobian_cond_relative=float(unc["cond"]),
                   python=platform.python_version(), numpy=np.__version__, scipy=scipy.__version__, pandas=pd.__version__,
                   runtime_s=round(time.time() - t0, 1))
-    json.dump(frozen, open(os.path.join(tdir, "level1_frozen.json"), "w"), indent=2)
+    json.dump(frozen, open(os.path.join(tdir, "level1_frozen.json"), "w", encoding="utf-8", newline="\n"), indent=2)
     print(json.dumps({k: frozen[k] for k in ["chi2", "n_residuals", "dof", "reduced_chi2", "starts_within_0p1pct_of_best",
                                              "ode_failures_counted", "best_status", "runtime_s"]}, indent=1))
     print(ptab[["parameter", "value", "se_linear_scaled", "at_bound"]].to_string(index=False))
@@ -329,7 +329,7 @@ def load_frozen(tdir):
     fp = os.path.join(tdir, "level1_frozen.json")
     if not os.path.exists(fp):
         raise SystemExit("fit stage has not been run (level1_frozen.json missing)")
-    fr = json.load(open(fp))
+    fr = json.load(open(fp, encoding="utf-8"))
     cp = os.path.join(tdir, "level1_parameters.csv")
     if sha256(cp) != fr["parameters_csv_sha256"]:
         raise SystemExit("level1_parameters.csv changed after being frozen; refusing to predict")

@@ -1,0 +1,138 @@
+id,scope,file,run,variable,time_h,check,status,observed,expected,detail
+DQ001,file,runs.csv,,,,rows x cols,INFO,8 x 6,,run; temperature_C; initial_TRS_g_L_as_glucose; initial_sugars_sucrose_plus_reducing_g_L; inoculum_biomass_g_L; notes
+DQ002,file,runs.csv,,run,,dtype,INFO,str,,
+DQ003,file,runs.csv,,run,,empty/NaN cells,PASS,0,0,
+DQ004,file,runs.csv,,temperature_C,,dtype,INFO,int64,,
+DQ005,file,runs.csv,,temperature_C,,empty/NaN cells,PASS,0,0,
+DQ006,file,runs.csv,,initial_TRS_g_L_as_glucose,,dtype,INFO,int64,,
+DQ007,file,runs.csv,,initial_TRS_g_L_as_glucose,,empty/NaN cells,PASS,0,0,
+DQ008,file,runs.csv,,initial_sugars_sucrose_plus_reducing_g_L,,dtype,INFO,float64,,
+DQ009,file,runs.csv,,initial_sugars_sucrose_plus_reducing_g_L,,empty/NaN cells,PASS,0,0,
+DQ010,file,runs.csv,,inoculum_biomass_g_L,,dtype,INFO,float64,,
+DQ011,file,runs.csv,,inoculum_biomass_g_L,,empty/NaN cells,PASS,0,0,
+DQ012,file,runs.csv,,notes,,dtype,INFO,str,,
+DQ013,file,runs.csv,,notes,,empty/NaN cells,INFO,5,0,blank = no lab note for that run (not an error)
+DQ014,file,runs.csv,,,,fully duplicated rows,PASS,0,0,
+DQ015,file,timecourse.csv,,,,rows x cols,INFO,112 x 6,,run; time_h; biomass_g_L; TRS_g_L_as_glucose; ethanol_g_L; CO2_evolved_g_per_L
+DQ016,file,timecourse.csv,,run,,dtype,INFO,str,,
+DQ017,file,timecourse.csv,,run,,empty/NaN cells,PASS,0,0,
+DQ018,file,timecourse.csv,,time_h,,dtype,INFO,int64,,
+DQ019,file,timecourse.csv,,time_h,,empty/NaN cells,PASS,0,0,
+DQ020,file,timecourse.csv,,biomass_g_L,,dtype,INFO,float64,,
+DQ021,file,timecourse.csv,,biomass_g_L,,empty/NaN cells,PASS,0,0,
+DQ022,file,timecourse.csv,,TRS_g_L_as_glucose,,dtype,INFO,float64,,
+DQ023,file,timecourse.csv,,TRS_g_L_as_glucose,,empty/NaN cells,PASS,0,0,
+DQ024,file,timecourse.csv,,ethanol_g_L,,dtype,INFO,float64,,
+DQ025,file,timecourse.csv,,ethanol_g_L,,empty/NaN cells,PASS,0,0,
+DQ026,file,timecourse.csv,,CO2_evolved_g_per_L,,dtype,INFO,float64,,
+DQ027,file,timecourse.csv,,CO2_evolved_g_per_L,,empty/NaN cells,PASS,0,0,
+DQ028,file,timecourse.csv,,,,fully duplicated rows,PASS,0,0,
+DQ029,file,endpoint_hplc.csv,,,,rows x cols,INFO,8 x 4,,run; glycerol_g_L; lactic_acid_g_L; final_pH
+DQ030,file,endpoint_hplc.csv,,run,,dtype,INFO,str,,
+DQ031,file,endpoint_hplc.csv,,run,,empty/NaN cells,PASS,0,0,
+DQ032,file,endpoint_hplc.csv,,glycerol_g_L,,dtype,INFO,float64,,
+DQ033,file,endpoint_hplc.csv,,glycerol_g_L,,empty/NaN cells,PASS,0,0,
+DQ034,file,endpoint_hplc.csv,,lactic_acid_g_L,,dtype,INFO,str,,
+DQ035,file,endpoint_hplc.csv,,lactic_acid_g_L,,empty/NaN cells,PASS,0,0,
+DQ036,file,endpoint_hplc.csv,,final_pH,,dtype,INFO,float64,,
+DQ037,file,endpoint_hplc.csv,,final_pH,,empty/NaN cells,PASS,0,0,
+DQ038,file,endpoint_hplc.csv,,,,fully duplicated rows,PASS,0,0,
+DQ039,file,timecourse.csv,,"run,time_h",,duplicate keys,PASS,0,0,
+DQ040,file,runs.csv,,run,,duplicate keys,PASS,0,0,
+DQ041,file,endpoint_hplc.csv,,run,,duplicate keys,PASS,0,0,
+DQ042,file,endpoint_hplc.csv,,lactic_acid_g_L,,non-numeric tokens,INFO,n.d.,numeric,"Column is text because of 'n.d.' = not detected, below 0.2 g/L (brief). Treated as 0 (upper bound 0.2 g/L) in carbon balance."
+DQ043,cross-file,all,,run,,"run IDs identical across 3 files, R1-R8",PASS,"R1,R2,R3,R4,R5,R6,R7,R8",R1..R8,
+DQ044,cross-file,timecourse.csv,,time_h,,time grid equals brief grid in every run,PASS,"[0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 30, 36, 42, 48]","[0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 30, 36, 42, 48]","Brief lists 0,2,4,6,8,10,12,16,20,24,30,36,42,48 h"
+DQ045,run,timecourse.csv,R1,time_h,,rows in file are time-sorted,PASS,14,14,
+DQ046,run,timecourse.csv,R2,time_h,,rows in file are time-sorted,PASS,14,14,
+DQ047,run,timecourse.csv,R3,time_h,,rows in file are time-sorted,PASS,14,14,
+DQ048,run,timecourse.csv,R4,time_h,,rows in file are time-sorted,PASS,14,14,
+DQ049,run,timecourse.csv,R5,time_h,,rows in file are time-sorted,PASS,14,14,
+DQ050,run,timecourse.csv,R6,time_h,,rows in file are time-sorted,PASS,14,14,
+DQ051,run,timecourse.csv,R7,time_h,,rows in file are time-sorted,PASS,14,14,
+DQ052,run,timecourse.csv,R8,time_h,,rows in file are time-sorted,PASS,14,14,
+DQ053,file,timecourse.csv,,biomass_g_L,,min / max,INFO,2.14 / 12.33,,unit g/L from column name and brief; not independently verifiable
+DQ054,file,timecourse.csv,,biomass_g_L,,negative values,PASS,0,0,
+DQ055,file,timecourse.csv,,TRS_g_L_as_glucose,,min / max,INFO,0.0 / 262.0,,unit g/L from column name and brief; not independently verifiable
+DQ056,file,timecourse.csv,,TRS_g_L_as_glucose,,negative values,PASS,0,0,
+DQ057,file,timecourse.csv,,ethanol_g_L,,min / max,INFO,0.0 / 107.8,,unit g/L from column name and brief; not independently verifiable
+DQ058,file,timecourse.csv,,ethanol_g_L,,negative values,PASS,0,0,
+DQ059,file,timecourse.csv,,CO2_evolved_g_per_L,,min / max,INFO,0.0 / 105.5,,unit g/L from column name and brief; not independently verifiable
+DQ060,file,timecourse.csv,,CO2_evolved_g_per_L,,negative values,PASS,0,0,
+DQ061,file,endpoint_hplc.csv,,final_pH,,min / max,INFO,3.84 / 4.46,,pH given at 48 h only; no initial pH in the files
+DQ062,file,timecourse.csv,,TRS_g_L_as_glucose,,exact zeros,INFO,5,,Detection limit for TRS not given in brief; zeros may be clipped values
+DQ063,run,timecourse vs runs,R1,TRS,0,t=0 TRS vs metadata initial TRS,PASS,"163.1 (+1.94%, z=+1.53)",160,z uses brief sd = 1% + 0.4 g/L; flag if |z|>2.0 (analyst choice)
+DQ064,run,timecourse vs runs,R1,biomass,0,t=0 biomass vs metadata inoculum,FLAG,"2.92 (+16.8%, z=+2.31)",2.5,z uses brief sd = 3.5% + 0.08 g/L; nominal inoculum treated as exact
+DQ065,run,timecourse,R1,ethanol,0,t=0 ethanol vs 0,PASS,0.0 (z=+0.00),0,
+DQ066,run,timecourse,R1,CO2,0,t=0 cumulative CO2 is 0,PASS,0.0,0,
+DQ067,run,timecourse vs runs,R2,TRS,0,t=0 TRS vs metadata initial TRS,PASS,"222.4 (+1.09%, z=+0.91)",220,z uses brief sd = 1% + 0.4 g/L; flag if |z|>2.0 (analyst choice)
+DQ068,run,timecourse vs runs,R2,biomass,0,t=0 biomass vs metadata inoculum,PASS,"2.43 (-2.8%, z=-0.42)",2.5,z uses brief sd = 3.5% + 0.08 g/L; nominal inoculum treated as exact
+DQ069,run,timecourse,R2,ethanol,0,t=0 ethanol vs 0,PASS,0.0 (z=+0.00),0,
+DQ070,run,timecourse,R2,CO2,0,t=0 cumulative CO2 is 0,PASS,0.0,0,
+DQ071,run,timecourse vs runs,R3,TRS,0,t=0 TRS vs metadata initial TRS,PASS,"259.5 (-0.19%, z=-0.17)",260,z uses brief sd = 1% + 0.4 g/L; flag if |z|>2.0 (analyst choice)
+DQ072,run,timecourse vs runs,R3,biomass,0,t=0 biomass vs metadata inoculum,PASS,"2.6 (+4.0%, z=+0.58)",2.5,z uses brief sd = 3.5% + 0.08 g/L; nominal inoculum treated as exact; R3 biomass is OD600-based so the dry-weight sd may not apply
+DQ073,run,timecourse,R3,ethanol,0,t=0 ethanol vs 0,PASS,0.2 (z=+0.80),0,within brief sd (0.25 g/L) at 1-2 sd
+DQ074,run,timecourse,R3,CO2,0,t=0 cumulative CO2 is 0,PASS,0.0,0,
+DQ075,run,timecourse vs runs,R4,TRS,0,t=0 TRS vs metadata initial TRS,FLAG,"155.9 (-2.56%, z=-2.09)",160,z uses brief sd = 1% + 0.4 g/L; flag if |z|>2.0 (analyst choice)
+DQ076,run,timecourse vs runs,R4,biomass,0,t=0 biomass vs metadata inoculum,PASS,"2.49 (-0.4%, z=-0.06)",2.5,z uses brief sd = 3.5% + 0.08 g/L; nominal inoculum treated as exact
+DQ077,run,timecourse,R4,ethanol,0,t=0 ethanol vs 0,PASS,0.3 (z=+1.20),0,within brief sd (0.25 g/L) at 1-2 sd
+DQ078,run,timecourse,R4,CO2,0,t=0 cumulative CO2 is 0,PASS,0.0,0,
+DQ079,run,timecourse vs runs,R5,TRS,0,t=0 TRS vs metadata initial TRS,PASS,"218.0 (-0.91%, z=-0.78)",220,z uses brief sd = 1% + 0.4 g/L; flag if |z|>2.0 (analyst choice)
+DQ080,run,timecourse vs runs,R5,biomass,0,t=0 biomass vs metadata inoculum,PASS,"2.38 (-4.8%, z=-0.73)",2.5,z uses brief sd = 3.5% + 0.08 g/L; nominal inoculum treated as exact
+DQ081,run,timecourse,R5,ethanol,0,t=0 ethanol vs 0,PASS,0.4 (z=+1.60),0,within brief sd (0.25 g/L) at 1-2 sd
+DQ082,run,timecourse,R5,CO2,0,t=0 cumulative CO2 is 0,PASS,0.0,0,
+DQ083,run,timecourse vs runs,R6,TRS,0,t=0 TRS vs metadata initial TRS,PASS,"262.0 (+0.77%, z=+0.66)",260,z uses brief sd = 1% + 0.4 g/L; flag if |z|>2.0 (analyst choice)
+DQ084,run,timecourse vs runs,R6,biomass,0,t=0 biomass vs metadata inoculum,PASS,"2.68 (+7.2%, z=+1.04)",2.5,z uses brief sd = 3.5% + 0.08 g/L; nominal inoculum treated as exact
+DQ085,run,timecourse,R6,ethanol,0,t=0 ethanol vs 0,PASS,0.1 (z=+0.40),0,within brief sd (0.25 g/L) at 1-2 sd
+DQ086,run,timecourse,R6,CO2,0,t=0 cumulative CO2 is 0,PASS,0.0,0,
+DQ087,run,timecourse vs runs,R7,TRS,0,t=0 TRS vs metadata initial TRS,PASS,"220.9 (+0.41%, z=+0.34)",220,z uses brief sd = 1% + 0.4 g/L; flag if |z|>2.0 (analyst choice)
+DQ088,run,timecourse vs runs,R7,biomass,0,t=0 biomass vs metadata inoculum,PASS,"2.48 (-0.8%, z=-0.12)",2.5,z uses brief sd = 3.5% + 0.08 g/L; nominal inoculum treated as exact
+DQ089,run,timecourse,R7,ethanol,0,t=0 ethanol vs 0,PASS,0.4 (z=+1.60),0,within brief sd (0.25 g/L) at 1-2 sd
+DQ090,run,timecourse,R7,CO2,0,t=0 cumulative CO2 is 0,PASS,0.0,0,
+DQ091,run,timecourse vs runs,R8,TRS,0,t=0 TRS vs metadata initial TRS,PASS,"217.8 (-1.00%, z=-0.85)",220,z uses brief sd = 1% + 0.4 g/L; flag if |z|>2.0 (analyst choice)
+DQ092,run,timecourse vs runs,R8,biomass,0,t=0 biomass vs metadata inoculum,PASS,"2.2 (-12.0%, z=-1.91)",2.5,z uses brief sd = 3.5% + 0.08 g/L; nominal inoculum treated as exact
+DQ093,run,timecourse,R8,ethanol,0,t=0 ethanol vs 0,PASS,0.2 (z=+0.80),0,within brief sd (0.25 g/L) at 1-2 sd
+DQ094,run,timecourse,R8,CO2,0,t=0 cumulative CO2 is 0,PASS,0.0,0,
+DQ095,cross-file,runs.csv,,initial TRS / sucrose+reducing sugars,,implied sucrose mass fraction of sugar charge,INFO,TRS/sugars = 1.0367-1.0369; implied sucrose fraction 0.697-0.702,,"Brief: second column is the same charge by mass BEFORE inversion. Inversion adds water (x1.0526 per g sucrose), so a constant ratio fits ~70% of sugar mass being sucrose. Inference, not stated in brief."
+DQ096,run,runs.csv,"R5,R7",metadata,,R5 and R7 have identical conditions,PASS,identical,identical,Notes: R7 repeats R5
+DQ097,run,runs.csv,R3,biomass,,biomass method differs from dry cell weight,FLAG,OD600 calibration,dry cell weight,Run note: dry-weight oven under repair. Not excluded; its biomass series is less comparable.
+DQ098,run-time,timecourse.csv,R1,biomass_g_L,30,biomass falls between samples,INFO,11.47 -> 10.74 (-0.73); z=1.10,,within brief measurement noise (|z|<=2)
+DQ099,run-time,timecourse.csv,R1,biomass_g_L,36,biomass falls between samples,INFO,10.74 -> 10.6 (-0.14); z=0.22,,within brief measurement noise (|z|<=2)
+DQ100,run-time,timecourse.csv,R1,TRS_g_L_as_glucose,36,TRS rises between samples,INFO,0.0 -> 0.8 (+0.80); z=1.40,,within brief measurement noise (|z|<=2)
+DQ101,run-time,timecourse.csv,R1,TRS_g_L_as_glucose,48,TRS rises between samples,INFO,0.0 -> 0.3 (+0.30); z=0.53,,within brief measurement noise (|z|<=2)
+DQ102,run-time,timecourse.csv,R1,ethanol_g_L,48,ethanol_g_L falls between samples (should be non-decreasing),INFO,73.5 -> 71.8 (-1.70); z=1.07,,within brief measurement noise (|z|<=2)
+DQ103,run,timecourse.csv,R1,CO2_evolved_g_per_L,,cumulative CO2 non-decreasing,PASS,monotone,monotone,
+DQ104,run,timecourse.csv,R1,CO2_evolved_g_per_L,30,identical cumulative CO2 repeated,INFO,73.4 at 4 consecutive samples (t=30-48 h); TRS at start of plateau = 0.0,,Plausible for an integrated off-gas flow once sugar is exhausted (zero flow adds nothing); cannot be confirmed from the CSV.
+DQ105,run,timecourse.csv,R1,ethanol/CO2,48,48 h ethanol:CO2 mass ratio vs 1:1 molar (1.047),INFO,0.978 (z=-2.77),1.047,descriptive; CO2 also comes from biomass formation and other pathways
+DQ106,run-time,timecourse.csv,R2,biomass_g_L,42,biomass falls between samples,INFO,11.71 -> 11.19 (-0.52); z=0.76,,within brief measurement noise (|z|<=2)
+DQ107,run-time,timecourse.csv,R2,ethanol_g_L,48,ethanol_g_L falls between samples (should be non-decreasing),INFO,101.3 -> 100.5 (-0.80); z=0.39,,within brief measurement noise (|z|<=2)
+DQ108,run,timecourse.csv,R2,CO2_evolved_g_per_L,,cumulative CO2 non-decreasing,PASS,monotone,monotone,
+DQ109,run,timecourse.csv,R2,ethanol/CO2,48,48 h ethanol:CO2 mass ratio vs 1:1 molar (1.047),INFO,1.032 (z=-0.59),1.047,descriptive; CO2 also comes from biomass formation and other pathways
+DQ110,run-time,timecourse.csv,R3,biomass_g_L,2,biomass falls between samples,INFO,2.6 -> 2.14 (-0.46); z=1.99,,within brief measurement noise (|z|<=2)
+DQ111,run-time,timecourse.csv,R3,biomass_g_L,20,biomass falls between samples,FLAG,9.36 -> 7.93 (-1.43); z=2.64,,exceeds 2 sd of the difference (brief sds)
+DQ112,run-time,timecourse.csv,R3,biomass_g_L,42,biomass falls between samples,INFO,11.57 -> 11.35 (-0.22); z=0.32,,within brief measurement noise (|z|<=2)
+DQ113,run-time,timecourse.csv,R3,TRS_g_L_as_glucose,4,TRS rises between samples,INFO,245.4 -> 246.5 (+1.10); z=0.27,,within brief measurement noise (|z|<=2)
+DQ114,run,timecourse.csv,R3,CO2_evolved_g_per_L,,cumulative CO2 non-decreasing,PASS,monotone,monotone,
+DQ115,run,timecourse.csv,R3,ethanol/CO2,48,48 h ethanol:CO2 mass ratio vs 1:1 molar (1.047),INFO,1.022 (z=-0.99),1.047,descriptive; CO2 also comes from biomass formation and other pathways
+DQ116,run-time,timecourse.csv,R4,biomass_g_L,42,biomass falls between samples,FLAG,11.59 -> 10.2 (-1.39); z=2.13,,exceeds 2 sd of the difference (brief sds)
+DQ117,run-time,timecourse.csv,R4,TRS_g_L_as_glucose,36,TRS rises between samples,INFO,0.0 -> 0.1 (+0.10); z=0.18,,within brief measurement noise (|z|<=2)
+DQ118,run-time,timecourse.csv,R4,TRS_g_L_as_glucose,48,TRS rises between samples,INFO,0.0 -> 0.3 (+0.30); z=0.53,,within brief measurement noise (|z|<=2)
+DQ119,run,timecourse.csv,R4,CO2_evolved_g_per_L,,cumulative CO2 non-decreasing,PASS,monotone,monotone,
+DQ120,run,timecourse.csv,R4,CO2_evolved_g_per_L,30,identical cumulative CO2 repeated,INFO,70.0 at 4 consecutive samples (t=30-48 h); TRS at start of plateau = 0.0,,Plausible for an integrated off-gas flow once sugar is exhausted (zero flow adds nothing); cannot be confirmed from the CSV.
+DQ121,run,timecourse.csv,R4,ethanol/CO2,48,48 h ethanol:CO2 mass ratio vs 1:1 molar (1.047),INFO,1.066 (z=+0.70),1.047,descriptive; CO2 also comes from biomass formation and other pathways
+DQ122,run-time,timecourse.csv,R5,biomass_g_L,24,biomass falls between samples,INFO,10.31 -> 10.06 (-0.25); z=0.40,,within brief measurement noise (|z|<=2)
+DQ123,run-time,timecourse.csv,R5,biomass_g_L,48,biomass falls between samples,INFO,11.58 -> 11.29 (-0.29); z=0.43,,within brief measurement noise (|z|<=2)
+DQ124,run,timecourse.csv,R5,CO2_evolved_g_per_L,,cumulative CO2 non-decreasing,PASS,monotone,monotone,
+DQ125,run,timecourse.csv,R5,ethanol/CO2,48,48 h ethanol:CO2 mass ratio vs 1:1 molar (1.047),INFO,1.012 (z=-1.41),1.047,descriptive; CO2 also comes from biomass formation and other pathways
+DQ126,run-time,timecourse.csv,R6,biomass_g_L,30,biomass falls between samples,INFO,10.04 -> 9.88 (-0.16); z=0.26,,within brief measurement noise (|z|<=2)
+DQ127,run-time,timecourse.csv,R6,biomass_g_L,42,biomass falls between samples,INFO,10.51 -> 10.28 (-0.23); z=0.37,,within brief measurement noise (|z|<=2)
+DQ128,run,timecourse.csv,R6,CO2_evolved_g_per_L,,cumulative CO2 non-decreasing,PASS,monotone,monotone,
+DQ129,run,timecourse.csv,R6,ethanol/CO2,48,48 h ethanol:CO2 mass ratio vs 1:1 molar (1.047),INFO,1.064 (z=+0.65),1.047,descriptive; CO2 also comes from biomass formation and other pathways
+DQ130,run-time,timecourse.csv,R7,biomass_g_L,30,biomass falls between samples,INFO,10.07 -> 9.91 (-0.16); z=0.26,,within brief measurement noise (|z|<=2)
+DQ131,run-time,timecourse.csv,R7,biomass_g_L,42,biomass falls between samples,INFO,11.43 -> 10.48 (-0.95); z=1.45,,within brief measurement noise (|z|<=2)
+DQ132,run,timecourse.csv,R7,CO2_evolved_g_per_L,,cumulative CO2 non-decreasing,PASS,monotone,monotone,
+DQ133,run,timecourse.csv,R7,ethanol/CO2,48,48 h ethanol:CO2 mass ratio vs 1:1 molar (1.047),INFO,1.026 (z=-0.83),1.047,descriptive; CO2 also comes from biomass formation and other pathways
+DQ134,run-time,timecourse.csv,R8,biomass_g_L,30,biomass falls between samples,INFO,10.21 -> 9.09 (-1.12); z=1.89,,within brief measurement noise (|z|<=2)
+DQ135,run-time,timecourse.csv,R8,biomass_g_L,42,biomass falls between samples,INFO,9.89 -> 9.34 (-0.55); z=0.93,,within brief measurement noise (|z|<=2)
+DQ136,run,timecourse.csv,R8,CO2_evolved_g_per_L,,cumulative CO2 non-decreasing,PASS,monotone,monotone,
+DQ137,run,timecourse.csv,R8,ethanol/CO2,48,48 h ethanol:CO2 mass ratio vs 1:1 molar (1.047),INFO,1.049 (z=+0.07),1.047,descriptive; CO2 also comes from biomass formation and other pathways

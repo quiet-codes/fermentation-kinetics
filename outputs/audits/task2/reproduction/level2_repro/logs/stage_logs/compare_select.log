@@ -1,0 +1,15 @@
+# stage compare_select
+# started 2026-10-27 14:59:05
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/compare.py --stage select --data-dir data/raw --root .
+# note: D-24 selection and frozen hashes in the isolated root.
+
+model  k_params    chi2  reduced_chi2  QAICc  delta_QAICc  params_at_bound starts_near_best  loro_chi2pt_mean_excl_R8  loro_chi2pt_R8  selected_by_D24
+   M0         8 3675.25         12.63 967.92       658.15                0              8/8                     22.71           27.52            False
+   M1         7 3803.47         13.03 999.00       689.23                0              8/8                     17.99           86.72            False
+   M2         9 1683.21          5.80 454.36       144.59                0              8/8                     13.41           12.29            False
+   M3         9 2746.26          9.47 729.55       419.79                1              8/8                     19.74           19.03            False
+   M4         8 3518.07         12.09 927.23       617.46                0              8/8                     22.32           26.46            False
+   M5        10 1116.38          3.86 309.76         0.00                0              8/8                      9.44          731.14             True
+   M6         9 1530.24          5.28 414.76       104.99                0              8/8                     12.51           10.04            False
+preferred: M5

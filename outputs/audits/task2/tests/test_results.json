@@ -1,0 +1,64 @@
+{
+  "created": "2026-10-27 14:51:38",
+  "environment": {
+    "python": "3.11.2",
+    "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+    "pytest": "9.1.1"
+  },
+  "runs": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider",
+      "log": "outputs/audits/task2/tests/pytest_default.log",
+      "raw_summary": "60 passed in 4.88s",
+      "passed": 60,
+      "skipped": 0,
+      "failed": 0,
+      "duration_s": 4.88
+    },
+    {
+      "command": "PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider",
+      "log": "outputs/audits/task2/tests/pytest_cp1252_sim_full.log",
+      "raw_summary": "60 passed in 4.96s",
+      "passed": 60,
+      "skipped": 0,
+      "failed": 0,
+      "duration_s": 4.96
+    },
+    {
+      "command": "PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_report_claims.py::test_level1_report_equals_generator_output tests/test_report_claims.py::test_level2_report_equals_generator_output",
+      "log": "outputs/audits/task2/tests/pytest_cp1252_sim_report_tests.log",
+      "raw_summary": "2 passed in 1.06s",
+      "passed": 2,
+      "skipped": 0,
+      "failed": 0,
+      "duration_s": 1.06
+    }
+  ],
+  "direct_generator_check": {
+    "log": "outputs/audits/task2/tests/utf8_direct_cp1252_sim.log",
+    "byte_equal": true,
+    "note": "sitecustomize.py forces cp1252 for make_level*.py .md writes when no encoding is supplied; explicit encoding in the fixed generators makes the simulation ineffective."
+  },
+  "simulation_note": "This is a Linux cp1252 file-encoding simulation, NOT actual Windows execution.",
+  "final_runs": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider",
+      "log": "outputs/audits/task2/final_checks/final_pytest_default.log",
+      "raw_summary": "60 passed in 4.81s",
+      "passed": 60,
+      "skipped": 0,
+      "failed": 0,
+      "duration_s": 4.81
+    },
+    {
+      "command": "PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider",
+      "log": "outputs/audits/task2/final_checks/final_pytest_cp1252_sim.log",
+      "raw_summary": "60 passed in 4.15s",
+      "passed": 60,
+      "skipped": 0,
+      "failed": 0,
+      "duration_s": 4.15
+    }
+  ],
+  "final_verification_log": "outputs/audits/task2/final_checks/final_verification.log"
+}

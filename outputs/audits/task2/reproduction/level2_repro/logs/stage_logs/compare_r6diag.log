@@ -1,0 +1,14 @@
+# stage compare_r6diag
+# started 2026-10-27 14:59:07
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/compare.py --stage r6diag --data-dir data/raw --root .
+# note: Hash check before R6 is loaded; out-of-fit diagnostic only.
+
+model  preferred  rms_z_X  mean_z_X  rms_z_S  mean_z_S  rms_z_P  mean_z_P  rms_z_C  mean_z_C  TRS_48h_pred  TRS_48h_obs  EtOH_48h_pred  EtOH_48h_obs                                                      note
+   M0      False     2.06     -0.30     5.61     -3.89     3.06      1.61     2.69      2.19         38.69         48.7         101.79         100.1 out-of-fit diagnostic only; not used for selection (D-22)
+   M1      False     2.24     -0.26     7.00     -5.00     3.74      2.47     3.37      2.94         36.07         48.7         103.07         100.1 out-of-fit diagnostic only; not used for selection (D-22)
+   M2      False     1.63      0.08     4.06     -2.63     3.90      2.18     3.27      2.87         49.53         48.7          96.67         100.1 out-of-fit diagnostic only; not used for selection (D-22)
+   M3      False     1.22      0.92     6.75     -4.55     2.83      2.21     2.67      2.63         33.66         48.7         103.57         100.1 out-of-fit diagnostic only; not used for selection (D-22)
+   M4      False     1.61     -0.03     5.61     -3.91     3.00      1.68     2.63      2.24         38.88         48.7         101.51         100.1 out-of-fit diagnostic only; not used for selection (D-22)
+   M5       True     1.63      1.37     3.82     -2.93     3.78      2.53     3.47      3.11         45.28         48.7          98.15         100.1 out-of-fit diagnostic only; not used for selection (D-22)
+   M6      False     1.38      0.39     4.01     -2.67     3.91      2.25     3.31      2.93         49.40         48.7          96.51         100.1 out-of-fit diagnostic only; not used for selection (D-22)

@@ -1,0 +1,858 @@
+{
+  "created": "2026-10-27 14:35:53",
+  "environment": {
+    "python": "3.11.2",
+    "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+    "numpy": "2.4.6",
+    "pandas": "3.1.0",
+    "scipy": "1.17.1"
+  },
+  "original_root": "/home/user/fermentation-kinetics",
+  "level1_verification": {
+    "purpose": "Verify the two existing Level 1 M0 CO2-floor sensitivity cases from level1_sensitivity.csv.",
+    "original_root": "/home/user/fermentation-kinetics",
+    "data_dir": "data/raw",
+    "seed": 20261026,
+    "multistart_seed": 20261027,
+    "multistart_starts": 8,
+    "extra_starts": [
+      "frozen Level 1 optimum"
+    ],
+    "cases": [
+      {
+        "case": "CO2_floor_0",
+        "floor": 0.0,
+        "chi2": 4252.224209977155,
+        "n_residuals": 299,
+        "reduced_chi2": 14.612454329818402,
+        "ode_failures": 0,
+        "best_status": 3,
+        "n_starts": 10,
+        "max_abs_change_pct_original": 13.878763708121166,
+        "max_abs_change_pct_reproduced": 13.887945897949495,
+        "comparison_to_existing_evidence": {
+          "value": {
+            "max_abs_diff": 0.007753494724056509,
+            "allclose": false
+          },
+          "primary_value": {
+            "max_abs_diff": 1.4210854715202004e-14,
+            "allclose": true
+          },
+          "change_pct": {
+            "max_abs_diff": 0.009182189828328191,
+            "allclose": false
+          },
+          "change_in_primary_se": {
+            "max_abs_diff": 0.003381968072101227,
+            "allclose": false
+          },
+          "chi2": {
+            "max_abs_diff": 0.00021818852019350743,
+            "allclose": true
+          },
+          "n_residuals": {
+            "max_abs_diff": 0.0,
+            "allclose": true
+          },
+          "reduced_chi2": {
+            "max_abs_diff": 7.497887288820948e-07,
+            "allclose": true
+          }
+        },
+        "runtime_s": 28.55
+      },
+      {
+        "case": "CO2_floor_0.5",
+        "floor": 0.5,
+        "chi2": 3178.4258681816464,
+        "n_residuals": 299,
+        "reduced_chi2": 10.922425663854455,
+        "ode_failures": 0,
+        "best_status": 3,
+        "n_starts": 10,
+        "max_abs_change_pct_original": 4.373036634457836,
+        "max_abs_change_pct_reproduced": 4.373036634457823,
+        "comparison_to_existing_evidence": {
+          "value": {
+            "max_abs_diff": 0.0,
+            "allclose": true
+          },
+          "primary_value": {
+            "max_abs_diff": 1.4210854715202004e-14,
+            "allclose": true
+          },
+          "change_pct": {
+            "max_abs_diff": 1.6431300764452317e-14,
+            "allclose": true
+          },
+          "change_in_primary_se": {
+            "max_abs_diff": 2.1038726316646716e-14,
+            "allclose": true
+          },
+          "chi2": {
+            "max_abs_diff": 0.0,
+            "allclose": true
+          },
+          "n_residuals": {
+            "max_abs_diff": 0.0,
+            "allclose": true
+          },
+          "reduced_chi2": {
+            "max_abs_diff": 0.0,
+            "allclose": true
+          }
+        },
+        "runtime_s": 27.3
+      }
+    ],
+    "environment": {
+      "python": "3.11.2",
+      "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+      "numpy": "2.4.6",
+      "pandas": "3.1.0",
+      "scipy": "1.17.1",
+      "co2_floor": null,
+      "default_co2_floor": 0.1
+    },
+    "note": "This is a reproduction of the two existing cases; no new Level 1 decision is made."
+  },
+  "level1_command": {
+    "command": [
+      "/tmp/fk-audit-venv/bin/python",
+      "/home/user/fermentation-kinetics/src/task2_co2_floor_sensitivity.py",
+      "--mode",
+      "level1",
+      "--output",
+      "/home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level1_verification.json",
+      "--original-root",
+      "/home/user/fermentation-kinetics",
+      "--data-dir",
+      "data/raw"
+    ],
+    "log": "outputs/audits/task2/sensitivity/logs/level1_verification.log",
+    "returncode": 0,
+    "duration_s": null,
+    "reused_existing": true
+  },
+  "level2_cases": [
+    {
+      "floor": 0.0,
+      "purpose": "Additional Level 2 CO2-floor sensitivity: refit all seven candidates under an alternative floor and recompute D-24 with explicit multistart convergence.",
+      "original_floor": 0.1,
+      "root": "/home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level2/floor_0",
+      "original_root": "/home/user/fermentation-kinetics",
+      "data_dir": "data/raw",
+      "seed": 20261027,
+      "n_lhs": 6,
+      "models": [
+        "M0",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6"
+      ],
+      "runtime_s": 199.62,
+      "fits": {
+        "chi2": {
+          "M0": 4252.224209977155,
+          "M1": 4341.920165708336,
+          "M2": 1937.9476758863864,
+          "M3": 3105.2531046094987,
+          "M4": 4059.759674048412,
+          "M5": 1218.7074771112684,
+          "M6": 1763.2056365892438
+        },
+        "c_hat": {
+          "M0": 14.612454329818402,
+          "M1": 14.869589608590191,
+          "M2": 6.682578192711677,
+          "M3": 10.707769326239651,
+          "M4": 13.95106417198767,
+          "M5": 4.216980889658368,
+          "M6": 6.080019436514633
+        },
+        "n_near_best": {
+          "M0": "8/8",
+          "M1": "8/8",
+          "M2": "8/8",
+          "M3": "8/8",
+          "M4": "8/8",
+          "M5": "8/8",
+          "M6": "8/8"
+        },
+        "params_at_bound": {
+          "M0": 0,
+          "M1": 0,
+          "M2": 0,
+          "M3": 1,
+          "M4": 0,
+          "M5": 0,
+          "M6": 0
+        },
+        "ode_failures": {
+          "M0": 0,
+          "M1": 0,
+          "M2": 0,
+          "M3": 0,
+          "M4": 0,
+          "M5": 0,
+          "M6": 0
+        }
+      },
+      "selection": {
+        "n_obs": 299,
+        "c_hat": 4.216980889658368,
+        "metrics": {
+          "M0": {
+            "k": 8,
+            "chi2": 4252.224209977155,
+            "red": 14.612454329818402,
+            "qaicc": 1024.8540286112675,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M1": {
+            "k": 7,
+            "chi2": 4341.920165708336,
+            "red": 14.869589608590191,
+            "qaicc": 1044.0125397309366,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M2": {
+            "k": 9,
+            "chi2": 1937.9476758863864,
+            "red": 6.682578192711677,
+            "qaicc": 478.18092563167284,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M3": {
+            "k": 9,
+            "chi2": 3105.2531046094987,
+            "red": 10.707769326239651,
+            "qaicc": 754.9916248657591,
+            "params_at_bound": 1,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M4": {
+            "k": 8,
+            "chi2": 4059.759674048412,
+            "red": 13.95106417198767,
+            "qaicc": 979.2136662371485,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M5": {
+            "k": 10,
+            "chi2": 1218.7074771112684,
+            "red": 4.216980889658368,
+            "qaicc": 309.7638888888889,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M6": {
+            "k": 9,
+            "chi2": 1763.2056365892438,
+            "red": 6.080019436514633,
+            "qaicc": 436.7432137070881,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          }
+        },
+        "eligible_with_convergence": [
+          "M0",
+          "M1",
+          "M2",
+          "M4",
+          "M5",
+          "M6"
+        ],
+        "eligible_without_convergence": [
+          "M0",
+          "M1",
+          "M2",
+          "M4",
+          "M5",
+          "M6"
+        ],
+        "best_qaicc_model_with_convergence": "M5",
+        "preferred_with_convergence": "M5",
+        "best_qaicc_model_without_convergence": "M5",
+        "preferred_without_convergence": "M5",
+        "convergence_condition_changes_selection": false
+      },
+      "parameter_changes_vs_original_floor_0p10": {
+        "M0": {
+          "max_abs_change_pct": 13.887945897949484,
+          "mean_abs_change_pct": 3.475599150605767,
+          "per_parameter_pct": {
+            "mu_max": -13.887945897949484,
+            "X_max": 0.3681294869964761,
+            "q_max": 7.150716724311321,
+            "P_max": -3.2892005059788767,
+            "Y_P": -0.30973725663142665,
+            "rho_CO2": 0.7341766767824698,
+            "k34": 0.6413421842008356,
+            "k37": 1.4235444719952468
+          }
+        },
+        "M1": {
+          "max_abs_change_pct": 16.393420368052347,
+          "mean_abs_change_pct": 4.797915374204428,
+          "per_parameter_pct": {
+            "mu_max": -16.393420368052347,
+            "X_max": 1.685582902546541,
+            "q_max": 8.60451674141454,
+            "P_max": -4.765697130476983,
+            "Y_P": -0.24096990478069596,
+            "rho_CO2": 0.7067896008992981,
+            "k37": 1.1884309712605863
+          }
+        },
+        "M2": {
+          "max_abs_change_pct": 9.735570988496002,
+          "mean_abs_change_pct": 2.373974031542566,
+          "per_parameter_pct": {
+            "mu_max": -9.735570988496002,
+            "X_max": 0.2926474356944804,
+            "q_max": 5.455373213153883,
+            "P_max": -2.317709525486884,
+            "Y_P": -0.3084430888069947,
+            "rho_CO2": 0.6371215043316643,
+            "k34": 0.13806411916065453,
+            "k37": 0.6923727459167229,
+            "beta_P": -1.7884636628358075
+          }
+        },
+        "M3": {
+          "max_abs_change_pct": 2.213417246792192,
+          "mean_abs_change_pct": 0.6745818067000999,
+          "per_parameter_pct": {
+            "mu_max": -2.213417246792192,
+            "X_max": 0.46305925656372554,
+            "q_max": 0.6480117518208767,
+            "P_max": -0.6941239188602003,
+            "Y_P": -0.054402270093396064,
+            "rho_CO2": 0.00029626112922341314,
+            "k34": 0.55290825684873,
+            "k37": 1.4450167304454122,
+            "n_inh": -5.677471439630542e-07
+          }
+        },
+        "M4": {
+          "max_abs_change_pct": 12.406626590098849,
+          "mean_abs_change_pct": 3.450758275130576,
+          "per_parameter_pct": {
+            "mu_max": -12.406626590098849,
+            "X_max": 3.6300789168947647,
+            "q_max": 5.901325436963463,
+            "P_max": -2.6129070600561226,
+            "Y_P": -0.31242772649639317,
+            "rho_CO2": 0.6586785289151582,
+            "k34": 0.6299986296040779,
+            "k37": 1.4540233120157808
+          }
+        },
+        "M5": {
+          "max_abs_change_pct": 2.229879480076361,
+          "mean_abs_change_pct": 0.7212315250568089,
+          "per_parameter_pct": {
+            "mu_max": -1.08266320344864,
+            "X_max": 0.2891603133078485,
+            "q_max": 0.6712183319650583,
+            "P_max": 1.2471848240846737,
+            "Y_P": -0.036386339741650876,
+            "rho_CO2": -0.0070486430421505784,
+            "k34": 0.07449650485738707,
+            "k37": 0.5376028164429502,
+            "beta_P": 1.0366747936013692,
+            "n_inh": 2.229879480076361
+          }
+        },
+        "M6": {
+          "max_abs_change_pct": 8.905080886150344,
+          "mean_abs_change_pct": 2.5213642443437694,
+          "per_parameter_pct": {
+            "mu_max": -8.905080886150344,
+            "X_max": 3.2317392553559925,
+            "q_max": 4.604708407670891,
+            "P_max": -1.9525488457551814,
+            "Y_P": -0.3013723288189127,
+            "rho_CO2": 0.5990209781141276,
+            "k34": 0.10894764581276789,
+            "k37": 0.6369587560035669,
+            "beta_P": -2.351901095412137
+          }
+        }
+      },
+      "environment": {
+        "python": "3.11.2",
+        "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+        "numpy": "2.4.6",
+        "pandas": "3.1.0",
+        "scipy": "1.17.1",
+        "co2_floor": 0.0,
+        "default_co2_floor": 0.0
+      },
+      "note": "This is an additional sensitivity calculation in an isolated root; it does NOT alter the frozen M5/D-24 decision.",
+      "run": {
+        "command": [
+          "/tmp/fk-audit-venv/bin/python",
+          "/home/user/fermentation-kinetics/src/task2_co2_floor_sensitivity.py",
+          "--mode",
+          "level2",
+          "--floor",
+          "0.0",
+          "--root",
+          "/home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level2/floor_0",
+          "--output",
+          "/home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level2_floor_0.json",
+          "--original-root",
+          "/home/user/fermentation-kinetics",
+          "--data-dir",
+          "data/raw"
+        ],
+        "log": "outputs/audits/task2/sensitivity/logs/level2_floor_0.log",
+        "returncode": 0,
+        "duration_s": 200.73
+      }
+    },
+    {
+      "floor": 0.5,
+      "purpose": "Additional Level 2 CO2-floor sensitivity: refit all seven candidates under an alternative floor and recompute D-24 with explicit multistart convergence.",
+      "original_floor": 0.1,
+      "root": "/home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level2/floor_0p5",
+      "original_root": "/home/user/fermentation-kinetics",
+      "data_dir": "data/raw",
+      "seed": 20261027,
+      "n_lhs": 6,
+      "models": [
+        "M0",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6"
+      ],
+      "runtime_s": 180.07,
+      "fits": {
+        "chi2": {
+          "M0": 3178.425868250532,
+          "M1": 3333.1224056292717,
+          "M2": 1447.5448670449932,
+          "M3": 2434.497172935135,
+          "M4": 3056.5837593359533,
+          "M5": 1010.204620230636,
+          "M6": 1323.8598067334647
+        },
+        "c_hat": {
+          "M0": 10.922425664091175,
+          "M1": 11.414802759004354,
+          "M2": 4.99153402429308,
+          "M3": 8.394817837707363,
+          "M4": 10.503724258886438,
+          "M5": 3.4955177170610243,
+          "M6": 4.565033816322292
+        },
+        "n_near_best": {
+          "M0": "8/8",
+          "M1": "8/8",
+          "M2": "8/8",
+          "M3": "8/8",
+          "M4": "8/8",
+          "M5": "8/8",
+          "M6": "8/8"
+        },
+        "params_at_bound": {
+          "M0": 0,
+          "M1": 0,
+          "M2": 0,
+          "M3": 1,
+          "M4": 0,
+          "M5": 0,
+          "M6": 0
+        },
+        "ode_failures": {
+          "M0": 0,
+          "M1": 0,
+          "M2": 0,
+          "M3": 0,
+          "M4": 0,
+          "M5": 0,
+          "M6": 0
+        }
+      },
+      "selection": {
+        "n_obs": 299,
+        "c_hat": 3.4955177170610243,
+        "metrics": {
+          "M0": {
+            "k": 8,
+            "chi2": 3178.425868250532,
+            "red": 10.922425664091175,
+            "qaicc": 925.7827077453701,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M1": {
+            "k": 7,
+            "chi2": 3333.1224056292717,
+            "red": 11.414802759004354,
+            "qaicc": 967.9267225716752,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M2": {
+            "k": 9,
+            "chi2": 1447.5448670449932,
+            "red": 4.99153402429308,
+            "qaicc": 432.73742187936205,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M3": {
+            "k": 9,
+            "chi2": 2434.497172935135,
+            "red": 8.394817837707363,
+            "qaicc": 715.0853845496688,
+            "params_at_bound": 1,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M4": {
+            "k": 8,
+            "chi2": 3056.5837593359533,
+            "red": 10.503724258886438,
+            "qaicc": 890.9260373529164,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 4
+          },
+          "M5": {
+            "k": 10,
+            "chi2": 1010.204620230636,
+            "red": 3.4955177170610243,
+            "qaicc": 309.7638888888889,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          },
+          "M6": {
+            "k": 9,
+            "chi2": 1323.8598067334647,
+            "red": 4.565033816322292,
+            "qaicc": 397.35351874311334,
+            "params_at_bound": 0,
+            "ode_failures": 0,
+            "n_near_best": 8,
+            "n_starts": 8,
+            "status": 3
+          }
+        },
+        "eligible_with_convergence": [
+          "M0",
+          "M1",
+          "M2",
+          "M4",
+          "M5",
+          "M6"
+        ],
+        "eligible_without_convergence": [
+          "M0",
+          "M1",
+          "M2",
+          "M4",
+          "M5",
+          "M6"
+        ],
+        "best_qaicc_model_with_convergence": "M5",
+        "preferred_with_convergence": "M5",
+        "best_qaicc_model_without_convergence": "M5",
+        "preferred_without_convergence": "M5",
+        "convergence_condition_changes_selection": false
+      },
+      "parameter_changes_vs_original_floor_0p10": {
+        "M0": {
+          "max_abs_change_pct": 4.363610961513693,
+          "mean_abs_change_pct": 1.7555876917125453,
+          "per_parameter_pct": {
+            "mu_max": 4.363610961513693,
+            "X_max": 1.8508376846789083,
+            "q_max": -3.3091115946368532,
+            "P_max": 1.358545051683706,
+            "Y_P": 0.4336267729230928,
+            "rho_CO2": -0.9267494087289069,
+            "k34": -0.5013668302229681,
+            "k37": -1.300853229312234
+          }
+        },
+        "M1": {
+          "max_abs_change_pct": 4.398602862264366,
+          "mean_abs_change_pct": 2.054740300221176,
+          "per_parameter_pct": {
+            "mu_max": 4.398602862264366,
+            "X_max": 1.8090274420552228,
+            "q_max": -3.762265841863706,
+            "P_max": 1.8347147819294998,
+            "Y_P": 0.4727972826078316,
+            "rho_CO2": -1.0051921568243052,
+            "k37": -1.1005817340033008
+          }
+        },
+        "M2": {
+          "max_abs_change_pct": 3.79265784273855,
+          "mean_abs_change_pct": 1.285571910267697,
+          "per_parameter_pct": {
+            "mu_max": 3.79265784273855,
+            "X_max": 1.3370102934256054,
+            "q_max": -3.0120644089915807,
+            "P_max": 1.0372058786535527,
+            "Y_P": 0.3796698195250761,
+            "rho_CO2": -0.8490959225492701,
+            "k34": -0.11436777238650554,
+            "k37": -0.7105338494037114,
+            "beta_P": -0.3375414047354225
+          }
+        },
+        "M3": {
+          "max_abs_change_pct": 2.045118058677082,
+          "mean_abs_change_pct": 0.6139570725164778,
+          "per_parameter_pct": {
+            "mu_max": 2.045118058677082,
+            "X_max": -0.313129462342468,
+            "q_max": -0.6717888083343662,
+            "P_max": 0.660401125695292,
+            "Y_P": 0.0642869573565611,
+            "rho_CO2": -0.027237625309015887,
+            "k34": -0.488942244826942,
+            "k37": -1.2547083650558861,
+            "n_inh": 1.0050506862343238e-06
+          }
+        },
+        "M4": {
+          "max_abs_change_pct": 4.944143535916175,
+          "mean_abs_change_pct": 1.60476425095758,
+          "per_parameter_pct": {
+            "mu_max": 4.944143535916175,
+            "X_max": 0.47511705499778245,
+            "q_max": -3.0777311146847257,
+            "P_max": 1.3386926177575764,
+            "Y_P": 0.37711965343356996,
+            "rho_CO2": -0.8139744679564447,
+            "k34": -0.5111978490282639,
+            "k37": -1.300137713886101
+          }
+        },
+        "M5": {
+          "max_abs_change_pct": 2.9642365909705504,
+          "mean_abs_change_pct": 0.7787146852368669,
+          "per_parameter_pct": {
+            "mu_max": 0.7658878797399227,
+            "X_max": -0.2639544978494617,
+            "q_max": -0.5696233654394235,
+            "P_max": -1.8282971131650414,
+            "Y_P": 0.0303159133926556,
+            "rho_CO2": 0.007954563673523892,
+            "k34": -0.022839791092183415,
+            "k37": -0.45018003974129567,
+            "beta_P": -0.8838570973046114,
+            "n_inh": -2.9642365909705504
+          }
+        },
+        "M6": {
+          "max_abs_change_pct": 3.6455264890160537,
+          "mean_abs_change_pct": 1.0107642305472988,
+          "per_parameter_pct": {
+            "mu_max": 3.6455264890160537,
+            "X_max": 0.09802468258582235,
+            "q_max": -2.579927471991342,
+            "P_max": 0.9321345991112018,
+            "Y_P": 0.32160199190837,
+            "rho_CO2": -0.720436835294294,
+            "k34": -0.07760333126003527,
+            "k37": -0.6313434643425654,
+            "beta_P": 0.09027920941600555
+          }
+        }
+      },
+      "environment": {
+        "python": "3.11.2",
+        "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+        "numpy": "2.4.6",
+        "pandas": "3.1.0",
+        "scipy": "1.17.1",
+        "co2_floor": 0.5,
+        "default_co2_floor": 0.5
+      },
+      "note": "This is an additional sensitivity calculation in an isolated root; it does NOT alter the frozen M5/D-24 decision.",
+      "run": {
+        "command": [
+          "/tmp/fk-audit-venv/bin/python",
+          "/home/user/fermentation-kinetics/src/task2_co2_floor_sensitivity.py",
+          "--mode",
+          "level2",
+          "--floor",
+          "0.5",
+          "--root",
+          "/home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level2/floor_0p5",
+          "--output",
+          "/home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level2_floor_0p5.json",
+          "--original-root",
+          "/home/user/fermentation-kinetics",
+          "--data-dir",
+          "data/raw"
+        ],
+        "log": "outputs/audits/task2/sensitivity/logs/level2_floor_0p5.log",
+        "returncode": 0,
+        "duration_s": 181.26
+      }
+    }
+  ],
+  "baseline_selection": {
+    "n_obs": 299,
+    "c_hat": 3.8629121857647286,
+    "metrics": {
+      "M0": {
+        "k": 8,
+        "chi2": 3675.255001986785,
+        "red": 12.629742274868677,
+        "qaicc": 967.9173516922341,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M1": {
+        "k": 7,
+        "chi2": 3803.472937514293,
+        "red": 13.025592251761276,
+        "qaicc": 998.9977196261647,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M2": {
+        "k": 9,
+        "chi2": 1683.2105875267807,
+        "red": 5.80417443974752,
+        "qaicc": 454.359014270562,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M3": {
+        "k": 9,
+        "chi2": 2746.2558340251508,
+        "red": 9.469847703535002,
+        "qaicc": 729.5517174378286,
+        "params_at_bound": 1,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M4": {
+        "k": 8,
+        "chi2": 3518.068209085453,
+        "red": 12.089581474520458,
+        "qaicc": 927.2260842384765,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M5": {
+        "k": 10,
+        "chi2": 1116.3816216860066,
+        "red": 3.8629121857647286,
+        "qaicc": 309.7638888888889,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      },
+      "M6": {
+        "k": 9,
+        "chi2": 1530.2364837986327,
+        "red": 5.2766775303401126,
+        "qaicc": 414.7582943028974,
+        "params_at_bound": 0,
+        "ode_failures": 0,
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3
+      }
+    },
+    "eligible_with_convergence": [
+      "M0",
+      "M1",
+      "M2",
+      "M4",
+      "M5",
+      "M6"
+    ],
+    "eligible_without_convergence": [
+      "M0",
+      "M1",
+      "M2",
+      "M4",
+      "M5",
+      "M6"
+    ],
+    "best_qaicc_model_with_convergence": "M5",
+    "preferred_with_convergence": "M5",
+    "best_qaicc_model_without_convergence": "M5",
+    "preferred_without_convergence": "M5",
+    "convergence_condition_changes_selection": false
+  },
+  "total_runtime_s": 200.73,
+  "frozen_decision_unchanged": true
+}
