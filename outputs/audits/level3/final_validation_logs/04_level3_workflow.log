@@ -1,0 +1,30 @@
+$ /tmp/fk-venv/bin/python src/level3_optimize.py --stage all --n-draws 200
+# cwd: /home/user/fermentation-kinetics
+# exit: 0
+
+[level3] === stage input_audit ===
+[level3] input audit: 18 inputs, raw checksums OK, model policy OK (0.0s)
+[level3] === stage grid ===
+[level3] coarse M5 grid done (30 rows, 0.2s)
+[level3] dense M5 grid done (357 rows, 2.1s)
+[level3] local refinement done (501 rows, 3.3s)
+[level3] M2 comparison grids done (858 rows, 5.4s)
+[level3] M6 comparison grids done (1215 rows, 7.5s)
+[level3] extended-horizon diagnostic done (1572 rows, 11.0s)
+[level3] grid written: 1572 rows, 443 M5 completed feasible, 27 unfinished (11.0s)
+[level3] === stage recommend ===
+[level3] recommendations: 16 rows, economics: 17 rows (0.0s)
+[level3] === stage uncertainty ===
+[level3] M5: 200 accepted draws (acceptance 1.00)
+[level3] M2: 200 accepted draws (acceptance 1.00)
+[level3] M6: 200 accepted draws (acceptance 1.00)
+[level3] uncertainty written: 100 rows (17.9s)
+[level3] === stage model_comparison ===
+[level3] model comparison written: 12 rows (0.0s)
+[level3] === stage horizon ===
+[level3] horizon diagnostic: 27 unfinished at 120 h, 26 complete by 240 h, 0 outrank the best 120 h margin
+[level3] === stage figures ===
+[level3] figures written (1.0s)
+[level3] === stage answers ===
+[level3] answers written (0.0s)
+[level3] done in 30.1s

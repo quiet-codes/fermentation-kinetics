@@ -1,0 +1,82 @@
+{
+  "preferred_model": "M5",
+  "preferred_parameter_set_id": "M5_a29043ff3379ad5d",
+  "preferred_source": "outputs/tables/work/fit_M5.json",
+  "preferred_theta": {
+    "mu_max": 0.16441276056450935,
+    "X_max": 11.107570725418563,
+    "q_max": 1.4170451814793477,
+    "P_max": 194.9673519517424,
+    "Y_P": 0.48062501013786085,
+    "rho_CO2": 0.9783391346034194,
+    "k34": 1.086508732574332,
+    "k37": 0.8049304829117936,
+    "beta_P": 0.04884560722406285,
+    "n_inh": 2.4283298022079824
+  },
+  "selection_rule": "D-24",
+  "heldout_run": "R6",
+  "training_runs": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R8"
+  ],
+  "excluded_primary": [
+    "R7"
+  ],
+  "robust_alternatives": {
+    "M2": {
+      "parameter_set_id": "M2_6e9b23aa9ac14c14",
+      "source": "outputs/tables/work/fit_M2.json",
+      "theta": [
+        0.18738869683546838,
+        9.748350102476692,
+        1.2701184047853582,
+        125.44943375378791,
+        0.4794468771438755,
+        0.9858212333738096,
+        1.0712712496400145,
+        0.7819641502161354,
+        0.04255225302154337
+      ],
+      "converged": true,
+      "parameters_at_bound": 0
+    },
+    "M6": {
+      "parameter_set_id": "M6_e4a9bd02db37c356",
+      "source": "outputs/tables/work/fit_M6.json",
+      "theta": [
+        0.1879862326150118,
+        10.839885921030838,
+        1.2692927369762452,
+        122.85078033518636,
+        0.4799568345543711,
+        0.9846934004494838,
+        1.0764615645576183,
+        0.7875451172427822,
+        0.03984440985957426
+      ],
+      "converged": true,
+      "parameters_at_bound": 0
+    }
+  },
+  "checks": {
+    "frozen_preferred_model_is_M5": true,
+    "selection_rule_is_D24": true,
+    "r6_not_used_for_selection": true,
+    "model_comparison_hash_matches": true,
+    "candidate_parameters_hash_matches": true,
+    "level1_parameters_hash_matches": true,
+    "level1_holdout_is_R6": true,
+    "r6_not_in_training": true,
+    "candidate_table_matches_fit_M5": true,
+    "fit_M5_converged": true,
+    "fit_M5_no_parameter_at_bound": true,
+    "fit_M5_all_starts_near_best": true
+  },
+  "all_checks_passed": true,
+  "note": "Level 3 uses the frozen M5 parameter set unchanged. R6 is never used for fitting, tuning or optimisation; M2/M6 are comparison models only."
+}

@@ -1,0 +1,195 @@
+{
+  "created": "2026-10-28 19:50:30",
+  "report": "reports/level3.md",
+  "n_checks": 31,
+  "n_passed": 31,
+  "passed": true,
+  "checks": [
+    {
+      "id": "A-01",
+      "description": "all required Level 3 tables exist",
+      "passed": true,
+      "detail": "missing: []"
+    },
+    {
+      "id": "A-02",
+      "description": "all required Level 3 figures exist",
+      "passed": true,
+      "detail": "missing: []"
+    },
+    {
+      "id": "A-03",
+      "description": "reports/level3.md exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "A-04",
+      "description": "report is ASCII with LF line endings",
+      "passed": true,
+      "detail": "non-ascii=0 crlf=0"
+    },
+    {
+      "id": "B-01",
+      "description": "frozen model policy verifies (M5, D-24, R6 held out)",
+      "passed": true,
+      "detail": "{}"
+    },
+    {
+      "id": "B-02",
+      "description": "R6 is not in the training set",
+      "passed": true,
+      "detail": "['R1', 'R2', 'R3', 'R4', 'R5', 'R8']"
+    },
+    {
+      "id": "B-03",
+      "description": "frozen selection file still records M5 under D-24 without R6",
+      "passed": true,
+      "detail": "{'preferred': 'M5', 'best_QAICc_model': 'M5', 'rule': 'D-24', 'c_hat': 3.8629121857647286, 'model_comparison_sha256': '5521863023a9d33804093d73c35ce75ef4b73fd160f06455923e6592ed2a5431', 'candidate_parameters_sha256': 'b63aafe20fd6d583f87eca08357174c489c1366d8aad1307697401a28bc57199', 'r6_used_for_selection': False}"
+    },
+    {
+      "id": "B-04",
+      "description": "stored model policy record matches a fresh verification",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "C-01",
+      "description": "every completed M5 row has residual TRS <= 5 g/L",
+      "passed": true,
+      "detail": "max=5.000000000000008"
+    },
+    {
+      "id": "C-02",
+      "description": "unfinished rows have no completion time, cycle time or margin",
+      "passed": true,
+      "detail": "n=27"
+    },
+    {
+      "id": "C-03",
+      "description": "no row outside the steam curve carries a margin",
+      "passed": true,
+      "detail": "n=368"
+    },
+    {
+      "id": "C-04",
+      "description": "every M5 row quotes the frozen parameter-set id",
+      "passed": true,
+      "detail": "{'M5_a29043ff3379ad5d'}"
+    },
+    {
+      "id": "C-05",
+      "description": "operating window respected (160-260 g/L, 33-37 C) for all ranked rows",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "D-01",
+      "description": "batch margin reproduces from the saved columns",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "D-02",
+      "description": "margin per cycle time reproduces as margin / (completion + 8 h)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "D-03",
+      "description": "24 h equivalent reproduces as 24 x margin / cycle time",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "D-04",
+      "description": "steam cost reproduces as intensity x ethanol volume x 1.6 INR/kg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "D-05",
+      "description": "sugar cost charges all sugar (S0 x 170 m3 x 25 INR/kg)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "E-01",
+      "description": "published optimum of each scenario is the grid maximum",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "E-02",
+      "description": "36 C scenario only recommends temperatures >= 36 C",
+      "passed": true,
+      "detail": "36.0"
+    },
+    {
+      "id": "F-01",
+      "description": "every tracked numeric claim appears in the report",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "F-02",
+      "description": "all 10 user questions and both brief questions are answered",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "F-03",
+      "description": "report normal optimum agrees with the recommendation table",
+      "passed": true,
+      "detail": "195.0 vs 195.0"
+    },
+    {
+      "id": "F-04",
+      "description": "report warm optimum agrees with the recommendation table",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "F-05",
+      "description": "report contains every required section",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "F-06",
+      "description": "report references every generated figure",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "G-01",
+      "description": "carbon balance still present for all eight runs",
+      "passed": true,
+      "detail": "8"
+    },
+    {
+      "id": "G-02",
+      "description": "all eight carbon balances close within 95-105 %",
+      "passed": true,
+      "detail": "7/8"
+    },
+    {
+      "id": "G-03",
+      "description": "raw CSV checksums verify",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "G-04",
+      "description": "generated Level 3 tables are ASCII with LF endings",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "G-05",
+      "description": "Level 3 audit JSON files parse",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

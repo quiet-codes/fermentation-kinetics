@@ -1,0 +1,25 @@
+{
+  "created": "2026-10-28 19:50:39",
+  "zip_path": "/home/user/fermentation-kinetics/fermentation_kinetics_final_submission.zip",
+  "zip_name": "fermentation_kinetics_final_submission.zip",
+  "zip_bytes": 9269115,
+  "zip_sha256": "92e05432062ac0fb7a8712d0304fc681348fe9cb7eefe50918b798a5176fe498",
+  "file_count": 575,
+  "testzip_bad_member": null,
+  "required_entries_checked": 46,
+  "required_entries_missing": [],
+  "passed": true,
+  "excluded": [
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".venv",
+    "__pycache__",
+    "node_modules",
+    "venv",
+    ".pyc",
+    ".pyo",
+    ".zip"
+  ],
+  "note": "The archive contains the complete project including the generated submission snapshot. ZIP validation files themselves are written outside the archive after it is built."
+}

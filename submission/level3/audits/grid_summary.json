@@ -1,0 +1,75 @@
+{
+  "created": "2026-10-28 19:50:09",
+  "total_rows": 1572,
+  "rows_by_model": {
+    "M5": 858,
+    "M2": 357,
+    "M6": 357
+  },
+  "rows_by_stage": {
+    "coarse": 90,
+    "dense": 981,
+    "refine": 144,
+    "coarse_extended_horizon": 30,
+    "dense_extended_horizon": 327
+  },
+  "primary_horizon_h": 120.0,
+  "extended_horizon_h": 240.0,
+  "time_step_h": 0.25,
+  "m5_primary_rows": 501,
+  "m5_primary_completed_feasible": 443,
+  "m5_primary_outside_steam_curve": 31,
+  "m5_primary_unfinished": 27,
+  "m5_primary_failed": 0,
+  "coarse_s0": [
+    160.0,
+    180.0,
+    200.0,
+    220.0,
+    240.0,
+    260.0
+  ],
+  "coarse_t": [
+    33.0,
+    34.0,
+    35.0,
+    36.0,
+    37.0
+  ],
+  "dense_s0": {
+    "min": 160.0,
+    "max": 260.0,
+    "n": 21,
+    "step": 5.0
+  },
+  "dense_t": {
+    "min": 33.0,
+    "max": 37.0,
+    "n": 17,
+    "step": 0.25
+  },
+  "refine_s0_offsets": [
+    -5.0,
+    -2.5,
+    0.0,
+    2.5,
+    5.0
+  ],
+  "refine_t_offsets": [
+    -0.25,
+    -0.125,
+    0.0,
+    0.125,
+    0.25
+  ],
+  "refine_seeds_per_scenario": 8,
+  "n_refine_s0": 21,
+  "n_refine_t": 10,
+  "parameter_set_ids": {
+    "M5": "M5_a29043ff3379ad5d",
+    "M2": "M2_6e9b23aa9ac14c14",
+    "M6": "M6_e4a9bd02db37c356"
+  },
+  "runtime_s": 11.0,
+  "note": "Ranking uses the 120 h primary horizon only; the 240 h rows are a diagnostic."
+}

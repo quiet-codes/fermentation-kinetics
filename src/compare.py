@@ -199,9 +199,9 @@ def stage_select(a):
     cmp["selected_by_D24"] = cmp.model == pref.model
     cmp["note"] = ""
     cmp.loc[cmp.model == "M0", "note"] = "Level 1 baseline (preserved)"
-    cmp.to_csv(os.path.join(t, "model_comparison.csv"), index=False)
-    pd.DataFrame(prow).to_csv(os.path.join(t, "candidate_parameters.csv"), index=False)
-    pd.concat(resid).to_csv(os.path.join(t, "model_residuals.csv"), index=False)
+    cmp.to_csv(os.path.join(t, "model_comparison.csv"), index=False, lineterminator='\n', encoding='utf-8')
+    pd.DataFrame(prow).to_csv(os.path.join(t, "candidate_parameters.csv"), index=False, lineterminator='\n', encoding='utf-8')
+    pd.concat(resid).to_csv(os.path.join(t, "model_residuals.csv"), index=False, lineterminator='\n', encoding='utf-8')
     fr = dict(preferred=pref.model, best_QAICc_model=best.model, rule="D-24", c_hat=c_hat, model_comparison_sha256=fit.sha256(os.path.join(t, "model_comparison.csv")),
               candidate_parameters_sha256=fit.sha256(os.path.join(t, "candidate_parameters.csv")), r6_used_for_selection=False)
     json.dump(fr, open(os.path.join(t, "model_selection_frozen.json"), "w", encoding="utf-8", newline="\n"), indent=2)
@@ -241,7 +241,7 @@ def stage_r6diag(a):
         d["TRS_48h_pred"] = sim[-1, 1]; d["TRS_48h_obs"] = rec["obs"]["S"][-1]; d["EtOH_48h_pred"] = sim[-1, 2]; d["EtOH_48h_obs"] = rec["obs"]["P"][-1]
         rows.append(d)
     out = pd.DataFrame(rows); out["note"] = "out-of-fit diagnostic only; not used for selection (D-22)"
-    out.to_csv(os.path.join(t, "model_r6_diagnostic.csv"), index=False)
+    out.to_csv(os.path.join(t, "model_r6_diagnostic.csv"), index=False, lineterminator='\n', encoding='utf-8')
     print(out.round(2).to_string(index=False))
 
 

@@ -8,10 +8,16 @@ Python project for the P3 assignment (`docs/assignment_brief.md` is the authorit
 | Phase 0: raw-data audit and pre-fit observations | complete |
 | Level 1: kinetic model, fit, held-out prediction (R6) | complete (provisional baseline; reduced chi-square 12.6) |
 | Level 2: model comparison, uncertainty, carbon balance, yield, plant-relevant uncertainty | complete |
-| Level 3: plant optimisation (33 C and 36 C scenarios) | **not started** |
-| Final consolidated report | **not started** (`reports/level1.md` and `reports/level2.md` are component reports) |
+| Level 3: plant optimisation (33 C and 36 C scenarios) | complete (`reports/level3.md`) |
+| Submission snapshot and final archive | complete (`submission/`, `fermentation_kinetics_final_submission.zip`) |
 
-Start with `reports/level2.md`, then `handoff/PROJECT_STATE.md` and `handoff/DECISIONS.md`.
+Start with `reports/level3.md` for the operating recommendation, `reports/level2.md` for the model
+evidence, then `handoff/PROJECT_STATE.md` and `handoff/DECISIONS.md`.
+
+**Level 3 headline result.** Normal October constraint (33-37 C): 195 g/L TRS at 33 C, batch complete
+(TRS = 5 g/L) in 35.57 h, 86.32 g/L ethanol, 4,858.69 INR/h of cycle time (116,608 INR/day derived) per
+170 m3 fermenter. If the cooling water warms by 3 C and 36 C becomes the floor: 175 g/L TRS at 36 C,
+39.82 h, 3,710.13 INR/h.
 
 ## Layout
 ```
@@ -28,17 +34,37 @@ src/                       phase0_inspect.py                         Phase 0
 tests/                     test_phase0.py, test_model.py, test_level2.py, test_report_claims.py
 outputs/tables/            all generated tables; work/ holds per-model fit, LORO, profile, grid and R7 JSON files
 outputs/figures/           all generated figures
-reports/                   pre_fit_observations.md, level1.md, level2.md
+reports/                   pre_fit_observations.md, level1.md, level2.md, level3.md
+src/level3.py              Level 3 policy: model policy, completion rule, steam curve, economics
+src/level3_optimize.py     Level 3 workflow: input audit, grid, recommendations, uncertainty, figures, answers
+src/make_level3_report.py  regenerates reports/level3.md from the tables
+src/level3_consistency_audit.py  report/table/claim consistency audit (31 checks)
+scripts/                   reproduce_level3.sh, reproduce_level3.ps1, scripts/build_submission.py,
+                           scripts/verify_submission.py, scripts/create_final_zip.py,
+                           scripts/run_final_validation.py
+submission/                generated snapshot (not a second source of truth)
+outputs/audits/level3/     Level 3 audits, preflight CRLF reproduction, validation logs
 handoff/                   PROJECT_STATE.md, DECISIONS.md, NEXT_ACCOUNT_PROMPT.md
 ```
 
-## Install and test
+## Install, test and regenerate
 ```
 pip install -r requirements.txt
-pytest -q                                   # all four test files
-# without pytest: python tests/test_model.py ; python tests/test_level2.py ; python tests/test_report_claims.py
+pytest -q                                   # 81 tests: phases 0-2, Task 2 regression, Level 3
+pytest -q tests/test_level3.py              # Level 3 only
 ```
-`tests/test_phase0.py` needs pytest (it uses fixtures). Run all commands from the project root.
+`pytest.ini` limits collection to `tests/` so the copy of the tests inside `submission/` is not collected
+twice. Run all commands from the project root.
+
+## Level 3 (fast path, Linux)
+```
+python src/level3_optimize.py --stage all --n-draws 200    # full workflow, about 45 s
+python src/make_level3_report.py                           # reports/level3.md
+python src/level3_consistency_audit.py                     # 31 consistency checks
+python scripts/build_submission.py && python scripts/verify_submission.py
+python scripts/run_final_validation.py                     # whole chain with logs
+```
+Windows: `.\scripts\reproduce_level3.ps1`.
 
 ## Reproduce (approximate run times on one CPU core)
 ```
@@ -66,9 +92,16 @@ Re-running the fitting stages rewrites the frozen files (`level1_frozen.json`, `
 - Decisions, including those made after seeing results, are logged in `handoff/DECISIONS.md` (D-01 to D-36).
 
 ## What has and has not been executed
-- Executed in the AI sandbox (Python 3.12.3): every stage listed above; `tests/test_model.py` (16), `tests/test_level2.py` (15) and `tests/test_report_claims.py` (11) through fallback runners; the six Phase 0 tests through a minimal stand-in for pytest's `fixture` and `approx`.
-- **Not verified:** pytest itself, and any run on your machine. Please run `pytest -q` and compare a few tables.
-- The brief's uncertainty-table mapping (D-03) and the 0.10 g/L CO2 sd floor are unconfirmed assumptions.
+- Executed in the AI sandbox (Python 3.11.2, numpy 2.4.6, scipy 1.17.1, pandas 3.1.0, matplotlib 3.11.2,
+  pytest 9.2.0): the whole pipeline including the Level 3 workflow, and the full test suite (81 passed).
+  Evidence: `outputs/audits/level3/final_validation.json` and `final_validation_logs/`.
+- Windows: the earlier local failure ("59 passed, 1 failed", CRLF in `data_quality.csv`) was reproduced in a
+  Linux simulation, traced to `pandas.to_csv` defaulting to `os.linesep`, and fixed by pinning UTF-8 and LF
+  in every writer (`outputs/audits/level3/preflight/crlf_repro/`). **Actual Windows execution is still
+  pending** and must be done locally.
+- The original assignment PDF is unavailable, so `docs/assignment_brief.md` governs and PDF-only
+  requirements remain unconfirmed. The D-03 uncertainty mapping and the 0.10 g/L CO2 sd floor remain
+  assumptions.
 
 ## Main limitations
 No candidate model fits within the stated noise; the preferred structure (M5) is not validated at 37 C; one run at 37 C and none at 33 or 36 C; run-to-run variability is unmeasured; R7 is an unusual run, not proven contamination. Details: `reports/level2.md` section 7.

@@ -1,0 +1,36 @@
+{
+  "created": "2026-10-28 19:49:58",
+  "raw_checksums": {
+    "passed": true,
+    "files": [
+      {
+        "file": "runs.csv",
+        "expected": "d7f2732b62b3e746209767068848778484b13a34bc37dcbc3d6449c7ac22c796",
+        "actual": "d7f2732b62b3e746209767068848778484b13a34bc37dcbc3d6449c7ac22c796",
+        "match": true
+      },
+      {
+        "file": "timecourse.csv",
+        "expected": "2b24fc05d5d8cc8886b7ab9a09e20e6dca14555ec4a35294aa47209951077c85",
+        "actual": "2b24fc05d5d8cc8886b7ab9a09e20e6dca14555ec4a35294aa47209951077c85",
+        "match": true
+      },
+      {
+        "file": "endpoint_hplc.csv",
+        "expected": "3c91221db517bb8e3aaddaf4057ebc7224472968ae9c5e050b9e80f836d3d677",
+        "actual": "3c91221db517bb8e3aaddaf4057ebc7224472968ae9c5e050b9e80f836d3d677",
+        "match": true
+      }
+    ]
+  },
+  "n_inputs": 18,
+  "n_verified": 16,
+  "n_partially_verified": 1,
+  "n_verified_with_open_issue": 2,
+  "n_unresolved_inputs": [
+    "IN-05",
+    "IN-15"
+  ],
+  "model_policy_checks_passed": true,
+  "original_assignment_pdf_available": false
+}

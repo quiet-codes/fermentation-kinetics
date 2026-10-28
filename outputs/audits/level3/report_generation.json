@@ -1,0 +1,6 @@
+{
+  "report": "reports/level3.md",
+  "bytes": 46575,
+  "n_claims": 21,
+  "generator": "src/make_level3_report.py"
+}

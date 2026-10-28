@@ -1,0 +1,18 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________ test_generated_tables_and_json_are_ascii_with_lf _______________
+
+    def test_generated_tables_and_json_are_ascii_with_lf():
+        for path in sorted(TAB.rglob("*")):
+            if not path.is_file() or path.suffix not in (".csv", ".json"):
+                continue
+            data = path.read_bytes()
+            data.decode("ascii")
+>           assert b"\r\n" not in data, f"{path} contains CRLF"
+E           AssertionError: /tmp/fk-winrepro/outputs/tables/data_quality.csv contains CRLF
+E           assert b'\r\n' not in b'id,scope,file,run,variable,time_h,check,status,observed,expected,detail\r\nDQ001,file,runs.csv,,,,rows x cols,INFO,8...1:1 molar (1.047),INFO,1.049 (z=+0.07),1.047,descriptive; CO2 also comes from biomass formation and other pathways\r\n'
+
+tests/test_task2_consistency.py:171: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_task2_consistency.py::test_generated_tables_and_json_are_ascii_with_lf
+1 failed in 0.75s

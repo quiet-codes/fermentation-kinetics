@@ -300,13 +300,13 @@ def stage_fit(args):
     n_obs = len(residual_fn(records, policy, dict(failures=0))(theta))
     unc = linear_uncertainty(res, theta, n_obs)
     ptab = parameter_table(theta, unc, policy)
-    ptab.to_csv(os.path.join(tdir, "level1_parameters.csv"), index=False)
+    ptab.to_csv(os.path.join(tdir, "level1_parameters.csv"), index=False, lineterminator='\n', encoding='utf-8')
     # multistart log
     ms = pd.DataFrame([dict(start=d["start"], chi2=d["chi2"], status=d["status"], nfev=d["nfev"],
                             **dict(zip(K.PARAM_NAMES, d["theta"]))) for d in results]).sort_values("chi2")
-    ms.to_csv(os.path.join(tdir, "level1_multistart.csv"), index=False)
-    fit_diagnostics(theta, records, policy).to_csv(os.path.join(tdir, "level1_fit_diagnostics.csv"), index=False)
-    t0_diagnostics(records, policy).to_csv(os.path.join(tdir, "level1_t0_diagnostics.csv"), index=False)
+    ms.to_csv(os.path.join(tdir, "level1_multistart.csv"), index=False, lineterminator='\n', encoding='utf-8')
+    fit_diagnostics(theta, records, policy).to_csv(os.path.join(tdir, "level1_fit_diagnostics.csv"), index=False, lineterminator='\n', encoding='utf-8')
+    t0_diagnostics(records, policy).to_csv(os.path.join(tdir, "level1_t0_diagnostics.csv"), index=False, lineterminator='\n', encoding='utf-8')
     plot_runs(theta, records, policy, os.path.join(fdir, "level1_fits.png"),
               "Level 1 training fits (R1, R2, R3, R4, R5, R8). Model lines vs data; R3 biomass is OD600-based and not fitted")
     near = ms[ms.chi2 <= unc["chi2"] * 1.001 + 0.01]
@@ -358,8 +358,8 @@ def stage_predict(args):
         rows.append(dict(scope="timecourse_t>0", variable=v, **block_metrics(sim[pos, j], obs[pos], sd[pos])))
         rows.append(dict(scope="endpoint_48h", variable=v, n=1, rmse=abs(sim[-1, j] - obs[-1]), bias=sim[-1, j] - obs[-1],
                          mean_z=(sim[-1, j] - obs[-1]) / sd[-1], observed=obs[-1], predicted=sim[-1, j]))
-    pd.DataFrame(rows).to_csv(os.path.join(tdir, "heldout_metrics.csv"), index=False)
-    pd.DataFrame(prow).to_csv(os.path.join(tdir, "heldout_predictions.csv"), index=False)
+    pd.DataFrame(rows).to_csv(os.path.join(tdir, "heldout_metrics.csv"), index=False, lineterminator='\n', encoding='utf-8')
+    pd.DataFrame(prow).to_csv(os.path.join(tdir, "heldout_predictions.csv"), index=False, lineterminator='\n', encoding='utf-8')
     plot_heldout(theta, rec, policy, os.path.join(fdir, "heldout_prediction.png"))
     print(pd.DataFrame(rows)[["scope", "variable", "n", "rmse", "bias", "rel_rmse_pct", "mean_z", "rms_z", "observed", "predicted"]].round(3).to_string(index=False))
 
@@ -394,7 +394,7 @@ def stage_sensitivity(args):
                              at_bound=bool(at_bound_mask(th)[i]), chi2=unc["chi2"], n_residuals=n_obs,
                              reduced_chi2=unc["red"], ode_failures=counter["failures"]))
         print(name, "chi2=%.1f N=%d red=%.2f" % (unc["chi2"], n_obs, unc["red"]))
-    pd.DataFrame(rows).to_csv(os.path.join(tdir, "level1_sensitivity.csv"), index=False)
+    pd.DataFrame(rows).to_csv(os.path.join(tdir, "level1_sensitivity.csv"), index=False, lineterminator='\n', encoding='utf-8')
 
 def main():
     ap = argparse.ArgumentParser()

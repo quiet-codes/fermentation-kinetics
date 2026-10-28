@@ -1,0 +1,43 @@
+{
+  "created": "2026-10-25 23:55:54",
+  "parameters_csv_sha256": "46f4887eed50e59e666547eb300942fd5fae63b42cf97fa9a4c05a42eb4a20b6",
+  "training_runs": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R8"
+  ],
+  "biomass_excluded": [
+    "R3"
+  ],
+  "excluded_runs": [
+    "R7"
+  ],
+  "holdout": "R6",
+  "chi2": 3675.254998574371,
+  "n_residuals": 299,
+  "n_fitted_params": 8,
+  "dof": 291,
+  "reduced_chi2": 12.629742263142168,
+  "solver": "scipy solve_ivp LSODA rtol=1e-9 atol=1e-11",
+  "optimiser": "scipy least_squares trf, x_scale=jac, diff_step=1e-6, ftol=xtol=gtol=1e-10, max_nfev=400",
+  "n_starts": 41,
+  "seed": 20261026,
+  "starts_within_0p1pct_of_best": 41,
+  "ode_failures_counted": 0,
+  "best_status": 3,
+  "best_nfev": 29,
+  "fixed": {
+    "K_s": 1.0,
+    "n_inh": 1.0
+  },
+  "co2_floor": 0.1,
+  "jacobian_cond_relative": 21.204890782115267,
+  "python": "3.12.3",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "pandas": "3.0.2",
+  "runtime_s": 185.1
+}

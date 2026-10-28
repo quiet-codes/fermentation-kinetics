@@ -1,0 +1,44 @@
+$ git status --short --branch
+# cwd: /home/user/fermentation-kinetics
+# exit: 0
+
+## arena/b48e5f7c-fermentation-kinetics
+ M .gitignore
+ M AI_USE.md
+ M README.md
+ M docs/requirements_traceability.csv
+ M handoff/DECISIONS.md
+ M handoff/NEXT_ACCOUNT_PROMPT.md
+ M handoff/PROJECT_STATE.md
+ M src/carbon_balance.py
+ M src/compare.py
+ M src/fit.py
+ M src/level1_summary.py
+ M src/phase0_inspect.py
+ M src/plant_uncertainty.py
+ M src/task2_co2_floor_sensitivity.py
+ M src/uncertainty.py
+ M tests/test_task2_consistency.py
+ M worklog.md
+?? outputs/audits/level3/
+?? outputs/figures/level3_completion_time.png
+?? outputs/figures/level3_economics.png
+?? outputs/figures/level3_feasible_region.png
+?? outputs/figures/level3_uncertainty.png
+?? outputs/tables/optimization_grid.csv
+?? outputs/tables/optimization_horizon_sensitivity.csv
+?? outputs/tables/optimization_input_audit.csv
+?? outputs/tables/optimization_model_comparison.csv
+?? outputs/tables/optimization_recommendations.csv
+?? outputs/tables/optimization_uncertainty.csv
+?? outputs/tables/plant_economics.csv
+?? pytest.ini
+?? reports/level3.md
+?? requirements_traceability.csv
+?? scripts/
+?? src/level3.py
+?? src/level3_consistency_audit.py
+?? src/level3_optimize.py
+?? src/make_level3_report.py
+?? submission/
+?? tests/test_level3.py

@@ -303,3 +303,34 @@ def test_frozen_hashes_and_raw_checksums_verify():
     for line in (raw / "CHECKSUMS.sha256").read_text(encoding="utf-8").splitlines():
         expected, name = line.split()
         assert _sha256(raw / name) == expected, f"raw checksum mismatch for {name}"
+
+
+def test_all_csv_writers_pin_utf8_and_lf_line_terminator():
+    """pandas.DataFrame.to_csv defaults to os.linesep, so on Windows every table came out CRLF.
+
+    That is the actual cause of the reported local Windows failure
+    ('1 failed ... outputs/tables/data_quality.csv contains CRLF').  Every writer must pin the
+    encoding and the line terminator explicitly instead of relying on the platform default.
+    """
+    import ast
+
+    offenders: list[str] = []
+    sites = 0
+    for path in sorted(SRC.glob("*.py")):
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        for node in ast.walk(tree):
+            if not isinstance(node, ast.Call):
+                continue
+            fn = node.func
+            if not (isinstance(fn, ast.Attribute) and fn.attr == "to_csv"):
+                continue
+            sites += 1
+            kw = {k.arg: k.value for k in node.keywords if k.arg}
+            lt = kw.get("lineterminator")
+            enc = kw.get("encoding")
+            if not (isinstance(lt, ast.Constant) and lt.value == "\n"):
+                offenders.append(f"{path.name}:{node.lineno} to_csv without lineterminator='\\n'")
+            if not (isinstance(enc, ast.Constant) and str(enc.value).lower() == "utf-8"):
+                offenders.append(f"{path.name}:{node.lineno} to_csv without encoding='utf-8'")
+    assert sites > 0, "no to_csv call sites found: the guard would be vacuous"
+    assert offenders == [], "unpinned CSV writers:\n" + "\n".join(offenders)

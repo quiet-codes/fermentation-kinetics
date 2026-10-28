@@ -1,0 +1,5 @@
+$ /tmp/fk-venv/bin/python scripts/build_submission.py
+# cwd: /home/user/fermentation-kinetics
+# exit: 0
+
+submission snapshot: 127 files, 4.08 MB, OK

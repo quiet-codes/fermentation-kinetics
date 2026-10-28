@@ -1,0 +1,6 @@
+# independent archive check
+exists: True
+bytes: 9269115
+sha256: 92e05432062ac0fb7a8712d0304fc681348fe9cb7eefe50918b798a5176fe498
+entries: 575
+testzip: None

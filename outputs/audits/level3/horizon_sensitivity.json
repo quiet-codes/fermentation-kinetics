@@ -1,0 +1,11 @@
+{
+  "primary_horizon_h": 120.0,
+  "extended_horizon_h": 240.0,
+  "n_unfinished_primary_normal": 27,
+  "n_completing_by_240h": 26,
+  "n_priced_by_240h": 7,
+  "n_outscoring_best_120h": 0,
+  "best_margin_120h_inr_per_h": 4858.686335750817,
+  "max_margin_240h_inr_per_h": 2290.9522652218143,
+  "note": "The 240 h run is a diagnostic on the same frozen parameters. It is not used to rank candidates."
+}

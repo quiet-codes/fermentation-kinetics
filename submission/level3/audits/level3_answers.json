@@ -1,0 +1,253 @@
+{
+  "Q1_best_normal_33_37": {
+    "question": "Best feasible operating condition under the normal 33-37 C constraint (max margin per cycle time)",
+    "answer": {
+      "s0_g_per_l": 195.0,
+      "temperature_c": 33.0,
+      "completion_time_h": 35.5707,
+      "final_trs_g_per_l": 5.0,
+      "final_ethanol_g_per_l": 86.3204,
+      "wash_pct_vv": 10.9405,
+      "steam_kg_per_L": 2.5365,
+      "batch_margin_inr": 211696.31,
+      "cycle_time_h": 43.5707,
+      "margin_per_cycle_inr_per_h": 4858.69,
+      "margin_24h_equivalent_inr_per_day": 116608.5
+    },
+    "parameter_set_id": "M5_a29043ff3379ad5d",
+    "evidence": [
+      "outputs/tables/optimization_recommendations.csv",
+      "outputs/tables/optimization_grid.csv",
+      "outputs/tables/plant_economics.csv"
+    ]
+  },
+  "Q2_best_min36": {
+    "question": "Best feasible condition when the minimum temperature is 36 C (36-37 C)",
+    "answer": {
+      "s0_g_per_l": 175.0,
+      "temperature_c": 36.0,
+      "completion_time_h": 39.8165,
+      "final_trs_g_per_l": 5.0,
+      "final_ethanol_g_per_l": 76.729,
+      "wash_pct_vv": 9.7248,
+      "batch_margin_inr": 177405.37,
+      "cycle_time_h": 47.8165,
+      "margin_per_cycle_inr_per_h": 3710.13,
+      "margin_24h_equivalent_inr_per_day": 89043.0
+    },
+    "parameter_set_id": "M5_a29043ff3379ad5d",
+    "penalty_vs_normal_inr_per_h": -1148.56,
+    "penalty_vs_normal_inr_per_day": -27565.4,
+    "evidence": [
+      "outputs/tables/optimization_recommendations.csv"
+    ]
+  },
+  "Q3_model_change": {
+    "question": "Does the preferred condition change when M2 or M6 is used instead of M5?",
+    "detail": [
+      {
+        "scenario": "normal_33_37",
+        "model": "M5",
+        "case": "own_optimum",
+        "s0_g_per_l": 195.0,
+        "temperature_c": 33.0,
+        "margin_per_cycle_inr_per_h": 4858.69,
+        "same_condition_as_M5_optimum": true
+      },
+      {
+        "scenario": "normal_33_37",
+        "model": "M2",
+        "case": "own_optimum",
+        "s0_g_per_l": 190.0,
+        "temperature_c": 33.0,
+        "margin_per_cycle_inr_per_h": 5089.89,
+        "same_condition_as_M5_optimum": false
+      },
+      {
+        "scenario": "normal_33_37",
+        "model": "M6",
+        "case": "own_optimum",
+        "s0_g_per_l": 190.0,
+        "temperature_c": 33.0,
+        "margin_per_cycle_inr_per_h": 5054.32,
+        "same_condition_as_M5_optimum": false
+      },
+      {
+        "scenario": "warm_min_36",
+        "model": "M5",
+        "case": "own_optimum",
+        "s0_g_per_l": 175.0,
+        "temperature_c": 36.0,
+        "margin_per_cycle_inr_per_h": 3710.13,
+        "same_condition_as_M5_optimum": true
+      },
+      {
+        "scenario": "warm_min_36",
+        "model": "M2",
+        "case": "own_optimum",
+        "s0_g_per_l": 170.0,
+        "temperature_c": 36.0,
+        "margin_per_cycle_inr_per_h": 3943.95,
+        "same_condition_as_M5_optimum": false
+      },
+      {
+        "scenario": "warm_min_36",
+        "model": "M6",
+        "case": "own_optimum",
+        "s0_g_per_l": 170.0,
+        "temperature_c": 36.0,
+        "margin_per_cycle_inr_per_h": 3931.52,
+        "same_condition_as_M5_optimum": false
+      }
+    ],
+    "changed": true,
+    "evidence": [
+      "outputs/tables/optimization_model_comparison.csv"
+    ]
+  },
+  "Q4_best_margin": {
+    "question": "Which candidate has the best estimated margin per cycle time?",
+    "answer": {
+      "candidate": "195.0 g/L at 33.0 C",
+      "margin_per_cycle_inr_per_h": 4858.69,
+      "margin_24h_equivalent_inr_per_day": 116608.5
+    },
+    "note": "Computed over every completed feasible grid point; unfinished and out-of-curve points are excluded by construction.",
+    "evidence": [
+      "outputs/tables/optimization_recommendations.csv",
+      "outputs/tables/optimization_grid.csv"
+    ]
+  },
+  "Q5_fastest_completion": {
+    "question": "Which candidate reaches the TRS completion threshold fastest?",
+    "normal": {
+      "s0_g_per_l": 160.0,
+      "temperature_c": 33.0,
+      "completion_time_h": 25.6676,
+      "margin_per_cycle_inr_per_h": 4574.79
+    },
+    "warm": {
+      "s0_g_per_l": 160.0,
+      "temperature_c": 36.0,
+      "completion_time_h": 33.7989,
+      "margin_per_cycle_inr_per_h": 3655.16
+    },
+    "note": "Fastest is not the most profitable: the lowest sugar charge finishes first but gives up margin per cycle time.",
+    "evidence": [
+      "outputs/tables/optimization_recommendations.csv"
+    ]
+  },
+  "Q6_high_margin_feasibility": {
+    "question": "Are the highest-margin candidates feasible under the batch-completion requirement?",
+    "completed_feasible_rows": 443,
+    "completed_outside_steam_curve_rows": 31,
+    "unfinished_rows": 27,
+    "highest_ethanol_top10_status": [
+      "completed_outside_steam_curve"
+    ],
+    "highest_ethanol_top10_s0": [
+      260.0,
+      260.0,
+      260.0,
+      260.0,
+      260.0,
+      260.0,
+      260.0,
+      260.0,
+      260.0,
+      255.0
+    ],
+    "answer": "Every candidate that is ranked is completed (TRS <= 5 g/L) and inside the steam curve. The candidates with the most ethanol at 120 h are all outside the 7-14 % v/v curve, so none of them can be priced or recommended.",
+    "evidence": [
+      "outputs/tables/optimization_grid.csv"
+    ]
+  },
+  "Q7_unfinished_effect": {
+    "question": "What happens to the optimum if some candidates fail to reach TRS <= 5 g/L?",
+    "unfinished_at_120h": 27,
+    "completing_by_240h": 26,
+    "outscoring_best_120h": 0,
+    "answer": "Unfinished candidates are recorded with their state at 120 h but receive no completion time, no ethanol end point and no margin, so they cannot enter the ranking. Extending the horizon to 240 h only confirms this: none of the unfinished candidates would beat the recommended point, and the extension is not used to rank.",
+    "evidence": [
+      "outputs/tables/optimization_horizon_sensitivity.csv",
+      "outputs/audits/level3/horizon_sensitivity.json"
+    ]
+  },
+  "Q8_uncertainty": {
+    "question": "How sensitive is the recommendation to parameter and model uncertainty?",
+    "normal_optimum": {
+      "margin_p2_5": 4641.97,
+      "margin_p97_5": 5038.55,
+      "fraction_draws_completing": 1.0
+    },
+    "warm_optimum": {
+      "margin_p2_5": 3538.06,
+      "margin_p97_5": 3858.37,
+      "fraction_draws_completing": 1.0
+    },
+    "brief_q5_point": {
+      "fraction_draws_completing": 0.0
+    },
+    "discrete_alternatives_normal": {
+      "min": 4842.97,
+      "max": 4873.75
+    },
+    "discrete_alternatives_warm": {
+      "min": 3700.27,
+      "max": 3719.16
+    },
+    "answer": "The recommended condition stays completed and inside the steam curve in every draw, but the margin per cycle time carries a finite interval; the discrete assumption alternatives move it far less than the parameter ensemble.",
+    "evidence": [
+      "outputs/tables/optimization_uncertainty.csv",
+      "outputs/figures/level3_uncertainty.png"
+    ]
+  },
+  "Q9_most_influential_assumptions": {
+    "question": "Which assumptions most affect the recommendation?",
+    "items": [
+      "The completion criterion is binding: every sugar charge above ~200-210 g/L either finishes late or leaves the steam curve, so the optimum sits just above 190 g/L rather than where ethanol is highest.",
+      "The steam curve limits the usable wash strength to 14 % v/v (about 110 g/L ethanol): high-sugar, high-ethanol batches cannot be costed at all.",
+      "The 37 C rate multiplier rests on one run (R8), so the 36-37 C scenario is the least supported part of the surface.",
+      "The temperature multipliers are piecewise-linear between 30/34/37 C, so a 33 C prediction is an interpolation assumption, not a measurement.",
+      "The CO2 standard-deviation floor (0.10 g/L) changes the parameter covariance and therefore the width of every interval."
+    ],
+    "evidence": [
+      "outputs/tables/optimization_uncertainty.csv",
+      "docs/requirements_traceability.csv"
+    ]
+  },
+  "Q10_additional_experiment": {
+    "question": "What additional experiment or data would most reduce decision uncertainty?",
+    "answer": "A single batch at the recommended condition (about 195 g/L TRS, 33 C) run past 48 h to the TRS <= 5 g/L endpoint, because it simultaneously tests the completion time that drives the margin-per-cycle-time metric and the growth/production behaviour in the 33 C region that the plant now operates in. A second 37 C run would help the warm scenario but cannot fix the 33 C gap.",
+    "evidence": [
+      "reports/level3.md section 15",
+      "outputs/tables/experiment_design.csv"
+    ]
+  },
+  "brief_Q5_37C_260": {
+    "question": "Brief Q5: what does the model predict at 37 C and 260 g/L, and how far is it trustworthy?",
+    "prediction": {
+      "s0_g_per_l": 260.0,
+      "temperature_c": 37.0,
+      "batch_completed": false,
+      "final_trs_g_per_l_at_120h": 30.2573,
+      "final_ethanol_g_per_l_at_120h": 105.3705,
+      "final_biomass_g_per_l_at_120h": 11.1076,
+      "feasibility_status": "unfinished",
+      "margin": NaN
+    },
+    "trust": "LOW: one 37 C run only (R8, 220 g/L), no 37 C / 260 g/L observation, a 120 h prediction against 48 h of data, and ethanol above 105 g/L while the fitted P_max is 195.0 g/L (for M5 the inhibition exponent is entangled with P_max). It is reported because the brief asks for it; it is not an operating recommendation.",
+    "evidence": [
+      "outputs/tables/optimization_grid.csv",
+      "outputs/tables/optimization_uncertainty.csv"
+    ]
+  },
+  "brief_Q6_experiment": {
+    "question": "Brief Q6: which single additional experiment would most reduce the uncertainty that matters?",
+    "answer": "The same recommendation as Q10: one extended batch at the proposed plant condition (~195 g/L TRS at 33 C) taken to the 5 g/L endpoint, ideally with a mid-run 60-96 h sample, because the decision is limited by the time-to-completion extrapolation rather than by the 48 h kinetics.",
+    "evidence": [
+      "outputs/tables/experiment_design.csv",
+      "reports/level3.md section 15"
+    ]
+  }
+}

@@ -118,7 +118,7 @@ def run_level1(args):
         ))
         print(f"level1 {name}: chi2={unc['chi2']:.3f} max|change|={repro_max_change:.4f}% "
               f"({time.time() - t0:.1f}s)", flush=True)
-    pd.concat(all_rows, ignore_index=True).to_csv(outdir / "level1_co2_floor_sensitivity_repro.csv", index=False)
+    pd.concat(all_rows, ignore_index=True).to_csv(outdir / "level1_co2_floor_sensitivity_repro.csv", index=False, lineterminator='\n', encoding='utf-8')
     return dict(
         purpose="Verify the two existing Level 1 M0 CO2-floor sensitivity cases from level1_sensitivity.csv.",
         original_root=str(original), data_dir=args.data_dir, seed=args.level1_seed,

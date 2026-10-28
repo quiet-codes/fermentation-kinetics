@@ -189,7 +189,7 @@ for r, g in tc.groupby("run"):
 
 dqdf = pd.DataFrame(dq)
 dqdf.insert(0, "id", [f"DQ{i+1:03d}" for i in range(len(dqdf))])
-dqdf.to_csv(os.path.join(TAB, "data_quality.csv"), index=False)
+dqdf.to_csv(os.path.join(TAB, "data_quality.csv"), index=False, lineterminator='\n', encoding='utf-8')
 
 
 # ---------- 6. descriptive per-run summary (finite differences, NOT model fits) ----------
@@ -220,7 +220,7 @@ for r, g in tc.groupby("run"):
         TRS_rate_0_12h=-rate(g, 0, 12, "TRS_g_L_as_glucose"), TRS_rate_24_36h=-rate(g, 24, 36, "TRS_g_L_as_glucose"),
         TRS_rate_36_48h=-rate(g, 36, 48, "TRS_g_L_as_glucose")))
 summ = pd.DataFrame(rows).round(3)
-summ.to_csv(os.path.join(TAB, "run_descriptive_summary.csv"), index=False)
+summ.to_csv(os.path.join(TAB, "run_descriptive_summary.csv"), index=False, lineterminator='\n', encoding='utf-8')
 
 # ---------- 7. endpoint diagnostics ----------
 ed = hp.merge(runs[["run", "temperature_C", "initial_TRS_g_L_as_glucose"]], on="run").merge(
@@ -254,7 +254,7 @@ for col, name in [("glycerol_g_L", "glycerol"), ("final_pH", "pH"), ("TRS_48h", 
     ed[f"R5R7_diff_{name}_(this_minus_partner)"] = diffs
     ed[f"R5R7_diff_{name}_in_sd"] = zs
 ed["note"] = "HPLC and pH are 48 h values (brief). Initial pH not supplied."
-ed.drop(columns=["lactic_num"]).to_csv(os.path.join(TAB, "endpoint_diagnostics.csv"), index=False)
+ed.drop(columns=["lactic_num"]).to_csv(os.path.join(TAB, "endpoint_diagnostics.csv"), index=False, lineterminator='\n', encoding='utf-8')
 
 # ---------- 8. preliminary carbon balance (brief constants; first-order sd propagation) ----------
 cb = []
@@ -293,7 +293,7 @@ for r in rm.index:
                     "lactic n.d.=0 (<0.2 g/L ~ <0.08 gC/L); constant volume; ethanol in off-gas returned (brief); dissolved CO2 not measured; "
                     "sd by first-order propagation of brief sds (independent errors assumed)")
     cb.append(row)
-pd.DataFrame(cb).to_csv(os.path.join(TAB, "preliminary_carbon_balance.csv"), index=False)
+pd.DataFrame(cb).to_csv(os.path.join(TAB, "preliminary_carbon_balance.csv"), index=False, lineterminator='\n', encoding='utf-8')
 
 # ---------- 9. raw curves figure ----------
 col = {30: "tab:blue", 34: "tab:orange", 37: "tab:red"}

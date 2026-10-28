@@ -1,0 +1,8 @@
+# Python packages used by this project.
+# Versions below are the ones actually used in the sandbox that produced the results
+# (Python 3.12.3). The ranges are conservative and were NOT tested on older versions.
+numpy>=1.26        # tested with 2.4.4
+scipy>=1.11        # tested with 1.17.1 (solve_ivp LSODA, least_squares, stats.qmc)
+pandas>=2.1        # tested with 3.0.2
+matplotlib>=3.8    # tested with 3.10.8
+pytest>=7.4        # NOT available in the sandbox: the tests were run through fallback runners

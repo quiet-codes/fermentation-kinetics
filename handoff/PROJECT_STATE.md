@@ -1,40 +1,71 @@
-# PROJECT STATE (end of Level 2)
+# PROJECT STATE (end of Level 3 and final packaging)
 
-**Completed:** Phase 0; Level 1 (baseline, preserved as candidate M0); Level 2 (model comparison, uncertainty/identifiability, carbon balance, yields, R7 review, plant-relevant uncertainty, proposed experiment). **Not started:** Level 3 optimisation, final report.
-**Specification:** `docs/assignment_brief.md` (authoritative), `CLAUDE.md`.
+**Completed:** Phase 0; Level 1; Level 2; Task 2 audit follow-up; Level 3 optimisation, uncertainty and
+reporting; submission snapshot; final archive.
+**Specification:** `docs/assignment_brief.md` (authoritative; the original PDF is unavailable), `CLAUDE.md`.
 
-## Files added in Level 2 (Level 1 and Phase 0 files unchanged)
-- Code: `src/models.py`, `src/compare.py`, `src/uncertainty.py`, `src/plant_uncertainty.py`, `src/carbon_balance.py`; tests: `tests/test_level2.py`
-- Tables (`outputs/tables/`): `model_comparison.csv`, `candidate_parameters.csv`, `model_residuals.csv`, `model_selection_frozen.json`, `model_r6_diagnostic.csv`, `parameter_uncertainty.csv`, `parameter_profiles.csv`, `parameter_correlations_material.csv`, `fixed_parameter_sensitivity.csv`, `r7_inclusion_effect.csv`, `carbon_balance_all_runs.csv`, `ethanol_yields.csv`, `ethanol_yield_pooled.csv`, `yield_gap_decomposition.csv`, `r7_review.csv`, `plant_prediction_uncertainty.csv`, `structure_spread.csv`, `plant_Ks_sensitivity.csv`, `plant_linearised_sd.csv`, `variance_decomposition.csv`, `experiment_design.csv`, `experiment_discrimination.csv`, `work/*.json`
-- Figures: `model_comparison_residuals.png`, `parameter_profiles_M5.png`, `parameter_profiles_M0.png`, `carbon_balance_all_runs.png`, `ethanol_yield_gap.png`, `plant_uncertainty.png`
-- Report: `reports/level2.md`
-- Packaging (added after delivery review): `README.md`, `requirements.txt`, `src/make_level1_report.py`, `src/make_level2_report.py` (rebuild the reports from the tables), `tests/test_report_claims.py`
+## Level 3 result
 
-## Level 2 results (AI sandbox)
-- **Selection (D-24, frozen before the R6 diagnostic): M5** = Level 1 baseline + P_max(T) + estimated exponent n. chi-square 3675 (M0) -> 1116 (M5), reduced 12.6 -> 3.9; M3 excluded (n at bound); M6 next at +105 QAICc. Residuals strongly autocorrelated (lag-1 0.54-0.69), QAICc only indicative.
-- **Warning:** M5 extrapolates badly when R8 (only 37 C run) is left out (chi2/pt 1629; M2 12, M6 10). M5 does not fit within noise.
-- M5 estimates: mu_max=0.1644, X_max=11.11, q_max=1.417, P_max=195, Y_P=0.4806, rho_CO2=0.9783, k34=1.087, k37=0.8049, beta_P=0.04885, n_inh=2.428. P_max and n correlated +0.98 (ridge); P_max extrapolated (about 1.8x observed ethanol). k37 from one run. Profile (scaled) and jackknife intervals in `parameter_uncertainty.csv`; no interval open.
-- Fixed parameters: K_s < 0.2 g/L favoured (K_s = 1 costs +36 scaled chi-square units; plant predictions change 1-4%); n = 1 not supported.
-- Carbon balance (all 8 runs): recovery 98.2-104.7%, mean 101.0%; only R4 (104.7%) does not close within MC 95%. Unaccounted carbon averages -1.2 points.
-- Yield: 0.459 g/g TRS-consumed basis (89.8% of 0.5114); gap = biomass 5.7 + glycerol 4.5 points (+ lactate 4.7 in R7); no unmeasured sink needed.
-- R7: lactate 9.0 g/L, pH 3.84; carbon closes only with lactate; including R7 raises M5 reduced chi-square 3.9 -> 12.3 with parameter shifts <= 13%.
-- Plant: 37 C/260 g/L -> ethanol 78 g/L and TRS 87 g/L at 48 h, TRS 41 g/L at 96 h, no end of batch within 120 h in M5; structures disagree. 33 C/220 g/L daily margin about Rs 112k (parameter 95% 108-117k; structure spread about +/-5%). 34 C/260: batch end 87 h [81-106], margin Rs 81k [67-86k], ethanol at end 118 g/L (above data and above the 14% v/v steam curve).
-- Proposed experiment: 96 h batch at 34 C/260 g/L (alternative 36 C/260).
+| scenario | initial TRS | temperature | completion | final TRS | ethanol | wash | margin/cycle | 24 h equivalent |
+|---|---|---|---|---|---|---|---|---|
+| normal 33-37 C | 195.0 g/L | 33.0 C | 35.571 h | 5.000 g/L | 86.32 g/L | 10.94 % v/v | **4,858.69 INR/h** | 116,608 INR/day (derived) |
+| minimum 36 C | 175.0 g/L | 36.0 C | 39.817 h | 5.000 g/L | 76.73 g/L | 9.72 % v/v | **3,710.13 INR/h** | 89,043 INR/day (derived) |
 
-## Checks
-- `python tests/test_report_claims.py`: 11 passed, 0 failed (reports equal their generators; hand-typed numbers checked against raw CSVs and tables). Phase 0: the six tests of `tests/test_phase0.py` passed through a minimal stand-in for pytest's `fixture`/`approx` (74 PASS / 58 INFO / 5 FLAG).
-- `python tests/test_level2.py`: 15 passed, 0 failed, 0 skipped; `python tests/test_model.py`: 16 passed, 0 failed, 0 skipped (fallback runner; **pytest not installed in the sandbox, not run**). Phase 0 pytest file not run this session.
-- **Nothing has been run on the user's machine.** The user's local Phase 0 and Level 1 results were never supplied.
+Model: frozen M5, parameter set `M5_a29043ff3379ad5d`, source `outputs/tables/work/fit_M5.json`.
+Warming costs 1,148.56 INR/h (23.6 %). Uncertainty on the margin (200 parameter draws): 4,641.97-5,038.55
+INR/h normal, 3,538.06-3,858.37 INR/h warm; every draw completes. M2/M6 own optima are 4.0-4.8 % higher and
+prefer one grid step less sugar; they remain comparisons, not the recommendation.
 
-## Unresolved limitations
-- Preferred structure not validated at 37 C; no candidate fits within noise; R3 biomass OD600-based and unvalidated.
-- Only one 37 C run and none at 33/36 C (linear interpolation of multipliers); ethanol > 108 g/L and times > 48 h are extrapolations.
-- Run-to-run variability unmeasured (only replicate pair is R5/R7, R7 unusual).
-- K_s = 1 g/L retained as documented primary though disfavoured (D-31, user decision for Level 3).
-- Unmeasured carbon (non-sugar molasses organics, by-products, dissolved CO2) not quantified; CO2 sd floor 0.10 g/L and uncertainty-table mapping (D-03) unconfirmed.
-- R6 is no longer blind; any Level 3 refit using R6 must be labelled.
-- `requirements.txt` and `README.md` not available to me: add `scipy` (tested 1.17.1).
+Feasibility bookkeeping on the 120 h horizon (M5): 443 completed feasible, 31 completed outside the 7-14 %
+v/v steam curve (no margin), 27 unfinished (no margin, no completion time), 0 simulation failures.
+Brief Q5 (37 C, 260 g/L): does not complete; 105.37 g/L ethanol and 30.26 g/L TRS at 120 h, low trust.
 
-## Packaging notes
-- Raw CSVs, Phase 0 files and Level 1 source/reports are byte-identical to the originals supplied (checked with `cmp`). `data/raw/CHECKSUMS.sha256` was regenerated in the sandbox because the original was not uploaded.
-- No analysis was re-run during packaging; the Level 2 frozen selection (M5, rule D-24) is unchanged. Level 3 has not been started.
+## Files added in Level 3
+- Code: `src/level3.py` (policy, completion rule, economics, steam curve), `src/level3_optimize.py`
+  (workflow), `src/make_level3_report.py`, `src/level3_consistency_audit.py`; tests: `tests/test_level3.py`
+- Scripts: `scripts/reproduce_level3.sh`, `scripts/reproduce_level3.ps1`, `scripts/build_submission.py`,
+  `scripts/verify_submission.py`, `scripts/create_final_zip.py`, `scripts/run_final_validation.py`
+- Tables: `outputs/tables/optimization_grid.csv`, `optimization_recommendations.csv`, `plant_economics.csv`,
+  `optimization_uncertainty.csv`, `optimization_model_comparison.csv`, `optimization_input_audit.csv`,
+  `optimization_horizon_sensitivity.csv`
+- Figures: `outputs/figures/level3_feasible_region.png`, `level3_economics.png`,
+  `level3_completion_time.png`, `level3_uncertainty.png`
+- Report: `reports/level3.md` (generated from the tables by `src/make_level3_report.py`)
+- Audits: `outputs/audits/level3/` (model policy, input audit, grid and horizon summaries, uncertainty draws,
+  answers, report claims, consistency report, submission build and verification, final validation and logs,
+  final ZIP validation and listing), plus `outputs/audits/level3/preflight/crlf_repro/` (the reproduced and
+  fixed Windows CRLF failure)
+- Packaging: `submission/` snapshot, `requirements_traceability.csv` (root, full matrix),
+  `pytest.ini`, `fermentation_kinetics_final_submission.zip`
+
+## Checks performed in this environment
+- Full test suite: 81 passed (60 pre-existing + 21 Level 3). `pytest.ini` limits collection to `tests/`.
+- Consistency audit: 31/31 checks passed (`outputs/audits/level3/consistency_report.md`).
+- Submission verification: 14/14 checks passed; manifest hashes, required structure, figure links, no
+  caches or secrets, raw checksums, frozen selection, frozen Level 1 hash, eight carbon balances.
+- Final validation chain: recorded stage by stage with exit codes in
+  `outputs/audits/level3/final_validation.json`; archive validated in `outputs/audits/level3/final_zip_validation.json`.
+- **Linux/sandbox only. Actual Windows execution has not been performed and is still pending.**
+
+## Unresolved limitations (unchanged from earlier phases unless noted)
+- The preferred structure is not validated at 37 C; only one run (R8) exists there, and there is no data at
+  33 or 36 C, so those temperatures are interpolations of the fitted multipliers.
+- No candidate model fits within the stated noise; residuals are strongly autocorrelated, so QAICc is
+  indicative rather than definitive.
+- M5's P_max and n_inh are strongly associated; the ethanol-tolerance extrapolation is the weakest part of
+  any high-sugar prediction.
+- The leave-one-out R8 result is sensitive to the fitted minimum and the numerical environment (the Task 2
+  isolated refit moved it from 1629.2 to 731.1).
+- The CO2 standard-deviation floor of 0.10 g/L is an assumption; its discrete alternatives were quantified
+  and matter far less than the parameter ensemble.
+- R7 excluded from primary fits, R3 biomass is OD600-based, R4 does not close its carbon balance within 95 %.
+- The original assignment PDF is unavailable; PDF-only requirements cannot be confirmed.
+- Parameter uncertainty is quantified; predictive uncertainty is not. The recommendations are model optima,
+  not plant-validated optima.
+- Windows verification outstanding (only a Linux simulation of the Windows line terminator was done).
+
+## Next actions for the user
+1. `python -m pip install -r requirements.txt` then `python -m pytest -q` on Windows and record the result.
+2. Run `.\scripts\reproduce_level3.ps1` on Windows and compare `git status --short`.
+3. Complete the editable personal-contribution section in `AI_USE.md`.
+4. Confirm any requirement that exists only in the original assignment PDF.

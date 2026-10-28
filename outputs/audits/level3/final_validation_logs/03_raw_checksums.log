@@ -1,0 +1,7 @@
+$ sha256sum -c CHECKSUMS.sha256
+# cwd: /home/user/fermentation-kinetics/data/raw
+# exit: 0
+
+runs.csv: OK
+timecourse.csv: OK
+endpoint_hplc.csv: OK
