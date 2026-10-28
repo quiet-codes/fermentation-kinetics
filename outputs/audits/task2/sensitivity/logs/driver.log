@@ -1,0 +1,28 @@
+{
+  "level1_cases": [
+    {
+      "case": "CO2_floor_0",
+      "max_abs_change_pct_reproduced": 13.887945897949495
+    },
+    {
+      "case": "CO2_floor_0.5",
+      "max_abs_change_pct_reproduced": 4.373036634457823
+    }
+  ],
+  "level2": [
+    {
+      "floor": 0.0,
+      "preferred": "M5",
+      "best_qaicc": "M5",
+      "convergence_changes_selection": false
+    },
+    {
+      "floor": 0.5,
+      "preferred": "M5",
+      "best_qaicc": "M5",
+      "convergence_changes_selection": false
+    }
+  ],
+  "total_runtime_s": 200.73
+}
+evidence: /home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/co2_floor_sensitivity.md

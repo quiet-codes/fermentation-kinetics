@@ -1,0 +1,5 @@
+model,parameter_1,parameter_2,correlation_linearised
+M5,P_max,n_inh,0.9788721075631396
+M5,k34,beta_P,0.7006613627006275
+M5,k37,beta_P,0.7456777886158037
+M0,mu_max,q_max,-0.7315453377949779

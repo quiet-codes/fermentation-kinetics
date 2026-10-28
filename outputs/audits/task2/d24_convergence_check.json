@@ -1,0 +1,140 @@
+{
+  "created": "2026-10-27 14:55:50",
+  "written_rule": "Preferred = lowest QAICc among candidates whose fitted parameters are not at a bound and whose multistart converged to one minimum; if a candidate with fewer parameters is within 4 QAICc units of the best, take the simpler.",
+  "written_rule_source": "handoff/DECISIONS.md line 28 (D-24)",
+  "code_filter": "ok = cmp[(cmp.params_at_bound == 0) & (cmp.ode_failures == 0)]",
+  "code_filter_source": "src/compare.py:195 (stage_select)",
+  "code_enforces_convergence_explicitly": false,
+  "discrepancy": "stage_select filters only params_at_bound and ode_failures; it records starts_near_best but does not use n_near_best/status in the eligibility filter.",
+  "current_results": {
+    "written_rule_condition": "D-24 also requires multistart converged to one minimum; compare.py:stage_select filters only params_at_bound == 0 and ode_failures == 0.",
+    "code_enforces_convergence_explicitly": false,
+    "per_model": {
+      "M0": {
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3,
+        "failures": 0,
+        "params_at_bound": 0,
+        "converged": true
+      },
+      "M1": {
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3,
+        "failures": 0,
+        "params_at_bound": 0,
+        "converged": true
+      },
+      "M2": {
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3,
+        "failures": 0,
+        "params_at_bound": 0,
+        "converged": true
+      },
+      "M3": {
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3,
+        "failures": 0,
+        "params_at_bound": 1,
+        "converged": true
+      },
+      "M4": {
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3,
+        "failures": 0,
+        "params_at_bound": 0,
+        "converged": true
+      },
+      "M5": {
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3,
+        "failures": 0,
+        "params_at_bound": 0,
+        "converged": true
+      },
+      "M6": {
+        "n_near_best": 8,
+        "n_starts": 8,
+        "status": 3,
+        "failures": 0,
+        "params_at_bound": 0,
+        "converged": true
+      }
+    },
+    "all_models_converged": true,
+    "eligible_with_convergence": [
+      "M0",
+      "M1",
+      "M2",
+      "M4",
+      "M5",
+      "M6"
+    ],
+    "qaicc": {
+      "M0": 967.9173516922341,
+      "M1": 998.9977196261647,
+      "M2": 454.359014270562,
+      "M3": 729.5517174378286,
+      "M4": 927.2260842384765,
+      "M5": 309.7638888888889,
+      "M6": 414.7582943028974
+    },
+    "best_qaicc_model": "M5",
+    "recomputed_preferred": "M5",
+    "frozen_preferred": "M5",
+    "frozen_rule": "D-24",
+    "frozen_c_hat": 3.8629121857647286,
+    "recomputed_c_hat": 3.8629121857647286,
+    "r6_used_for_selection": false,
+    "current_results_satisfy_written_condition": true,
+    "note": "No decision or rule was changed; this is a verification against stored results."
+  },
+  "frozen_decision": {
+    "preferred": "M5",
+    "rule": "D-24",
+    "c_hat": 3.8629121857647286,
+    "r6_used_for_selection": false
+  },
+  "current_results_satisfy_written_condition": true,
+  "sensitivity_cases": [
+    {
+      "floor": 0.0,
+      "preferred": "M5",
+      "convergence_condition_changes_selection": false,
+      "eligible": [
+        "M0",
+        "M1",
+        "M2",
+        "M4",
+        "M5",
+        "M6"
+      ]
+    },
+    {
+      "floor": 0.5,
+      "preferred": "M5",
+      "convergence_condition_changes_selection": false,
+      "eligible": [
+        "M0",
+        "M1",
+        "M2",
+        "M4",
+        "M5",
+        "M6"
+      ]
+    }
+  ],
+  "action_taken": "Reported only. No rule, code selection filter, frozen JSON, or decision was changed.",
+  "commands": [
+    "grep -RIn 'D-24\\|multistart converged' handoff/DECISIONS.md docs/requirements_traceability.csv reports/*.md",
+    "grep -n 'ok = cmp\\[' src/compare.py",
+    "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_task2_consistency.py::test_d24_written_convergence_condition_is_satisfied_and_m5_selection",
+    "python src/run_task2_sensitivities.py"
+  ]
+}

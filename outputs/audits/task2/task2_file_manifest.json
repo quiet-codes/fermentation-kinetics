@@ -1,0 +1,1491 @@
+{
+  "created": "2026-10-27 15:12:38",
+  "branch": "arena/30692720-fermentation-kinetics",
+  "modified_tracked_files": [
+    {
+      "path": "src/compare.py",
+      "bytes": 15360,
+      "sha256": "c49fc0bd2cc89c1daa577968b3745cb085c00f74c1176ad22aba1faafc0c8c7d"
+    },
+    {
+      "path": "src/fit.py",
+      "bytes": 22844,
+      "sha256": "dbbdd2c4c6239a98ed08c1a37bd482ca015a8a9068fefc540245e9fa19dbf9ab"
+    },
+    {
+      "path": "src/make_level1_report.py",
+      "bytes": 23339,
+      "sha256": "7b1a37956be224d6fbc822c18c20ae1cb409bd94e8ad5a2f024156d9f3125af2"
+    },
+    {
+      "path": "src/make_level2_report.py",
+      "bytes": 49646,
+      "sha256": "d7012826f24cdc00e383b6e69bd3dce9f4ad80faf0370082ac19c22235f9980e"
+    },
+    {
+      "path": "src/plant_uncertainty.py",
+      "bytes": 17791,
+      "sha256": "2235c84a482888ed62be4f5fd593de3b5726f8493014300e6a0feb3045e41b06"
+    },
+    {
+      "path": "src/uncertainty.py",
+      "bytes": 14414,
+      "sha256": "47937931f779ca41500b2d44f91b7e6691b129f5c5aa4a9a22d8e8ac3b2032cd"
+    }
+  ],
+  "new_source_test_files": [
+    {
+      "path": "src/reproduce_level2.py",
+      "bytes": 17931,
+      "sha256": "e2fc91bfa4ffe092a3b938f09aa5892d471dc4599fbfb56ce87bc7a4cbcdfa00"
+    },
+    {
+      "path": "src/run_task2_sensitivities.py",
+      "bytes": 9414,
+      "sha256": "9303187443dca237fcad965b346b4fb250baa81882845b88f0e039e225f4bf7b"
+    },
+    {
+      "path": "src/task2_co2_floor_sensitivity.py",
+      "bytes": 12082,
+      "sha256": "15e85199167a515a93f9753af3db153d8dd4741e3ffb57a5a2d8ae8f1c526273"
+    },
+    {
+      "path": "src/task2_consistency_audit.py",
+      "bytes": 27854,
+      "sha256": "c48d42830a0274140f666a36af1aec23a2d1e765e584466e460aeb338e854693"
+    },
+    {
+      "path": "tests/test_task2_consistency.py",
+      "bytes": 13681,
+      "sha256": "67f324eeda5984deebd3bba28f84f86d4a175d29589426c103f68906e814479d"
+    }
+  ],
+  "task1_audit_files_unchanged": [
+    "outputs/audits/pre_level3_audit.md",
+    "outputs/audits/pre_level3_audit.json"
+  ],
+  "evidence_files": [
+    {
+      "path": "outputs/audits/task2/commands_executed.json",
+      "bytes": 7302,
+      "sha256": "ee030248ea21277056a944d39a17540c398eaae25182a4e98d4fd2d4da36a37d"
+    },
+    {
+      "path": "outputs/audits/task2/d03_verification.json",
+      "bytes": 3102,
+      "sha256": "37bed8d94e9ba33232703fb16d991f0caa1ee4f5b2b838f745b423878eac5b94"
+    },
+    {
+      "path": "outputs/audits/task2/d03_verification.md",
+      "bytes": 1753,
+      "sha256": "adde10f232cf5d20f6df5c70039da2741f12bb994e0762efe9ddb4ddc207e0bb"
+    },
+    {
+      "path": "outputs/audits/task2/d24_convergence_check.json",
+      "bytes": 4164,
+      "sha256": "2ce6b37048420ac7bf3ddfb0980894efe49567dce4d807687448c407b764b3e9"
+    },
+    {
+      "path": "outputs/audits/task2/d24_convergence_check.md",
+      "bytes": 1660,
+      "sha256": "86154fa9fc487eabfba58f2dc1c89ab5203614b60d741a9de610f32b2209396f"
+    },
+    {
+      "path": "outputs/audits/task2/final_checks/final_pytest_cp1252_sim.log",
+      "bytes": 99,
+      "sha256": "aa39f401625642858eb97b24e0101c4efda25fb5f3f5e4e5b7e27035645d5ad4"
+    },
+    {
+      "path": "outputs/audits/task2/final_checks/final_pytest_default.log",
+      "bytes": 99,
+      "sha256": "d7f2599ceb4be1011c9ceea8bf8a6e8788c375a6b276ba0c8722343ebaf3afcd"
+    },
+    {
+      "path": "outputs/audits/task2/final_checks/final_verification.log",
+      "bytes": 1076,
+      "sha256": "6855a0de89a0d95c0ec1db22d56430a2c51578aeb4e1394f344fdc30e0732e49"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/driver_attempt_1.log",
+      "bytes": 657,
+      "sha256": "8d61da19b616fc8e43bf3e41661d98822b42648b9b629986cb3373a95b1b707e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/driver_rerun.log",
+      "bytes": 1390,
+      "sha256": "4b47950a8d3360b73fd7a86167ac3374b7aeae3c99242eb88a0d468e2e1a22e9"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/logs/stage_logs/carbon_balance.log",
+      "bytes": 9482,
+      "sha256": "5c0435581b9924848aeadf7a84827b6512b6b17f3fade9c9ea0b815fd0f57a4e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/logs/stage_logs/compare_fit.log",
+      "bytes": 814,
+      "sha256": "53fc014ecaa53d583cb8379a9803be282dcf9a9b421f7dd14af0563de1962e54"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/logs/stage_logs/level1_predict.log",
+      "bytes": 1235,
+      "sha256": "63dea7c064311309c7219fa0c2bf3bb58e65032a79d9e615c61d449e0551c7fd"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/logs/stage_logs/level1_summary.log",
+      "bytes": 4772,
+      "sha256": "87979e3b494c2b36422e50d565b30cd6e613b5b3e29ce388b8d6485974570cd5"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/logs/stage_logs/phase0.log",
+      "bytes": 435,
+      "sha256": "dbee66f05fbc1dfd55b4cd336b9a95802f8937736b3d16a12556bb2dfc65c25c"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/logs/stage_logs/report_level1.log",
+      "bytes": 320,
+      "sha256": "1d756322cd26cfb6b2805a2840fcdd90d44d7f40f40c3a4ba9997882a638f9b7"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/reproduction.log",
+      "bytes": 1732,
+      "sha256": "f6082c8ea65e56ea7cd82be551c9e9ab823778ebea0858dc3755052b7fb3bd9d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/reproduction_log.json",
+      "bytes": 21861,
+      "sha256": "208237f69c900a71a28502ed13d9790913fdbf79cf5bba7e9511d6811040d1c1"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/AI_USE.md",
+      "bytes": 5994,
+      "sha256": "54e18f9848d1175219eccba4c73f2d43dead7c6f1bc66f763aad94bfd364879f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/CLAUDE.md",
+      "bytes": 1780,
+      "sha256": "2af4295d872e6d0245f7138bcfd0e186e064bf9016e982214affae5fbc3260ee"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/README.md",
+      "bytes": 5560,
+      "sha256": "4e3a3561f811e40786d1a814c798dfae7b6a519905e7b475fd5ba153c45c7e5f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/data/raw/CHECKSUMS.sha256",
+      "bytes": 240,
+      "sha256": "981a8776c0ba08c6f88ba2163146d5f2fab2f5f27c101de29a01916c4544c2c4"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/data/raw/endpoint_hplc.csv",
+      "bytes": 187,
+      "sha256": "3c91221db517bb8e3aaddaf4057ebc7224472968ae9c5e050b9e80f836d3d677"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/data/raw/runs.csv",
+      "bytes": 390,
+      "sha256": "d7f2732b62b3e746209767068848778484b13a34bc37dcbc3d6449c7ac22c796"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/data/raw/timecourse.csv",
+      "bytes": 2982,
+      "sha256": "2b24fc05d5d8cc8886b7ab9a09e20e6dca14555ec4a35294aa47209951077c85"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/docs/assignment_brief.md",
+      "bytes": 6430,
+      "sha256": "170d79fd377581d63430605ce60db6b75407e24bef6ce126ac73f122452ccec5"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/docs/requirements_traceability.csv",
+      "bytes": 13657,
+      "sha256": "e2e1aec688dd325a43fb8c03754568f80acf8bd10debec4d866d7f80012c3f5b"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/handoff/DECISIONS.md",
+      "bytes": 14204,
+      "sha256": "68b3d45884b765755bfa61c4372b0ca4ce4aa797379542ba2926b836ea2b43b2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/handoff/NEXT_ACCOUNT_PROMPT.md",
+      "bytes": 2306,
+      "sha256": "36295ff776d430db36624b2337235d6525aafaaa8f9ec41ac61a79cee5776419"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/handoff/PROJECT_STATE.md",
+      "bytes": 5314,
+      "sha256": "45e8710ddb558990ef142d250725ad0b18fe9a90be532f9bbdb1f0d216b79a10"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/logs/baseline_manifest.json",
+      "bytes": 9510,
+      "sha256": "00d1cc9af17aa6aa0720a6cab15244b2a46eaca2fb352c91dd7583aacb6978e2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/figures/carbon_balance_all_runs.png",
+      "bytes": 66586,
+      "sha256": "728ec1c35619513b3cf56d0d6cff30b655e48b533467627869a7460ceb886c3f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/figures/ethanol_yield_gap.png",
+      "bytes": 79714,
+      "sha256": "e8b0bdf573b6682ad3c7ff1d870d3e68bf723ef3d1de590353d58b6c2dfa3f9f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/figures/heldout_prediction.png",
+      "bytes": 170573,
+      "sha256": "b11e3159193d1dcb33c46153734acecb181686411f7648a053dd0a7fefeddf23"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/figures/level1_fits.png",
+      "bytes": 345883,
+      "sha256": "0cf764c34f88e6a465a94dd7668395f91e75aa6793fc8a523d105837c64fce64"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/figures/model_comparison_residuals.png",
+      "bytes": 178147,
+      "sha256": "6e78a6a01142e59c57d22d1bf09004fc15c6afd1ec5d074fd906ca8aa7cba993"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/figures/parameter_profiles_M0.png",
+      "bytes": 132992,
+      "sha256": "d7415dc116a339b472cb88249e1ffbac9318c465120ff8baceab2d8c901d8f19"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/figures/parameter_profiles_M5.png",
+      "bytes": 152150,
+      "sha256": "23f6142b7811d1ab7c7de494838f474fbc076aaf260f8639159e29356486118c"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/figures/plant_uncertainty.png",
+      "bytes": 75404,
+      "sha256": "0e558bc8c35c645e7762cffc6b1dc311d1ed58a7f2465903fe97101ee6fd842d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/figures/raw_curves.png",
+      "bytes": 488935,
+      "sha256": "696b10de373ae9f87e15c3f1954ada34d324db667f97be837b0c1cbf60c23ef9"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/candidate_parameters.csv",
+      "bytes": 4061,
+      "sha256": "b63aafe20fd6d583f87eca08357174c489c1366d8aad1307697401a28bc57199"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/carbon_balance_all_runs.csv",
+      "bytes": 5271,
+      "sha256": "e9cf37ed2905c0bbb692c8ccffb63c11ece25312bffcb782a455b75d14ce4e92"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/data_quality.csv",
+      "bytes": 16435,
+      "sha256": "c504325025b3315ddec617ab024bbc551cb720bb0ef7fc76622d2c2e7458355c"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/endpoint_diagnostics.csv",
+      "bytes": 2296,
+      "sha256": "60cc7421bb2608480b87cfb275839bd424d98dd8fce50e5995d560ef3eba1fa4"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/ethanol_yield_pooled.csv",
+      "bytes": 1232,
+      "sha256": "a9a1baa3e016be9588224feddd68ba8a23702eca1d6ab7a4cab00a426c2d2bf8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/ethanol_yields.csv",
+      "bytes": 1539,
+      "sha256": "a7893a440b9a2b6a673b99b7994464ca4c0974e428b3dd42d4d7857dfc428df2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/experiment_design.csv",
+      "bytes": 2938,
+      "sha256": "c30bc76dc36b8bcbbe50750b95b42a7fc16eb49f818b1553c2a1c77a18335e1d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/experiment_discrimination.csv",
+      "bytes": 2083,
+      "sha256": "dd6bb91df4e474ebd167b8310e7d743d3c220d54b261fe72b669cd1d0ce4b214"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/fixed_parameter_sensitivity.csv",
+      "bytes": 3618,
+      "sha256": "8f35352f644020a1a66a8a38c10a9b5477fcc2d7e591148be19b7978b355ea88"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/heldout_metrics.csv",
+      "bytes": 1281,
+      "sha256": "13403e9f3afab061fabd86ccea977dd1a0cf297adfa7924702b4ea256c5a844f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/heldout_predictions.csv",
+      "bytes": 4471,
+      "sha256": "e0f9f811bd27f737507f016f56ace5dfb0702f74839ee96d937fe05394209884"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/level1_correlations.csv",
+      "bytes": 1310,
+      "sha256": "28653a80593870d6f666bf433d61243e759edf74583b9aa556a4810b6fcbb2ed"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/level1_fit_diagnostics.csv",
+      "bytes": 4174,
+      "sha256": "8e3c7da6c52ade4cba3d8699af9c286cd405421b0aac8f403079f60fafb92e1a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/level1_frozen.json",
+      "bytes": 971,
+      "sha256": "d27f25f00bd34fa30a79a60247517abb06819078a66a090f54129c08583552a8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/level1_multistart.csv",
+      "bytes": 7346,
+      "sha256": "5fcc91d5fc87d0f465fdb2f1bd816c7213dc37953ac20689efd0748979c88a3a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/level1_parameters.csv",
+      "bytes": 2176,
+      "sha256": "46f4887eed50e59e666547eb300942fd5fae63b42cf97fa9a4c05a42eb4a20b6"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/level1_sensitivity.csv",
+      "bytes": 7012,
+      "sha256": "3ac7ca2577a96f516114004cdc4f0806e565f57bb783aab81d6f7975237d8f73"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/level1_summary_numbers.csv",
+      "bytes": 2502,
+      "sha256": "a4e66de937467b736f659d62f262ef620b5bf245690fde7f3203b0c939823ca8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/level1_t0_diagnostics.csv",
+      "bytes": 1100,
+      "sha256": "6b22764ee16b9d9f19c345f15eefb0526e9575410c7b47162693f891c985b7ef"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/model_comparison.csv",
+      "bytes": 3192,
+      "sha256": "5521863023a9d33804093d73c35ce75ef4b73fd160f06455923e6592ed2a5431"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/model_r6_diagnostic.csv",
+      "bytes": 1986,
+      "sha256": "61e7ca5a8b59ed6bc99a328de83c8fee46fbe46d0cf7d5a2789da9ca6c50ca42"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/model_residuals.csv",
+      "bytes": 125828,
+      "sha256": "c504301d8e0fcd4bcea3608e19370983c3fab4c771644ec8b65c29978a273551"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/model_selection_frozen.json",
+      "bytes": 332,
+      "sha256": "939df543275db5570d6f3c1e50a7a1ee77b66ab60849d03709affd7286a8528a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/parameter_correlations_material.csv",
+      "bytes": 189,
+      "sha256": "e2c55acaa2da341e6646fc601bd5dda4ed304dc86a449daaa3240b7b2ff10f22"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/parameter_profiles.csv",
+      "bytes": 9991,
+      "sha256": "b4fc4535c2c98012b0ee475432b4071a3494b2a2ec115aa85cc6cb506a9ef1dc"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/parameter_uncertainty.csv",
+      "bytes": 9525,
+      "sha256": "6c2c05176b0738eae61aea2be0e2630c46e05484c33a3a77e3a8bb5267fa42ea"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/plant_Ks_sensitivity.csv",
+      "bytes": 2518,
+      "sha256": "9a19c9009e0652177d40c6d9db8f6dc55874d02e6bc2769ed35616961d6c27ee"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/plant_linearised_sd.csv",
+      "bytes": 597,
+      "sha256": "ed017adc395bb30ae6b0de9b2e7216179d5ecacdcd217af24b222c2adb9a599d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/plant_prediction_uncertainty.csv",
+      "bytes": 9510,
+      "sha256": "b0f572992711453e3b7edafbba0079e949b04ef04e2bf5389678167fe47c4a04"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/preliminary_carbon_balance.csv",
+      "bytes": 4304,
+      "sha256": "d16d0aa1593a73560f478569808112d9fa136dcb503b9df46933f6cc3e1a3ea1"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/r7_inclusion_effect.csv",
+      "bytes": 3316,
+      "sha256": "06162d8ef426e95a5905495ef05cf7daf6428616304d485bed5859625084c9db"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/r7_review.csv",
+      "bytes": 1435,
+      "sha256": "f96fbff0af326f2ac6a388b35043ad3e7b198deb91e2aeb2af643fbbcefa4168"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/run_descriptive_summary.csv",
+      "bytes": 1394,
+      "sha256": "43fdc0ab4b1b3925a06ff115dce6a868d5fd9a14d42c4c4c6656e4a0b4b22b5e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/structure_spread.csv",
+      "bytes": 4417,
+      "sha256": "17ab3f5a38552531ef550d18024e21c3327554a202effe7c02d29d92f95a067d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/variance_decomposition.csv",
+      "bytes": 3318,
+      "sha256": "3fa1350800b4d4e850281f365237dd9187a83f13f0837b1b7aab11bd1f733493"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/fit_M0.json",
+      "bytes": 2182,
+      "sha256": "1e085bcf9ca179ee6e97230d54323678a7b32f90a4a6715c05403aa7777343e4"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/fit_M1.json",
+      "bytes": 1802,
+      "sha256": "bd7dbe2722dd0c428d43a904552fa968d4d28ea02795b9aaf03a4ebb5f788ded"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/fit_M2.json",
+      "bytes": 2636,
+      "sha256": "40acef623512966cbd0e414695828282535e268fff3e2340b4de7c15706cca98"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/fit_M3.json",
+      "bytes": 2314,
+      "sha256": "4d72a324222027ca272a17546b4fc33f6d15bbb97912b3457f5dee628bd5feed"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/fit_M4.json",
+      "bytes": 2178,
+      "sha256": "d97814d44b510ffa499576f75eef9420873aa62ea08fba6b067c7b269a96e395"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/fit_M5.json",
+      "bytes": 3108,
+      "sha256": "0ed885f16fa714a25fad002c5ed3eff899afe252e7118332efefe27722152fd2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/fit_M6.json",
+      "bytes": 2629,
+      "sha256": "964ae4299b1952626a9c194a011b0aa5567c136aa4a1c86aa56cdc421065c340"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/fixedgrid_M0.json",
+      "bytes": 4070,
+      "sha256": "8604a25a587bb4f1fee98cc4c8dc66dc4043763967adc4fd550c4854a4cdf0c3"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/fixedgrid_M5.json",
+      "bytes": 2374,
+      "sha256": "7c23aa63a3fd714278f4c6e3b323238a2b0867c83c8d4a54928edfd531fd6686"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/loro_M0.json",
+      "bytes": 2429,
+      "sha256": "b90b460ea4563d020799f6dcde0b4876edafcc7db3d34bf3207088d29a2226ad"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/loro_M1.json",
+      "bytes": 2293,
+      "sha256": "9dc390c9b2853331ed530bd2b2ca72c29ecff14f5be5d4dc15c079bffe92322e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/loro_M2.json",
+      "bytes": 2551,
+      "sha256": "a124a01674105b97d471316daec667fa58c3b0bed28ee93c38bf2148bd7b1e87"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/loro_M3.json",
+      "bytes": 2544,
+      "sha256": "59dc7b7aafe5f01ed4dbb4e5d7eecf436fe65ea7b9740ff266d6019a7199a5e3"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/loro_M4.json",
+      "bytes": 2434,
+      "sha256": "35a3ea98c522b74707be73eecce2540efda669cffc54a312bccbc69a3d23936f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/loro_M5.json",
+      "bytes": 2681,
+      "sha256": "369415974aa6660cd1986d3b9cad602ae9e6d739888d7067a79c1f1d79d54c34"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/loro_M6.json",
+      "bytes": 2554,
+      "sha256": "06b3bc91c5f440c4db0b19348ea89a452b36ad41d631fee9038b78dbf0ba9799"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/profile_M0.json",
+      "bytes": 14973,
+      "sha256": "5753c92a30af674ded2cf44bb4f18e947f01d19a8ffce0bfdd493ccc27fd1a30"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/profile_M5.json",
+      "bytes": 19767,
+      "sha256": "a861edb9890f6b214d832792605ee934a910681bed377eaaa302cb83f522bf6c"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/r7_M0.json",
+      "bytes": 404,
+      "sha256": "02255f2422fbe7724f4df4ec807e91cd244992f9cc6532567f2d72980de4f87f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/work/r7_M5.json",
+      "bytes": 482,
+      "sha256": "7e6af204cd4e9bbfc312bde400c79350cff4f29c6551f6e7f66eb2102f3f2c10"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/outputs/tables/yield_gap_decomposition.csv",
+      "bytes": 3077,
+      "sha256": "74643b2fc8b02cc222e7bd8952168e7f6eecae56d76a33f187fb0abcc51b8d97"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/reports/level1.md",
+      "bytes": 20698,
+      "sha256": "152db01ac29ebbef329c17e3ee86fbeed4c3efabe3a1b898161d80340a7ab7a8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/reports/level2.md",
+      "bytes": 43785,
+      "sha256": "d2a02eb3dd8dfe3c7173d15d63a0d5d5e5145fa43e156651cacc6bc0a28c6082"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/reports/pre_fit_observations.md",
+      "bytes": 11632,
+      "sha256": "2807b552fa6290e46a2b92e61d993a7fd3e0af390e29056228ee492679c2f3e3"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/requirements.txt",
+      "bytes": 508,
+      "sha256": "f7dcf0a21526a20f172ddcdd60181e60b5597bc348b65e9dc2dc292e324efdb7"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/carbon_balance.py",
+      "bytes": 17204,
+      "sha256": "0358c25873eaaa68e11517dae751f4b3103a7525bba2e5f0a8f1f917bd1bb0b2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/compare.py",
+      "bytes": 15360,
+      "sha256": "c49fc0bd2cc89c1daa577968b3745cb085c00f74c1176ad22aba1faafc0c8c7d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/fit.py",
+      "bytes": 22844,
+      "sha256": "dbbdd2c4c6239a98ed08c1a37bd482ca015a8a9068fefc540245e9fa19dbf9ab"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/kinetics.py",
+      "bytes": 5780,
+      "sha256": "1f0f7093078169dc776e331a18e2b0b76af6bc532f12f4d43f82a97564127e58"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/level1_summary.py",
+      "bytes": 4802,
+      "sha256": "1ff69c71fdf1dba2a36d8e50a740053a1911b8691ff8d7027b6f001e00e9434a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/make_level1_report.py",
+      "bytes": 23339,
+      "sha256": "7b1a37956be224d6fbc822c18c20ae1cb409bd94e8ad5a2f024156d9f3125af2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/make_level2_report.py",
+      "bytes": 49646,
+      "sha256": "d7012826f24cdc00e383b6e69bd3dce9f4ad80faf0370082ac19c22235f9980e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/models.py",
+      "bytes": 4271,
+      "sha256": "fff4bfccc003ef7a4e55f9f55fa1ead47570f86ff9d9a743cf2c8a3c47c98aa8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/phase0_inspect.py",
+      "bytes": 19340,
+      "sha256": "6501e222ed7bf8f0508bf5ce88e9850f2efbdcfd3224874dd2c0f4135ccbce76"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/plant_uncertainty.py",
+      "bytes": 17791,
+      "sha256": "2235c84a482888ed62be4f5fd593de3b5726f8493014300e6a0feb3045e41b06"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/reproduce_level2.py",
+      "bytes": 17632,
+      "sha256": "9e7deaf6757a5c84fec315d5d37c14f47248018db1f574127d68cd7342358a4b"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/run_task2_sensitivities.py",
+      "bytes": 9414,
+      "sha256": "9303187443dca237fcad965b346b4fb250baa81882845b88f0e039e225f4bf7b"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/task2_co2_floor_sensitivity.py",
+      "bytes": 12082,
+      "sha256": "15e85199167a515a93f9753af3db153d8dd4741e3ffb57a5a2d8ae8f1c526273"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/task2_consistency_audit.py",
+      "bytes": 27854,
+      "sha256": "c48d42830a0274140f666a36af1aec23a2d1e765e584466e460aeb338e854693"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/src/uncertainty.py",
+      "bytes": 14414,
+      "sha256": "47937931f779ca41500b2d44f91b7e6691b129f5c5aa4a9a22d8e8ac3b2032cd"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/failed_attempt_1/root/worklog.md",
+      "bytes": 11862,
+      "sha256": "430afbba4ad398b0c3cb861320c9d94cf401b8b51b23fb9aa4a2379200fde2fd"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/consistency_report.json",
+      "bytes": 157703,
+      "sha256": "a79ff6e0d8d410ddd9f475cbdae83580855f28913c57e1cebada4f66a0e895ba"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/consistency_report.md",
+      "bytes": 3087,
+      "sha256": "0db1028550ea19be3efd5349bad01df5eeb14913991693b41fa993962244d939"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/key_metrics.json",
+      "bytes": 14925,
+      "sha256": "e821ea7b7fbcfc7dd5a44fe8a5bdc9639f63a3792be15488342008a0b2e6e974"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/carbon_balance.log",
+      "bytes": 9482,
+      "sha256": "73d3dd2a9062e12f86be6a4cf8615a3c8a0a0b11834801bb98dc7f9ad137014d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_fit.log",
+      "bytes": 814,
+      "sha256": "cd968335d7ca671335f6b2072f318529dd4fe2d3fb6f8cab2814df1d09b44ae3"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_loro.log",
+      "bytes": 989,
+      "sha256": "08b95741377e46347c71d0921b967cf806381dcd1430825b8c5646ad2b738324"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_r6diag.log",
+      "bytes": 2054,
+      "sha256": "7f807f7a04ee88822c26ca4d4b3a5e3f85f93970ccee35f25efa6b0a6f7509b7"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_select.log",
+      "bytes": 1615,
+      "sha256": "7742d9ad997c1b03c01b759ed73965218973c186b331424fa55c5a3d5314e47d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/level1_predict.log",
+      "bytes": 1235,
+      "sha256": "ea1c09b6efbea23bf33e7cb6eabfb4950d9544edad928e6077264eab531c09fa"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/level1_summary.log",
+      "bytes": 4772,
+      "sha256": "dccc2d9af730908aa5b76b2ae400c2000e87014c7af2c914212be0ae20ae44c4"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/phase0.log",
+      "bytes": 435,
+      "sha256": "ffeae0497b5d5d4f3c30c7b8d4b6e8b946b51ed4256a2bc476d918aa16b4a9b6"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_design.log",
+      "bytes": 3461,
+      "sha256": "4ac23a1521e409472e80ec34821cff927ca06bee35f938063a7e8d541a8284c2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_discriminate.log",
+      "bytes": 2084,
+      "sha256": "6122e361aa0c79a9940009effd3e75d3ff3a9860fce64d387dafc63f4692d36d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_ksens.log",
+      "bytes": 2163,
+      "sha256": "3df88d38d13b4772f56d71ed68b902aee99c684f70c37c20bda51c8fdddbc864"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_plot.log",
+      "bytes": 334,
+      "sha256": "67b5c11699ead83e95a5273b1d56ec3ba8d585270e87dc5477658ae881188533"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_predict.log",
+      "bytes": 8359,
+      "sha256": "c6b327035a399af11d4f2207908b7109b876407124eaa8ea97fa73719e30c9ee"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/report_level1.log",
+      "bytes": 320,
+      "sha256": "f468cc3b820d6c32291d87fa82f151566ace80b6cf66adb535ce64d5080e612e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/report_level2.log",
+      "bytes": 320,
+      "sha256": "e5db95b4773e2f7673ecf4d17d4ffedf517dbb6ecfd919895eb22c85da56ad2d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_assemble.log",
+      "bytes": 3606,
+      "sha256": "ea1d707d9a875a349583afaa37e12f65d2372b276f2f4153f2ccd333b357979f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_fixedgrid.log",
+      "bytes": 641,
+      "sha256": "366af64780c59f91a9ba8813fa975f8e29519e8c38ccb6ad1d96faa605add98d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_profile_M0.log",
+      "bytes": 512,
+      "sha256": "7a8956599b95283c1e492c2de39435abd2fd011a18201d28b9e93fbce9aae614"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_profile_M5.log",
+      "bytes": 554,
+      "sha256": "b31d7ac93b23ef27a81241cc587a65b60207808f6e3928c05d1c4c1b343303b8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_r7.log",
+      "bytes": 425,
+      "sha256": "1b63046cb902011e5213acc7c48a9a249e21535a68a880df5474f7a92e428423"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/loro_R8_warmstart_check.json",
+      "bytes": 1603,
+      "sha256": "d9d0c0c3189a4d2fd3568495e6cb7ce8699185f91e50bb1969b6a24fefc96860"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/reproduction.log",
+      "bytes": 2779,
+      "sha256": "109a79cbafae07c74b3063c652eb24efdd2dcac59bfe0f633e911e95d24f1215"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/reproduction_findings.json",
+      "bytes": 5460,
+      "sha256": "f341251ab6dbc4f69940ec095987b3e09b09fdfc26efc5bda47b58cb8537af04"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/reproduction_findings.md",
+      "bytes": 3377,
+      "sha256": "9d0e4896872d607bbe5296a87b84571e893f8684a8fb85ff15cb2f3d57ecbc1a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/reproduction_log.json",
+      "bytes": 45728,
+      "sha256": "87ad88afa1b8d9d2e31eafae6e057bef68967c9d48e9bfb77acbcb887d06d484"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/AI_USE.md",
+      "bytes": 5994,
+      "sha256": "54e18f9848d1175219eccba4c73f2d43dead7c6f1bc66f763aad94bfd364879f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/CLAUDE.md",
+      "bytes": 1780,
+      "sha256": "2af4295d872e6d0245f7138bcfd0e186e064bf9016e982214affae5fbc3260ee"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/README.md",
+      "bytes": 5560,
+      "sha256": "4e3a3561f811e40786d1a814c798dfae7b6a519905e7b475fd5ba153c45c7e5f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/data/raw/CHECKSUMS.sha256",
+      "bytes": 240,
+      "sha256": "981a8776c0ba08c6f88ba2163146d5f2fab2f5f27c101de29a01916c4544c2c4"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/data/raw/endpoint_hplc.csv",
+      "bytes": 187,
+      "sha256": "3c91221db517bb8e3aaddaf4057ebc7224472968ae9c5e050b9e80f836d3d677"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/data/raw/runs.csv",
+      "bytes": 390,
+      "sha256": "d7f2732b62b3e746209767068848778484b13a34bc37dcbc3d6449c7ac22c796"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/data/raw/timecourse.csv",
+      "bytes": 2982,
+      "sha256": "2b24fc05d5d8cc8886b7ab9a09e20e6dca14555ec4a35294aa47209951077c85"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/docs/assignment_brief.md",
+      "bytes": 6430,
+      "sha256": "170d79fd377581d63430605ce60db6b75407e24bef6ce126ac73f122452ccec5"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/docs/requirements_traceability.csv",
+      "bytes": 13657,
+      "sha256": "e2e1aec688dd325a43fb8c03754568f80acf8bd10debec4d866d7f80012c3f5b"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/handoff/DECISIONS.md",
+      "bytes": 14204,
+      "sha256": "68b3d45884b765755bfa61c4372b0ca4ce4aa797379542ba2926b836ea2b43b2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/handoff/NEXT_ACCOUNT_PROMPT.md",
+      "bytes": 2306,
+      "sha256": "36295ff776d430db36624b2337235d6525aafaaa8f9ec41ac61a79cee5776419"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/handoff/PROJECT_STATE.md",
+      "bytes": 5314,
+      "sha256": "45e8710ddb558990ef142d250725ad0b18fe9a90be532f9bbdb1f0d216b79a10"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/logs/baseline_manifest.json",
+      "bytes": 9510,
+      "sha256": "2b29909b8dcdaa77a2631f9e0a8bdb27ab16af769d89c3c08388fef1203fb6ff"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/figures/carbon_balance_all_runs.png",
+      "bytes": 66586,
+      "sha256": "728ec1c35619513b3cf56d0d6cff30b655e48b533467627869a7460ceb886c3f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/figures/ethanol_yield_gap.png",
+      "bytes": 79714,
+      "sha256": "e8b0bdf573b6682ad3c7ff1d870d3e68bf723ef3d1de590353d58b6c2dfa3f9f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/figures/heldout_prediction.png",
+      "bytes": 170573,
+      "sha256": "b11e3159193d1dcb33c46153734acecb181686411f7648a053dd0a7fefeddf23"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/figures/level1_fits.png",
+      "bytes": 345883,
+      "sha256": "0cf764c34f88e6a465a94dd7668395f91e75aa6793fc8a523d105837c64fce64"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/figures/model_comparison_residuals.png",
+      "bytes": 212276,
+      "sha256": "fff63ce1890b08bddaa2918efed0bf576d2a2227ce6b441630dce2d0c985085f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/figures/parameter_profiles_M0.png",
+      "bytes": 156366,
+      "sha256": "cae20a3b08e0342008eaf5481078383882714828293437d2f7bf21483c2df886"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/figures/parameter_profiles_M5.png",
+      "bytes": 187095,
+      "sha256": "134d4fa1f964dea5e166d1d7edd279d8e1155861eba1ad67ee3477ecfbe264c4"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/figures/plant_uncertainty.png",
+      "bytes": 82429,
+      "sha256": "79d958372b41da786ab122cb3cef49fc4516736c8fa50e59ee7cd6c4bf6c8499"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/figures/raw_curves.png",
+      "bytes": 488935,
+      "sha256": "696b10de373ae9f87e15c3f1954ada34d324db667f97be837b0c1cbf60c23ef9"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/candidate_parameters.csv",
+      "bytes": 4066,
+      "sha256": "67bd238d221f0b8dd48065387b39a7f6b4c30a0694dc04756b3a1c170eb95ed9"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/carbon_balance_all_runs.csv",
+      "bytes": 5271,
+      "sha256": "e9cf37ed2905c0bbb692c8ccffb63c11ece25312bffcb782a455b75d14ce4e92"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/data_quality.csv",
+      "bytes": 16435,
+      "sha256": "c504325025b3315ddec617ab024bbc551cb720bb0ef7fc76622d2c2e7458355c"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/endpoint_diagnostics.csv",
+      "bytes": 2296,
+      "sha256": "60cc7421bb2608480b87cfb275839bd424d98dd8fce50e5995d560ef3eba1fa4"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/ethanol_yield_pooled.csv",
+      "bytes": 1232,
+      "sha256": "a9a1baa3e016be9588224feddd68ba8a23702eca1d6ab7a4cab00a426c2d2bf8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/ethanol_yields.csv",
+      "bytes": 1539,
+      "sha256": "a7893a440b9a2b6a673b99b7994464ca4c0974e428b3dd42d4d7857dfc428df2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/experiment_design.csv",
+      "bytes": 2939,
+      "sha256": "1e0cc684052918bbc4714062533dc2318bc24d044b1431b1607a526f128cd126"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/experiment_discrimination.csv",
+      "bytes": 2076,
+      "sha256": "47dc9756e5a2ab4452ad50cb80b8e06e5cbea505a67e06553f5fdd0220a4606a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/fixed_parameter_sensitivity.csv",
+      "bytes": 3619,
+      "sha256": "573fabd0e48fdc8adc49c47e63afb64159d696ad14444f2544ff70736e1356a1"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/heldout_metrics.csv",
+      "bytes": 1281,
+      "sha256": "13403e9f3afab061fabd86ccea977dd1a0cf297adfa7924702b4ea256c5a844f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/heldout_predictions.csv",
+      "bytes": 4471,
+      "sha256": "e0f9f811bd27f737507f016f56ace5dfb0702f74839ee96d937fe05394209884"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/level1_correlations.csv",
+      "bytes": 1310,
+      "sha256": "28653a80593870d6f666bf433d61243e759edf74583b9aa556a4810b6fcbb2ed"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/level1_fit_diagnostics.csv",
+      "bytes": 4174,
+      "sha256": "8e3c7da6c52ade4cba3d8699af9c286cd405421b0aac8f403079f60fafb92e1a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/level1_frozen.json",
+      "bytes": 971,
+      "sha256": "d27f25f00bd34fa30a79a60247517abb06819078a66a090f54129c08583552a8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/level1_multistart.csv",
+      "bytes": 7346,
+      "sha256": "5fcc91d5fc87d0f465fdb2f1bd816c7213dc37953ac20689efd0748979c88a3a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/level1_parameters.csv",
+      "bytes": 2176,
+      "sha256": "46f4887eed50e59e666547eb300942fd5fae63b42cf97fa9a4c05a42eb4a20b6"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/level1_sensitivity.csv",
+      "bytes": 7012,
+      "sha256": "3ac7ca2577a96f516114004cdc4f0806e565f57bb783aab81d6f7975237d8f73"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/level1_summary_numbers.csv",
+      "bytes": 2502,
+      "sha256": "a4e66de937467b736f659d62f262ef620b5bf245690fde7f3203b0c939823ca8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/level1_t0_diagnostics.csv",
+      "bytes": 1100,
+      "sha256": "6b22764ee16b9d9f19c345f15eefb0526e9575410c7b47162693f891c985b7ef"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/model_comparison.csv",
+      "bytes": 3194,
+      "sha256": "e63c4d68c0b59a95eeeb1598e691d5d53dc3f8faac7fb8881c43872adcf7e116"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/model_r6_diagnostic.csv",
+      "bytes": 1986,
+      "sha256": "55689e0b984f2906246cf914450cf1d0230a762366baa15466c500cc4c6aae3d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/model_residuals.csv",
+      "bytes": 125780,
+      "sha256": "5e288e3ca19d5e7add697f5b011bdf5ce50582b6c6c6a8d8243c335d34bab9b4"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/model_selection_frozen.json",
+      "bytes": 332,
+      "sha256": "cc53fe5fff5b6327267ccdbbec28ccbf509d445764a0cdcbb9f3f1367cf4dec1"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/parameter_correlations_material.csv",
+      "bytes": 189,
+      "sha256": "f3ba9ccfc80781e040897e4056394817e424fe056ecb156ab1104edb0bd1015f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/parameter_profiles.csv",
+      "bytes": 10001,
+      "sha256": "31a8a1837249e73089dd4878502480598502a67b036d57b08275e5a649ef7254"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/parameter_uncertainty.csv",
+      "bytes": 9533,
+      "sha256": "2b86025ef57d434e33cfb1a88e2d726c9541a40a965b3b44930a1e3a4f67652b"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/plant_Ks_sensitivity.csv",
+      "bytes": 2507,
+      "sha256": "6d62aaa353a1d5183b50344735e5d066bc8b9130b01ed494cb12dc3e04293b36"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/plant_linearised_sd.csv",
+      "bytes": 597,
+      "sha256": "3ee60f56476e9f7ecec6c418a5d21567c9daa7ae210201fd5ed128c4fad8a75d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/plant_prediction_uncertainty.csv",
+      "bytes": 9518,
+      "sha256": "04886e5d659c3c4dd057492b6677812816e608a500663920e16147bd1980d96b"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/preliminary_carbon_balance.csv",
+      "bytes": 4304,
+      "sha256": "d16d0aa1593a73560f478569808112d9fa136dcb503b9df46933f6cc3e1a3ea1"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/r7_inclusion_effect.csv",
+      "bytes": 3319,
+      "sha256": "df63a07fd8f7d3a9714198cb6f352517578a7c1c9a47e4bab99be199ef5e318e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/r7_review.csv",
+      "bytes": 1435,
+      "sha256": "f96fbff0af326f2ac6a388b35043ad3e7b198deb91e2aeb2af643fbbcefa4168"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/run_descriptive_summary.csv",
+      "bytes": 1394,
+      "sha256": "43fdc0ab4b1b3925a06ff115dce6a868d5fd9a14d42c4c4c6656e4a0b4b22b5e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/structure_spread.csv",
+      "bytes": 4423,
+      "sha256": "ed8d23db652fc8723e6792d84930cc75f47b3cc9aec94371555fb4a3ca088f91"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/variance_decomposition.csv",
+      "bytes": 3311,
+      "sha256": "d98328c1c42a9cc2d18760b645ef9279fdf10d954a7dafd871ec619e381bae96"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/fit_M0.json",
+      "bytes": 2182,
+      "sha256": "fcb40e1dcae156a30c4f7a965351b726d4a5a89492100ecc09b01cabf050bc05"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/fit_M1.json",
+      "bytes": 1802,
+      "sha256": "6dd4f74dfb9f2b6cd556e65f1df311307bf3473d598311827668ade7221f52e1"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/fit_M2.json",
+      "bytes": 2636,
+      "sha256": "1f0d97eb6eeacdd2c7fc445623c7ea0b3f52076f8cbef7671e964604377ba6d0"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/fit_M3.json",
+      "bytes": 2314,
+      "sha256": "1c7b069b9389e101fac633e2c706f0b14a1959e4d8667aa5774da5953295fe7e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/fit_M4.json",
+      "bytes": 2178,
+      "sha256": "f7eeaf216bf62d4edefb5e5205b19cfe2a80e52689c6bb989c96f8893dc83753"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/fit_M5.json",
+      "bytes": 3108,
+      "sha256": "9738bcbd741d026504a0c2cfa809771ce44ff29171cfa8e558f300ff8fad736f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/fit_M6.json",
+      "bytes": 2629,
+      "sha256": "c39edda5673273c405225989ff782ff5aa3b77662cf9e613156fd6336bee1ed2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/fixedgrid_M0.json",
+      "bytes": 4071,
+      "sha256": "33299838b23e97d307922b38c97ccc102cd18a85c5b6fcd427bf486ebf925cf2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/fixedgrid_M5.json",
+      "bytes": 2374,
+      "sha256": "59509d98adc0866e63552749929fa30c00ebe1f5247fb7c518005a2acfa25c79"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/loro_M0.json",
+      "bytes": 2430,
+      "sha256": "e54d52d19b2b7d28328d454a32704b9bb77a03862c517d394cd3587969c38af9"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/loro_M1.json",
+      "bytes": 2293,
+      "sha256": "9dc390c9b2853331ed530bd2b2ca72c29ecff14f5be5d4dc15c079bffe92322e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/loro_M2.json",
+      "bytes": 2551,
+      "sha256": "a124a01674105b97d471316daec667fa58c3b0bed28ee93c38bf2148bd7b1e87"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/loro_M3.json",
+      "bytes": 2544,
+      "sha256": "59dc7b7aafe5f01ed4dbb4e5d7eecf436fe65ea7b9740ff266d6019a7199a5e3"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/loro_M4.json",
+      "bytes": 2434,
+      "sha256": "35a3ea98c522b74707be73eecce2540efda669cffc54a312bccbc69a3d23936f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/loro_M5.json",
+      "bytes": 2668,
+      "sha256": "3cc5d2ff7f95ff0e74374aca456775fee1dd25cb5632baef85db691b608a2267"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/loro_M6.json",
+      "bytes": 2554,
+      "sha256": "06b3bc91c5f440c4db0b19348ea89a452b36ad41d631fee9038b78dbf0ba9799"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/profile_M0.json",
+      "bytes": 14987,
+      "sha256": "48ef8bee060e38e27eca7456525cdfd8b10c4bae63a0c2fff6d16192c41343ad"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/profile_M5.json",
+      "bytes": 19798,
+      "sha256": "d7fb2acbc34fddcbf33745010d934831cbe92eec1c3aef2786b18da0c8aa0b10"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/r7_M0.json",
+      "bytes": 404,
+      "sha256": "02255f2422fbe7724f4df4ec807e91cd244992f9cc6532567f2d72980de4f87f"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/work/r7_M5.json",
+      "bytes": 482,
+      "sha256": "7e6af204cd4e9bbfc312bde400c79350cff4f29c6551f6e7f66eb2102f3f2c10"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/outputs/tables/yield_gap_decomposition.csv",
+      "bytes": 3077,
+      "sha256": "74643b2fc8b02cc222e7bd8952168e7f6eecae56d76a33f187fb0abcc51b8d97"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/reports/level1.md",
+      "bytes": 20698,
+      "sha256": "152db01ac29ebbef329c17e3ee86fbeed4c3efabe3a1b898161d80340a7ab7a8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/reports/level2.md",
+      "bytes": 43782,
+      "sha256": "315c2868ba24fc77075a6e7aaeec5019dae6e8d3849f95dba9b11e341d62898a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/reports/pre_fit_observations.md",
+      "bytes": 11632,
+      "sha256": "2807b552fa6290e46a2b92e61d993a7fd3e0af390e29056228ee492679c2f3e3"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/requirements.txt",
+      "bytes": 508,
+      "sha256": "f7dcf0a21526a20f172ddcdd60181e60b5597bc348b65e9dc2dc292e324efdb7"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/carbon_balance.py",
+      "bytes": 17204,
+      "sha256": "0358c25873eaaa68e11517dae751f4b3103a7525bba2e5f0a8f1f917bd1bb0b2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/compare.py",
+      "bytes": 15360,
+      "sha256": "c49fc0bd2cc89c1daa577968b3745cb085c00f74c1176ad22aba1faafc0c8c7d"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/fit.py",
+      "bytes": 22844,
+      "sha256": "dbbdd2c4c6239a98ed08c1a37bd482ca015a8a9068fefc540245e9fa19dbf9ab"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/kinetics.py",
+      "bytes": 5780,
+      "sha256": "1f0f7093078169dc776e331a18e2b0b76af6bc532f12f4d43f82a97564127e58"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/level1_summary.py",
+      "bytes": 4802,
+      "sha256": "1ff69c71fdf1dba2a36d8e50a740053a1911b8691ff8d7027b6f001e00e9434a"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/make_level1_report.py",
+      "bytes": 23339,
+      "sha256": "7b1a37956be224d6fbc822c18c20ae1cb409bd94e8ad5a2f024156d9f3125af2"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/make_level2_report.py",
+      "bytes": 49646,
+      "sha256": "d7012826f24cdc00e383b6e69bd3dce9f4ad80faf0370082ac19c22235f9980e"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/models.py",
+      "bytes": 4271,
+      "sha256": "fff4bfccc003ef7a4e55f9f55fa1ead47570f86ff9d9a743cf2c8a3c47c98aa8"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/phase0_inspect.py",
+      "bytes": 19340,
+      "sha256": "6501e222ed7bf8f0508bf5ce88e9850f2efbdcfd3224874dd2c0f4135ccbce76"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py",
+      "bytes": 17791,
+      "sha256": "2235c84a482888ed62be4f5fd593de3b5726f8493014300e6a0feb3045e41b06"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/reproduce_level2.py",
+      "bytes": 17931,
+      "sha256": "e2fc91bfa4ffe092a3b938f09aa5892d471dc4599fbfb56ce87bc7a4cbcdfa00"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/run_task2_sensitivities.py",
+      "bytes": 9414,
+      "sha256": "9303187443dca237fcad965b346b4fb250baa81882845b88f0e039e225f4bf7b"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/task2_co2_floor_sensitivity.py",
+      "bytes": 12082,
+      "sha256": "15e85199167a515a93f9753af3db153d8dd4741e3ffb57a5a2d8ae8f1c526273"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/task2_consistency_audit.py",
+      "bytes": 27854,
+      "sha256": "c48d42830a0274140f666a36af1aec23a2d1e765e584466e460aeb338e854693"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/src/uncertainty.py",
+      "bytes": 14414,
+      "sha256": "47937931f779ca41500b2d44f91b7e6691b129f5c5aa4a9a22d8e8ac3b2032cd"
+    },
+    {
+      "path": "outputs/audits/task2/reproduction/level2_repro/root/worklog.md",
+      "bytes": 11862,
+      "sha256": "430afbba4ad398b0c3cb861320c9d94cf401b8b51b23fb9aa4a2379200fde2fd"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/co2_floor_sensitivity.json",
+      "bytes": 25614,
+      "sha256": "230c188a31383449d9cded99e6ce41c9377d06060c25c7f0caa3d7b0d31a857d"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/co2_floor_sensitivity.md",
+      "bytes": 2374,
+      "sha256": "59ce3873beb4950afcbe81f5237b2792f0395646d19bddfe25360516394db499"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level1_co2_floor_sensitivity_repro.csv",
+      "bytes": 2436,
+      "sha256": "2b31b97dba7b8b92029e1fa155146a49670c578145b40587d87c7f88260fbd72"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level1_verification.json",
+      "bytes": 2991,
+      "sha256": "a93915268d54f5da19cdae7426e1fe4da287e06c8a700f762baabd741f75f25e"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/data/raw/endpoint_hplc.csv",
+      "bytes": 187,
+      "sha256": "3c91221db517bb8e3aaddaf4057ebc7224472968ae9c5e050b9e80f836d3d677"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/data/raw/runs.csv",
+      "bytes": 390,
+      "sha256": "d7f2732b62b3e746209767068848778484b13a34bc37dcbc3d6449c7ac22c796"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/data/raw/timecourse.csv",
+      "bytes": 2982,
+      "sha256": "2b24fc05d5d8cc8886b7ab9a09e20e6dca14555ec4a35294aa47209951077c85"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/outputs/tables/level1_frozen.json",
+      "bytes": 971,
+      "sha256": "d27f25f00bd34fa30a79a60247517abb06819078a66a090f54129c08583552a8"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/outputs/tables/level1_parameters.csv",
+      "bytes": 2176,
+      "sha256": "46f4887eed50e59e666547eb300942fd5fae63b42cf97fa9a4c05a42eb4a20b6"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/outputs/tables/work/fit_M0.json",
+      "bytes": 2179,
+      "sha256": "f7cb7a18b165742fedf74f4656bd70882bd8fffb9cb8ead04e57d9fe94a51991"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/outputs/tables/work/fit_M1.json",
+      "bytes": 1793,
+      "sha256": "ea4c413a31c920ac0eb63d0f187e86cbf4e4575579a02e751e6b38c30f400acb"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/outputs/tables/work/fit_M2.json",
+      "bytes": 2627,
+      "sha256": "1d2d4b9501d4b8cef9d177afb673cd420450aaa7b57830ad7d389b3cd69138ec"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/outputs/tables/work/fit_M3.json",
+      "bytes": 2327,
+      "sha256": "b5dff32a9395c4ec3d871b463f92abcfdda06284fd4382495294896f61dda7da"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/outputs/tables/work/fit_M4.json",
+      "bytes": 2172,
+      "sha256": "f99d2a704cbe6b68e647369d95f8802ce67fe7a6accceec565ce2db94d23b48c"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/outputs/tables/work/fit_M5.json",
+      "bytes": 3101,
+      "sha256": "5919d5e850b6909098e3d3fb08f99cc36d3746db879f0816303eb358ff2d52ae"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0/outputs/tables/work/fit_M6.json",
+      "bytes": 2640,
+      "sha256": "da2cdc37b3ee385d43d64e45994e17894764b91789ea1f84357edd03d56e1a89"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/data/raw/endpoint_hplc.csv",
+      "bytes": 187,
+      "sha256": "3c91221db517bb8e3aaddaf4057ebc7224472968ae9c5e050b9e80f836d3d677"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/data/raw/runs.csv",
+      "bytes": 390,
+      "sha256": "d7f2732b62b3e746209767068848778484b13a34bc37dcbc3d6449c7ac22c796"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/data/raw/timecourse.csv",
+      "bytes": 2982,
+      "sha256": "2b24fc05d5d8cc8886b7ab9a09e20e6dca14555ec4a35294aa47209951077c85"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/outputs/tables/level1_frozen.json",
+      "bytes": 971,
+      "sha256": "d27f25f00bd34fa30a79a60247517abb06819078a66a090f54129c08583552a8"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/outputs/tables/level1_parameters.csv",
+      "bytes": 2176,
+      "sha256": "46f4887eed50e59e666547eb300942fd5fae63b42cf97fa9a4c05a42eb4a20b6"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/outputs/tables/work/fit_M0.json",
+      "bytes": 2187,
+      "sha256": "3c9553c647a9954d7afe030c2d08e4016e95ad8001ab18ee9c68e3e6715376f2"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/outputs/tables/work/fit_M1.json",
+      "bytes": 1793,
+      "sha256": "33755b62d781a5b8c3940ecae1c8115e7622c0d3aa11853743894f1dc86bf4a0"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/outputs/tables/work/fit_M2.json",
+      "bytes": 2639,
+      "sha256": "14157cb0ce4eae268f5200ef57ea06129d3f73a6c62ca2d6c7228974d208ef82"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/outputs/tables/work/fit_M3.json",
+      "bytes": 2306,
+      "sha256": "3f7ee1f101dd2214217eebcd1b0737021169f22153ccb5ddbce2aab5a1f88b35"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/outputs/tables/work/fit_M4.json",
+      "bytes": 2194,
+      "sha256": "08d344b9f042d582b41fd484768f19fbce522b26c858e4a0e59cf4b30dcf68a0"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/outputs/tables/work/fit_M5.json",
+      "bytes": 3087,
+      "sha256": "06ae98d4db6d0d6403609d68e2dd1b549a6ba92f93b2286eb0600966d37909cf"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2/floor_0p5/outputs/tables/work/fit_M6.json",
+      "bytes": 2639,
+      "sha256": "0357e145922e99d56f69ec33e470536505e00161dd7d9fc59971519897633157"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2_floor_0.json",
+      "bytes": 7607,
+      "sha256": "265a4dcad1fb069a6d6afef8a66f306b13a2bc178b3dbccf8390f5cdb7aa4639"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/level2_floor_0p5.json",
+      "bytes": 7612,
+      "sha256": "ad6254c7ecef9b1a7965b19aadb9eeb6f5414753552239ce365260b22fa3430b"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/logs/driver.log",
+      "bytes": 634,
+      "sha256": "aa9bcfde270c7be5c2e55a2bd839c96f05da9d95d3472781461239f8d3903fef"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/logs/level1_verification.log",
+      "bytes": 127,
+      "sha256": "6ff26771a7a83765c2dc01e12a5a5bbf269e94f3fa67a7ab0d6fdb9116a896ef"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/logs/level2_floor_0.log",
+      "bytes": 950,
+      "sha256": "f16c67d35aa4782c50cae6afa941c00e48e766bedfe07debbb20dba2e21bae72"
+    },
+    {
+      "path": "outputs/audits/task2/sensitivity/logs/level2_floor_0p5.log",
+      "bytes": 953,
+      "sha256": "939e9c574cea9826b7ec582d1374a0a6916910c838a5a40314c594a5afdaa6c2"
+    },
+    {
+      "path": "outputs/audits/task2/tests/pytest_cp1252_sim_full.log",
+      "bytes": 99,
+      "sha256": "9cb0f1a8c32d8b41c4107ce11c7236f7d873007bafcb9dd11336c2ea293fef67"
+    },
+    {
+      "path": "outputs/audits/task2/tests/pytest_cp1252_sim_report_tests.log",
+      "bytes": 98,
+      "sha256": "ef552d9d23067875da72d1a743ed57b925e2424c87b0da581e0947d95402d9db"
+    },
+    {
+      "path": "outputs/audits/task2/tests/pytest_default.log",
+      "bytes": 99,
+      "sha256": "6dba040aadb03d893a970551bdd96968dcff7cff4a8df5e1877dae92e9e86d11"
+    },
+    {
+      "path": "outputs/audits/task2/tests/test_results.json",
+      "bytes": 2650,
+      "sha256": "2ce39c940d5ad2b7027c95fbf6d5e2ca02cfb224eeee6f517d322e0efa5d24e6"
+    },
+    {
+      "path": "outputs/audits/task2/tests/test_results.md",
+      "bytes": 1967,
+      "sha256": "fbd2508dd995e96b2ec78b24a8b45c8b30fcab09732f3364b746094a28e0b360"
+    },
+    {
+      "path": "outputs/audits/task2/tests/utf8_direct_cp1252_sim.log",
+      "bytes": 510,
+      "sha256": "87713ed071db6610b81664c1892470a1bb20ddb244a50d6913eed9bd07b6c27d"
+    },
+    {
+      "path": "outputs/audits/task2/windows_utf8_fix.json",
+      "bytes": 5024,
+      "sha256": "7adf8c3edc8f2f01f211e1e076584ba2762726664b486f4a26d9f98af875abb8"
+    },
+    {
+      "path": "outputs/audits/task2/windows_utf8_fix.md",
+      "bytes": 2332,
+      "sha256": "ef290d5992929fdfb7e9046c033417a2a9b0b38d19bdd23074777d9b06e39fc2"
+    }
+  ],
+  "evidence_file_count": 284,
+  "evidence_total_bytes": 5436429
+}

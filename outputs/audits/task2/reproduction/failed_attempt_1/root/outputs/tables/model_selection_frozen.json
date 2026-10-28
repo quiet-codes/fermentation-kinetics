@@ -1,0 +1,9 @@
+{
+  "preferred": "M5",
+  "best_QAICc_model": "M5",
+  "rule": "D-24",
+  "c_hat": 3.8629121857647286,
+  "model_comparison_sha256": "5521863023a9d33804093d73c35ce75ef4b73fd160f06455923e6592ed2a5431",
+  "candidate_parameters_sha256": "b63aafe20fd6d583f87eca08357174c489c1366d8aad1307697401a28bc57199",
+  "r6_used_for_selection": false
+}

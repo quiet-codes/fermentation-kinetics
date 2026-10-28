@@ -1,0 +1,26 @@
+# Reproduction log (level2_repro)
+
+- passed 20/20 stages in 538.6s
+- original root: /home/user/fermentation-kinetics
+- reproduced root: /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+
+- compare_fit: passed (rc=0, 183.39s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_fit.log`
+- compare_loro: passed (rc=0, 331.85s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_loro.log`
+- uncertainty_profile_M5: passed (rc=0, 102.59s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_profile_M5.log`
+- uncertainty_profile_M0: passed (rc=0, 80.09s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_profile_M0.log`
+- uncertainty_fixedgrid: passed (rc=0, 74.57s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_fixedgrid.log`
+- uncertainty_r7: passed (rc=0, 12.51s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_r7.log`
+- compare_select: passed (rc=0, 2.51s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_select.log`
+- compare_r6diag: passed (rc=0, 1.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_r6diag.log`
+- uncertainty_assemble: passed (rc=0, 2.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/uncertainty_assemble.log`
+- carbon_balance: passed (rc=0, 2.02s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/carbon_balance.log`
+- phase0: passed (rc=0, 1.0s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/phase0.log`
+- level1_predict: passed (rc=0, 2.0s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/level1_predict.log`
+- level1_summary: passed (rc=0, 1.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/level1_summary.log`
+- report_level1: passed (rc=0, 0.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/report_level1.log`
+- plant_predict: passed (rc=0, 16.31s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_predict.log`
+- plant_design: passed (rc=0, 5.0s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_design.log`
+- plant_ksens: passed (rc=0, 1.52s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_ksens.log`
+- plant_discriminate: passed (rc=0, 1.52s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_discriminate.log`
+- plant_plot: passed (rc=0, 2.0s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/plant_plot.log`
+- report_level2: passed (rc=0, 0.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/report_level2.log`

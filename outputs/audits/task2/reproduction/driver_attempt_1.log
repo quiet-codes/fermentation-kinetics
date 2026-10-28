@@ -1,0 +1,30 @@
+[start] compare_fit
+[start] carbon_balance
+[done] carbon_balance rc=0 1.5s
+[start] phase0
+[done] phase0 rc=0 1.5s
+[start] level1_predict
+[done] level1_predict rc=0 1.5s
+[start] level1_summary
+[done] level1_summary rc=0 1.5s
+[start] report_level1
+[done] report_level1 rc=0 0.5s
+[done] compare_fit rc=0 163.6s
+{
+  "failed": [
+    "compare_loro",
+    "uncertainty_profile_M5",
+    "uncertainty_profile_M0",
+    "uncertainty_fixedgrid",
+    "uncertainty_r7",
+    "compare_select",
+    "compare_r6diag",
+    "uncertainty_assemble",
+    "plant_predict",
+    "plant_design",
+    "plant_ksens",
+    "plant_discriminate",
+    "plant_plot",
+    "report_level2"
+  ]
+}

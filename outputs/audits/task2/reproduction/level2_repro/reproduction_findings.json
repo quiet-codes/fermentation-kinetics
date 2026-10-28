@@ -1,0 +1,141 @@
+{
+  "created": "2026-10-27 15:05:17",
+  "stages": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "runtime_s": 538.56
+  },
+  "files": {
+    "file_count": 68,
+    "byte_equal_count": 24,
+    "csv_json_count": 56,
+    "csv_json_not_allclose": [
+      "outputs/tables/candidate_parameters.csv",
+      "outputs/tables/experiment_design.csv",
+      "outputs/tables/experiment_discrimination.csv",
+      "outputs/tables/fixed_parameter_sensitivity.csv",
+      "outputs/tables/level1_correlations.csv",
+      "outputs/tables/level1_summary_numbers.csv",
+      "outputs/tables/model_comparison.csv",
+      "outputs/tables/model_r6_diagnostic.csv",
+      "outputs/tables/model_residuals.csv",
+      "outputs/tables/parameter_correlations_material.csv",
+      "outputs/tables/parameter_profiles.csv",
+      "outputs/tables/parameter_uncertainty.csv",
+      "outputs/tables/plant_Ks_sensitivity.csv",
+      "outputs/tables/plant_linearised_sd.csv",
+      "outputs/tables/plant_prediction_uncertainty.csv",
+      "outputs/tables/r7_inclusion_effect.csv",
+      "outputs/tables/structure_spread.csv",
+      "outputs/tables/variance_decomposition.csv",
+      "outputs/tables/work/fit_M0.json",
+      "outputs/tables/work/fit_M1.json",
+      "outputs/tables/work/fit_M2.json",
+      "outputs/tables/work/fit_M3.json",
+      "outputs/tables/work/fit_M4.json",
+      "outputs/tables/work/fit_M5.json",
+      "outputs/tables/work/fit_M6.json",
+      "outputs/tables/work/fixedgrid_M0.json",
+      "outputs/tables/work/fixedgrid_M5.json",
+      "outputs/tables/work/loro_M0.json",
+      "outputs/tables/work/loro_M5.json",
+      "outputs/tables/work/profile_M0.json",
+      "outputs/tables/work/profile_M5.json"
+    ],
+    "png_count": 9,
+    "text_report_count": 3
+  },
+  "hash_changed_files": 44,
+  "key_conclusions": {
+    "preferred_unchanged": true,
+    "rule_unchanged": true,
+    "r6_not_used": true,
+    "all_fit_convergence_unchanged": true,
+    "M3_bound_unchanged": true
+  },
+  "frozen": {
+    "preferred_orig": "M5",
+    "preferred_rep": "M5",
+    "best_orig": "M5",
+    "best_rep": "M5",
+    "c_hat_orig": 3.8629121857647286,
+    "c_hat_rep": 3.8629134694190737,
+    "c_hat_diff": 1.2836543450411853e-06,
+    "rule_orig": "D-24",
+    "rule_rep": "D-24",
+    "r6_orig": false,
+    "r6_rep": false
+  },
+  "fit_m5_difference": {
+    "model": "M5",
+    "max_abs_theta_diff": 0.4799983641561596,
+    "max_rel_theta_pct": 0.30810600398726207,
+    "chi2_orig": 1116.3816216860066,
+    "chi2_rep": 1116.3819926621122,
+    "chi2_diff": 0.00037097610561431793,
+    "red_orig": 3.8629121857647286,
+    "red_rep": 3.8629134694190737,
+    "red_diff": 1.2836543450411853e-06,
+    "near_orig": "8/8",
+    "near_rep": "8/8",
+    "status_orig": 3,
+    "status_rep": 3,
+    "failures_orig": 0,
+    "failures_rep": 0,
+    "bound_orig": 0,
+    "bound_rep": 0
+  },
+  "loro_m5_r8": {
+    "original": 1629.1999045178106,
+    "reproduced": 731.1355428602445,
+    "recompute_from_original_theta": 1629.1999045178106,
+    "recompute_from_reproduced_theta": 731.1355428602445
+  },
+  "report_equality": {
+    "level1.md": {
+      "orig_len": 20698,
+      "rep_len": 20698,
+      "byte_equal": true
+    },
+    "level2.md": {
+      "orig_len": 43785,
+      "rep_len": 43782,
+      "byte_equal": false
+    },
+    "pre_fit_observations.md": {
+      "orig_len": 11632,
+      "rep_len": 11632,
+      "byte_equal": true
+    }
+  },
+  "arithmetic_checks": {
+    "d24_preferred": "M5",
+    "all_eight_runs": true,
+    "non_closing_runs": [
+      "R4"
+    ],
+    "yield_gap_residual": 1.7763568394002505e-14,
+    "residual_chi2_max_diff": 1.3642420526593924e-12,
+    "frozen_hashes_ok": true
+  },
+  "first_attempt": {
+    "path": "outputs/audits/task2/reproduction/failed_attempt_1",
+    "status": "failed",
+    "cause": "Scheduler marked dependent stages skipped immediately after compare_fit finished (deadlock check ran before ready stages were recomputed).",
+    "fix": "Added a progress flag so the scheduler loops again when a dependency has just completed; verified with a small synthetic DAG before rerun.",
+    "stages_passed": 6,
+    "stages_skipped": 14
+  },
+  "limitations": [
+    "The original assignment PDF is unavailable; D-03 is verified only against docs/assignment_brief.md.",
+    "Actual Windows execution was not performed in this Linux sandbox; a cp1252 file-encoding simulation is used for the UTF-8 fix.",
+    "Figures are checked for valid PNG signature and byte equality only, not pixel-level equality.",
+    "Numeric reproduction uses Python 3.11.2 / numpy 2.4.6 / pandas 3.1.0; the frozen record used Python 3.12.3 / numpy 2.4.4 / pandas 3.0.2, so bit-exact agreement is not expected.",
+    "Level 1 fit and full Level 1 sensitivity were not refit in the reproduction; the frozen Level 1 outputs were copied as inputs.",
+    "The reproduced M5 fit selected a different near-equivalent minimum (P_max lower by 0.48 g/L, chi-square higher by 0.000371). This changes downstream LORO/plant numbers; the frozen original decision is still M5.",
+    "The LORO M5 R8 fold is 731.1 in the reproduction vs 1629.2 originally. A targeted recomputation from the original fit theta gives 1629.1999 and from the reproduced theta gives 731.1355, confirming warm-start sensitivity rather than a code change.",
+    "The reproduced level2.md is not byte-identical because it reports reproduced numbers; level1.md and pre_fit_observations.md are byte-identical."
+  ]
+}

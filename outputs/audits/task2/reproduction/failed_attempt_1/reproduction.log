@@ -1,0 +1,26 @@
+# Reproduction log (level2_repro)
+
+- passed 6/20 stages in 163.6s
+- original root: /home/user/fermentation-kinetics
+- reproduced root: /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+
+- compare_fit: passed (rc=0, 163.58s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_fit.log`
+- compare_loro: skipped (rc=None, Nones) log `None`
+- uncertainty_profile_M5: skipped (rc=None, Nones) log `None`
+- uncertainty_profile_M0: skipped (rc=None, Nones) log `None`
+- uncertainty_fixedgrid: skipped (rc=None, Nones) log `None`
+- uncertainty_r7: skipped (rc=None, Nones) log `None`
+- compare_select: skipped (rc=None, Nones) log `None`
+- compare_r6diag: skipped (rc=None, Nones) log `None`
+- uncertainty_assemble: skipped (rc=None, Nones) log `None`
+- carbon_balance: passed (rc=0, 1.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/carbon_balance.log`
+- phase0: passed (rc=0, 1.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/phase0.log`
+- level1_predict: passed (rc=0, 1.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/level1_predict.log`
+- level1_summary: passed (rc=0, 1.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/level1_summary.log`
+- report_level1: passed (rc=0, 0.5s) log `outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/report_level1.log`
+- plant_predict: skipped (rc=None, Nones) log `None`
+- plant_design: skipped (rc=None, Nones) log `None`
+- plant_ksens: skipped (rc=None, Nones) log `None`
+- plant_discriminate: skipped (rc=None, Nones) log `None`
+- plant_plot: skipped (rc=None, Nones) log `None`
+- report_level2: skipped (rc=None, Nones) log `None`

@@ -1,0 +1,11 @@
+# Direct UTF-8 generator check under simulated Windows cp1252 default
+# tempdir=/tmp/tmp.jeOo5mkXzZ
++ PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 python src/make_level1_report.py /tmp/tmp.jeOo5mkXzZ/level1.md
+20672
++ PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 python src/make_level2_report.py /tmp/tmp.jeOo5mkXzZ/level2.md
+43615
+level1.md: byte-identical
+level2.md: byte-identical
+20698 /tmp/tmp.jeOo5mkXzZ/level1.md
+43785 /tmp/tmp.jeOo5mkXzZ/level2.md
+64483 total

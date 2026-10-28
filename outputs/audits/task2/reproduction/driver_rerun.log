@@ -1,0 +1,49 @@
+[start] compare_fit
+[start] carbon_balance
+[done] carbon_balance rc=0 2.0s
+[start] phase0
+[done] phase0 rc=0 1.0s
+[start] level1_predict
+[done] level1_predict rc=0 2.0s
+[start] level1_summary
+[done] level1_summary rc=0 1.5s
+[start] report_level1
+[done] report_level1 rc=0 0.5s
+[done] compare_fit rc=0 183.4s
+[start] compare_loro
+[start] uncertainty_profile_M5
+[done] uncertainty_profile_M5 rc=0 102.6s
+[start] uncertainty_profile_M0
+[done] uncertainty_profile_M0 rc=0 80.1s
+[start] uncertainty_fixedgrid
+[done] uncertainty_fixedgrid rc=0 74.6s
+[start] uncertainty_r7
+[done] uncertainty_r7 rc=0 12.5s
+[done] compare_loro rc=0 331.8s
+[start] compare_select
+[done] compare_select rc=0 2.5s
+[start] compare_r6diag
+[start] uncertainty_assemble
+[done] compare_r6diag rc=0 1.5s
+[start] plant_predict
+[done] uncertainty_assemble rc=0 2.5s
+[start] plant_design
+[done] plant_design rc=0 5.0s
+[start] plant_ksens
+[done] plant_ksens rc=0 1.5s
+[start] plant_discriminate
+[done] plant_discriminate rc=0 1.5s
+[done] plant_predict rc=0 16.3s
+[start] plant_plot
+[done] plant_plot rc=0 2.0s
+[start] report_level2
+[done] report_level2 rc=0 0.5s
+{
+  "run_id": "level2_repro",
+  "stages": 20,
+  "files_compared": 68,
+  "byte_equal": 24,
+  "csv_json_not_allclose": 31,
+  "d24_preferred": "M5",
+  "report": "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/consistency_report.md"
+}

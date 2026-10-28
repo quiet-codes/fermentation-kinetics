@@ -1,0 +1,12 @@
+# started 2026-10-27 14:32:33
+# cwd /home/user/fermentation-kinetics
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/src/task2_co2_floor_sensitivity.py --mode level2 --floor 0.0 --root /home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level2/floor_0 --output /home/user/fermentation-kinetics/outputs/audits/task2/sensitivity/level2_floor_0.json --original-root /home/user/fermentation-kinetics --data-dir data/raw
+
+M0 k=8 chi2=4252.22 red=14.61 starts_near_best=8/8 fail=0 27s
+M1 k=7 chi2=4341.92 red=14.87 starts_near_best=8/8 fail=0 24s
+M2 k=9 chi2=1937.95 red=6.68 starts_near_best=8/8 fail=0 39s
+M3 k=9 chi2=3105.25 red=10.71 starts_near_best=8/8 fail=0 27s
+M4 k=8 chi2=4059.76 red=13.95 starts_near_best=8/8 fail=0 26s
+M5 k=10 chi2=1218.71 red=4.22 starts_near_best=8/8 fail=0 26s
+M6 k=9 chi2=1763.21 red=6.08 starts_near_best=8/8 fail=0 29s
+level2 floor=0.0: preferred=M5 best_QAICc=M5 runtime=199.62s

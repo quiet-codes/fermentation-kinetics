@@ -1,0 +1,13 @@
+# stage uncertainty_profile_M0
+# started 2026-10-27 14:55:16
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/uncertainty.py --stage profile --models M0 --data-dir data/raw --root .
+
+M0 mu_max 9 pts, 13s
+M0 X_max 9 pts, 27s
+M0 q_max 9 pts, 39s
+M0 P_max 8 pts, 52s
+M0 Y_P 5 pts, 58s
+M0 rho_CO2 7 pts, 64s
+M0 k34 5 pts, 71s
+M0 k37 7 pts, 79s

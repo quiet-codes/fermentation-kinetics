@@ -25,7 +25,7 @@ import compare as C, fit, models as M
 MULT = [1, 2, 3.5, 5.5, 8, 12, 18, 26]
 
 
-def load_fit(w, v): return json.load(open(os.path.join(w, f"fit_{v}.json")))
+def load_fit(w, v): return json.load(open(os.path.join(w, f"fit_{v}.json"), encoding="utf-8"))
 
 
 def refit_fixed(variant, fun_full, theta_start, idx, val, lo, hi, max_nfev=80):
@@ -61,7 +61,7 @@ def stage_profile(a):
                     if chi2 - chi0 > 3 * thr_s or hitb: break
             pts.sort(key=lambda p: p["value"]); out[nm] = pts
             print(v, nm, "%d pts, %.0fs" % (len(pts), time.time() - t0), flush=True)
-        json.dump(dict(variant=v, names=names, chi0=chi0, c_hat=c_hat, profiles=out), open(os.path.join(w, f"profile_{v}.json"), "w"))
+        json.dump(dict(variant=v, names=names, chi0=chi0, c_hat=c_hat, profiles=out), open(os.path.join(w, f"profile_{v}.json"), "w", encoding="utf-8", newline="\n"))
 
 
 def crossing(pts, chi0, thr, side):
@@ -93,7 +93,7 @@ def stage_fixedgrid(a):
                 rows.append(dict(model=v, fixed_parameter=pname, value=val, chi2=best["chi2"], delta_chi2=best["chi2"] - fj["chi2"], delta_chi2_over_chat=(best["chi2"] - fj["chi2"]) / fj["red"],
                                  **{k: float(x) for k, x in zip(nm, best["theta"])}, params_at_bound=int(C.at_bound(best["theta"], *M.spec(v)[2:4]).sum())))
                 print(v, pname, val, round(best["chi2"], 1), flush=True)
-        json.dump(rows, open(os.path.join(w, f"fixedgrid_{v}.json"), "w"))
+        json.dump(rows, open(os.path.join(w, f"fixedgrid_{v}.json"), "w", encoding="utf-8", newline="\n"))
 
 
 def stage_r7(a):
@@ -104,7 +104,7 @@ def stage_r7(a):
         best, out, counter, fun = C.fit_variant(v, recs, pol, n_lhs=0, warm=th0, max_nfev=300)
         n_obs = len(fun(best["theta"]))
         json.dump(dict(variant=v, names=names, theta=best["theta"].tolist(), chi2=best["chi2"], n_obs=n_obs, red=best["chi2"] / (n_obs - len(names)), at_bound=C.at_bound(best["theta"], lo, hi).tolist()),
-                  open(os.path.join(w, f"r7_{v}.json"), "w"))
+                  open(os.path.join(w, f"r7_{v}.json"), "w", encoding="utf-8", newline="\n"))
         print(v, "with R7: chi2=%.1f N=%d red=%.2f" % (best["chi2"], n_obs, best["chi2"] / (n_obs - len(names))), flush=True)
 
 
@@ -121,11 +121,11 @@ def classify(row):
 
 def stage_assemble(a):
     t, w, fdir = C.dirs(a.root); rows, prof_rows, fx_rows, r7_rows, corr_rows = [], [], [], [], []
-    fr = json.load(open(os.path.join(t, "model_selection_frozen.json")))
+    fr = json.load(open(os.path.join(t, "model_selection_frozen.json"), encoding="utf-8"))
     for v in a.models.split(","):
-        fj = load_fit(w, v); pj = json.load(open(os.path.join(w, f"profile_{v}.json"))); names, start, lo, hi, units, desc = M.spec(v)
+        fj = load_fit(w, v); pj = json.load(open(os.path.join(w, f"profile_{v}.json"), encoding="utf-8")); names, start, lo, hi, units, desc = M.spec(v)
         cov = np.array([[np.nan if x is None else x for x in row] for row in fj["cov"]]); se = np.sqrt(np.diag(cov)); th0 = np.array(fj["theta"])
-        loro = json.load(open(os.path.join(w, f"loro_{v}.json"))); chi0, c_hat = pj["chi0"], pj["c_hat"]
+        loro = json.load(open(os.path.join(w, f"loro_{v}.json"), encoding="utf-8")); chi0, c_hat = pj["chi0"], pj["c_hat"]
         sd_ = np.sqrt(np.diag(cov)); corr = cov / np.outer(sd_, sd_)
         for i, nm in enumerate(names):
             pts = pj["profiles"][nm]
@@ -153,10 +153,10 @@ def stage_assemble(a):
             if pn == "n_inh" and M.VARIANTS[v]["n_free"]: continue
             rows.append(dict(model=v, preferred_by_D24=(v == fr["preferred"]), parameter=pn, value=val, unit=un, status="fixed", method="not estimated; chi2 re-optimised on a grid", identifiability="fixed (not estimated)", note=why))
         fg = os.path.join(w, f"fixedgrid_{v}.json")
-        if os.path.exists(fg): fx_rows += json.load(open(fg))
+        if os.path.exists(fg): fx_rows += json.load(open(fg, encoding="utf-8"))
         r7f = os.path.join(w, f"r7_{v}.json")
         if os.path.exists(r7f):
-            rj = json.load(open(r7f)); pm = {r["parameter"]: r for r in rows if r["model"] == v and r["status"] == "fitted"}
+            rj = json.load(open(r7f, encoding="utf-8")); pm = {r["parameter"]: r for r in rows if r["model"] == v and r["status"] == "fitted"}
             for i, nm in enumerate(names):
                 r = pm[nm]; chg = rj["theta"][i] - th0[i]; half = (np.nanmax([r["ci_hi"] - th0[i], th0[i] - r["ci_lo"]]) if not (r["ci_open_lo"] or r["ci_open_hi"]) else np.nan)
                 r7_rows.append(dict(model=v, parameter=nm, primary=th0[i], with_R7=rj["theta"][i], change_pct=100 * chg / abs(th0[i]), change_over_profile_halfwidth=chg / half if np.isfinite(half) else np.nan,

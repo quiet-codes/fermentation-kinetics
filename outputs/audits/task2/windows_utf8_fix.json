@@ -1,0 +1,118 @@
+{
+  "created": "2026-10-27 14:55:50",
+  "problem": "On Windows, open(OUT,\"w\") without encoding uses the locale code page (commonly cp1252). The reports contain Unicode characters that cp1252 cannot encode.",
+  "original_lines": {
+    "level1": "src/make_level1_report.py:184 open(OUT,'w').write(rep)",
+    "level2": "src/make_level2_report.py:329 open(OUT,'w').write(rep); print(len(rep))"
+  },
+  "fixed_lines": {
+    "level1": "src/make_level1_report.py:184 open(OUT,'w', encoding=\"utf-8\", newline=\"\\n\").write(rep)",
+    "level2": "src/make_level2_report.py:329 open(OUT,'w', encoding=\"utf-8\", newline=\"\\n\").write(rep); print(len(rep))"
+  },
+  "files_modified": [
+    "src/compare.py",
+    "src/fit.py",
+    "src/make_level1_report.py",
+    "src/make_level2_report.py",
+    "src/plant_uncertainty.py",
+    "src/uncertainty.py"
+  ],
+  "added_explicit_encoding_calls": 35,
+  "report_character_analysis": {
+    "level1.md": {
+      "non_ascii_chars": [
+        "U+2013",
+        "U+2212"
+      ],
+      "cp1252_unencodable": [
+        "U+2212"
+      ],
+      "cp1252_unencodable_count": 1
+    },
+    "level2.md": {
+      "non_ascii_chars": [
+        "U+00B1",
+        "U+00D7",
+        "U+0394",
+        "U+2013",
+        "U+20B9",
+        "U+2192",
+        "U+2212",
+        "U+2248",
+        "U+2264",
+        "U+2265"
+      ],
+      "cp1252_unencodable": [
+        "U+0394",
+        "U+20B9",
+        "U+2192",
+        "U+2212",
+        "U+2248",
+        "U+2264",
+        "U+2265"
+      ],
+      "cp1252_unencodable_count": 7
+    }
+  },
+  "fix": "Explicit UTF-8 encoding for all text open() calls in the six existing source files, plus newline=\"\\n\" for text writes; report-equality tests were not weakened.",
+  "simulation": "Linux sitecustomize.py forced cp1252 for make_level*.py .md writes when no encoding was supplied.",
+  "test_evidence": {
+    "created": "2026-10-27 14:51:38",
+    "environment": {
+      "python": "3.11.2",
+      "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+      "pytest": "9.1.1"
+    },
+    "runs": [
+      {
+        "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider",
+        "log": "outputs/audits/task2/tests/pytest_default.log",
+        "raw_summary": "60 passed in 4.88s",
+        "passed": 60,
+        "skipped": 0,
+        "failed": 0,
+        "duration_s": 4.88
+      },
+      {
+        "command": "PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider",
+        "log": "outputs/audits/task2/tests/pytest_cp1252_sim_full.log",
+        "raw_summary": "60 passed in 4.96s",
+        "passed": 60,
+        "skipped": 0,
+        "failed": 0,
+        "duration_s": 4.96
+      },
+      {
+        "command": "PYTHONPATH=/tmp/fk-cp1252-sim PYTHONUTF8=0 PYTHONIOENCODING=utf-8 PYTHONDONTWRITEBYTECODE=1 /tmp/fk-audit-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_report_claims.py::test_level1_report_equals_generator_output tests/test_report_claims.py::test_level2_report_equals_generator_output",
+        "log": "outputs/audits/task2/tests/pytest_cp1252_sim_report_tests.log",
+        "raw_summary": "2 passed in 1.06s",
+        "passed": 2,
+        "skipped": 0,
+        "failed": 0,
+        "duration_s": 1.06
+      }
+    ],
+    "direct_generator_check": {
+      "log": "outputs/audits/task2/tests/utf8_direct_cp1252_sim.log",
+      "byte_equal": true,
+      "note": "sitecustomize.py forces cp1252 for make_level*.py .md writes when no encoding is supplied; explicit encoding in the fixed generators makes the simulation ineffective."
+    },
+    "simulation_note": "This is a Linux cp1252 file-encoding simulation, NOT actual Windows execution."
+  },
+  "actual_windows_execution": false,
+  "unresolved": "Actual Windows pytest execution and full Windows traceback remain unverified in this Linux sandbox.",
+  "windows_commands": [
+    "python -m pip install -r requirements.txt",
+    "python -c \"import sys,locale; print(sys.version); print(locale.getpreferredencoding(False)); print(sys.stdout.encoding)\"",
+    "chcp",
+    "python -m pytest -q",
+    "python -m pytest -q tests/test_report_claims.py::test_level1_report_equals_generator_output tests/test_report_claims.py::test_level2_report_equals_generator_output -vv",
+    "python -m pytest -q tests/test_task2_consistency.py -vv",
+    "python src/make_level1_report.py \"%TEMP%\\fk_level1.md\"",
+    "python src/make_level2_report.py \"%TEMP%\\fk_level2.md\"",
+    "fc /B reports\\level1.md \"%TEMP%\\fk_level1.md\"",
+    "fc /B reports\\level2.md \"%TEMP%\\fk_level2.md\"",
+    "git status --short"
+  ],
+  "diff_stat": "src/compare.py            | 14 +++++++-------\n src/fit.py                |  4 ++--\n src/make_level1_report.py |  4 ++--\n src/make_level2_report.py |  6 +++---\n src/plant_uncertainty.py  | 24 ++++++++++++------------\n src/uncertainty.py        | 18 +++++++++---------\n 6 files changed, 35 insertions(+), 35 deletions(-)"
+}

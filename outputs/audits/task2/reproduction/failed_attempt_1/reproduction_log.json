@@ -1,0 +1,474 @@
+{
+  "created": "2026-10-27 14:48:18",
+  "run_id": "level2_repro",
+  "original_root": "/home/user/fermentation-kinetics",
+  "reproduced_root": "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root",
+  "mode": "all",
+  "max_workers": 2,
+  "environment": {
+    "python": "3.11.2",
+    "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+    "numpy": "2.4.6",
+    "pandas": "3.1.0",
+    "scipy": "1.17.1"
+  },
+  "stage_count": 20,
+  "passed": 6,
+  "failed": 0,
+  "skipped": 14,
+  "total_runtime_s": 163.58,
+  "stages": [
+    {
+      "name": "compare_fit",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/compare.py",
+        "--stage",
+        "fit",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [],
+      "priority": 1,
+      "expected_outputs": [
+        "outputs/tables/work/fit_M0.json",
+        "outputs/tables/work/fit_M1.json",
+        "outputs/tables/work/fit_M2.json",
+        "outputs/tables/work/fit_M3.json",
+        "outputs/tables/work/fit_M4.json",
+        "outputs/tables/work/fit_M5.json",
+        "outputs/tables/work/fit_M6.json"
+      ],
+      "note": "Seven Level 2 candidate fits (training runs only).",
+      "log": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/compare_fit.log",
+      "returncode": 0,
+      "duration_s": 163.58,
+      "log_tail": "# stage compare_fit\n# started 2026-10-27 14:45:35\n# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root\n# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/compare.py --stage fit --data-dir data/raw --root .\n# note: Seven Level 2 candidate fits (training runs only).\n\nM0 k=8 chi2=3675.25 red=12.63 starts_near_best=8/8 fail=0 18s\nM1 k=7 chi2=3803.47 red=13.03 starts_near_best=8/8 fail=0 21s\nM2 k=9 chi2=1683.21 red=5.80 starts_near_best=8/8 fail=0 26s\nM3 k=9 chi2=2746.26 red=9.47 starts_near_best=8/8 fail=0 27s\nM4 k=8 chi2=3518.07 red=12.09 starts_near_best=8/8 fail=0 18s\nM5 k=10 chi2=1116.38 red=3.86 starts_near_best=8/8 fail=0 25s\nM6 k=9 chi2=1530.24 red=5.28 starts_near_best=8/8 fail=0 27s",
+      "status": "passed"
+    },
+    {
+      "name": "compare_loro",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/compare.py",
+        "--stage",
+        "loro",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_fit"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "uncertainty_profile_M5",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/uncertainty.py",
+        "--stage",
+        "profile",
+        "--models",
+        "M5",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_fit"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "uncertainty_profile_M0",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/uncertainty.py",
+        "--stage",
+        "profile",
+        "--models",
+        "M0",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_fit"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "uncertainty_fixedgrid",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/uncertainty.py",
+        "--stage",
+        "fixedgrid",
+        "--models",
+        "M5,M0",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_fit"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "uncertainty_r7",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/uncertainty.py",
+        "--stage",
+        "r7",
+        "--models",
+        "M5,M0",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_fit"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "compare_select",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/compare.py",
+        "--stage",
+        "select",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_loro"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "compare_r6diag",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/compare.py",
+        "--stage",
+        "r6diag",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_select"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "uncertainty_assemble",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/uncertainty.py",
+        "--stage",
+        "assemble",
+        "--models",
+        "M5,M0",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_select",
+        "compare_loro",
+        "uncertainty_profile_M5",
+        "uncertainty_profile_M0",
+        "uncertainty_fixedgrid",
+        "uncertainty_r7"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "carbon_balance",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/carbon_balance.py",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [],
+      "priority": 15,
+      "expected_outputs": [
+        "outputs/tables/carbon_balance_all_runs.csv",
+        "outputs/tables/ethanol_yields.csv",
+        "outputs/tables/ethanol_yield_pooled.csv",
+        "outputs/tables/yield_gap_decomposition.csv",
+        "outputs/tables/r7_review.csv",
+        "outputs/figures/carbon_balance_all_runs.png",
+        "outputs/figures/ethanol_yield_gap.png"
+      ],
+      "note": "",
+      "log": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/carbon_balance.log",
+      "returncode": 0,
+      "duration_s": 1.5,
+      "log_tail": " R6                91.76                        8.24             4.79           4.22           5.36              4.40            4.11            4.68            0.05          0.00          0.09               -0.49             -1.94              0.99                -0.51              -4.25               3.04                  0.0\n R7                85.66                       14.34             5.77           5.11           6.44              4.46            4.16            4.76            4.68          4.38          4.99                0.59             -0.83              2.01                -1.16              -4.70               2.36                  0.0\n R8                92.54                        7.46             6.34           5.60           7.08              4.61            4.30            4.92            0.06          0.00          0.12               -0.06             -1.54              1.47                -3.49              -7.58               0.44                 -0.0\n                                                                        quantity      R7      R5  difference  sd_of_difference      z     unit\n                                                                       final TRS  28.700   6.600      22.100             0.830 26.622      g/L\n                                                                    ethanol 48 h  84.200  96.600     -12.400             1.891 -6.559      g/L\n                                                                        CO2 48 h  82.100  95.500     -13.400             2.519 -5.320      g/L\n                                                                    biomass 48 h  11.590  11.290       0.300             0.679  0.442      g/L\n                                                                        glycerol   8.760  10.030      -1.270             0.400 -3.179      g/L\n                                                                        final pH   3.840   4.400      -0.560             0.057 -9.899        -\n                                              lactic acid (n.d. = 0.1 +/- 0.058)   9.000   0.100       8.900             0.276 32.235      g/L\n                                                              lactic acid carbon   0.300     NaN         NaN               NaN    NaN  C-mol/L\n                  lactic acid as glucose equivalent (1 glucose -> 2 lactic acid)   9.000     NaN         NaN               NaN    NaN      g/L\n                                                                    TRS consumed 192.200 211.400     -19.200               NaN    NaN      g/L\nshare of the R5-R7 TRS-consumption gap that lactic acid carbon could account for   0.469     NaN         NaN               NaN    NaN fraction\n                                           ethanol per TRS consumed, as measured   0.438   0.457      -0.019               NaN    NaN      g/g\n          ethanol per TRS consumed after removing lactic-acid glucose equivalent   0.460   0.457       0.003               NaN    NaN      g/g\n                            carbon recovery, lactate counted (total-input basis) 100.998 100.144         NaN               NaN    NaN        %\n                                                carbon recovery, lactate omitted  96.979 100.098         NaN               NaN    NaN        %\n                                carbon recovery, consumed basis, lactate counted 101.163 100.150         NaN               NaN    NaN        %",
+      "status": "passed"
+    },
+    {
+      "name": "phase0",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/phase0_inspect.py",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [],
+      "priority": 20,
+      "expected_outputs": [
+        "outputs/tables/data_quality.csv",
+        "outputs/tables/endpoint_diagnostics.csv",
+        "outputs/tables/preliminary_carbon_balance.csv",
+        "outputs/tables/run_descriptive_summary.csv",
+        "outputs/figures/raw_curves.png"
+      ],
+      "note": "Phase 0 prerequisite verification (no fitting).",
+      "log": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/phase0.log",
+      "returncode": 0,
+      "duration_s": 1.5,
+      "log_tail": "# stage phase0\n# started 2026-10-27 14:45:37\n# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root\n# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/phase0_inspect.py --data-dir data/raw --root .\n# note: Phase 0 prerequisite verification (no fitting).\n\nPhase 0 outputs written to .\n{'PASS': 74, 'INFO': 58, 'FLAG': 5}",
+      "status": "passed"
+    },
+    {
+      "name": "level1_predict",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/fit.py",
+        "--stage",
+        "predict",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [],
+      "priority": 21,
+      "expected_outputs": [
+        "outputs/tables/heldout_metrics.csv",
+        "outputs/tables/heldout_predictions.csv",
+        "outputs/figures/heldout_prediction.png"
+      ],
+      "note": "Level 1 prediction only; frozen Level 1 fit is intentionally NOT refit.",
+      "log": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/level1_predict.log",
+      "returncode": 0,
+      "duration_s": 1.5,
+      "log_tail": "# stage level1_predict\n# started 2026-10-27 14:45:39\n# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root\n# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/fit.py --stage predict --data-dir data/raw --root .\n# note: Level 1 prediction only; frozen Level 1 fit is intentionally NOT refit.\n\n         scope variable  n   rmse    bias  rel_rmse_pct  mean_z  rms_z  observed  predicted\ntimecourse_t>0        X 13  0.797  -0.265        10.240  -0.303  2.057       NaN        NaN\n  endpoint_48h        X  1  1.534  -1.534           NaN  -3.331    NaN     10.87      9.336\ntimecourse_t>0        S 13  7.510  -4.976         4.807  -3.893  5.608       NaN        NaN\n  endpoint_48h        S  1 10.009 -10.009           NaN -11.284    NaN     48.70     38.691\ntimecourse_t>0        P 13  2.725   1.756         5.762   1.613  3.058       NaN        NaN\n  endpoint_48h        P  1  1.694   1.694           NaN   1.167    NaN    100.10    101.794\ntimecourse_t>0        C 13  3.803   2.968         8.368   2.189  2.685       NaN        NaN\n  endpoint_48h        C  1  6.376   6.376           NaN   3.217    NaN     94.10    100.476",
+      "status": "passed"
+    },
+    {
+      "name": "level1_summary",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/level1_summary.py",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "level1_predict"
+      ],
+      "priority": 22,
+      "expected_outputs": [
+        "outputs/tables/level1_correlations.csv",
+        "outputs/tables/level1_summary_numbers.csv"
+      ],
+      "note": "",
+      "log": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/level1_summary.log",
+      "returncode": 0,
+      "duration_s": 1.5,
+      "log_tail": "             obs_CO2_over_ethanol_48h[R5]    0.9886                                     \nobs_ethanol_per_TRS_dropped_nominalS0[R8]    0.4672                                     \n             obs_CO2_over_ethanol_48h[R8]    0.9536                                     \nobs_ethanol_per_TRS_dropped_nominalS0[R6]    0.4737                                     \n             obs_CO2_over_ethanol_48h[R6]    0.9401                                     \nobs_ethanol_per_TRS_dropped_nominalS0[R7]    0.4401                                     \n             obs_CO2_over_ethanol_48h[R7]    0.9751                                     \n          pred_R6_ethanol_per_TRS_dropped    0.4600                                     \n        pred_R6_biomass_sugar_use_g_per_L    8.3444                                     \n         obs_R6_biomass_sugar_use_g_per_L   10.2164 DW biomass, uses observed 48 h value\n                   rho_minus_stoich_in_SE    2.6059                                     \n            min_positive_time_CO2_g_per_L    3.0000                                     \nCO2_sd_floor_vs_pure2pct_ratio_at_min_CO2    2.6667                                     \n    CO2_sd_floor_vs_pure2pct_ratio_median    1.1180                                     \n                R6_ethanol_0_12h_rate_obs    2.5417                                     \n               R6_ethanol_0_12h_rate_pred    2.6719                                     \n               R6_ethanol_36_48h_rate_obs    0.9500                                     \n              R6_ethanol_36_48h_rate_pred    1.0424                                     \n                   R6_TRS_36_48h_rate_obs    1.9750                                     \n                  R6_TRS_36_48h_rate_pred    2.1820                                     ",
+      "status": "passed"
+    },
+    {
+      "name": "report_level1",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/make_level1_report.py",
+        "reports/level1.md"
+      ],
+      "deps": [
+        "level1_summary"
+      ],
+      "priority": 23,
+      "expected_outputs": [
+        "reports/level1.md"
+      ],
+      "note": "",
+      "log": "outputs/audits/task2/reproduction/level2_repro/logs/stage_logs/report_level1.log",
+      "returncode": 0,
+      "duration_s": 0.5,
+      "log_tail": "# stage report_level1\n# started 2026-10-27 14:45:43\n# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root\n# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/make_level1_report.py reports/level1.md\n\n20672",
+      "status": "passed"
+    },
+    {
+      "name": "plant_predict",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py",
+        "--stage",
+        "predict",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_select",
+        "uncertainty_profile_M5",
+        "uncertainty_profile_M0"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "plant_design",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py",
+        "--stage",
+        "design",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_select",
+        "compare_fit"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "plant_ksens",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py",
+        "--stage",
+        "ksens",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_select",
+        "uncertainty_fixedgrid"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "plant_discriminate",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py",
+        "--stage",
+        "discriminate",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "compare_select",
+        "compare_fit"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "plant_plot",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py",
+        "--stage",
+        "plot",
+        "--data-dir",
+        "data/raw",
+        "--root",
+        "."
+      ],
+      "deps": [
+        "plant_predict",
+        "plant_design",
+        "compare_select"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    },
+    {
+      "name": "report_level2",
+      "command": [
+        "/tmp/fk-audit-venv/bin/python",
+        "/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/make_level2_report.py",
+        "reports/level2.md"
+      ],
+      "deps": [
+        "compare_r6diag",
+        "uncertainty_assemble",
+        "carbon_balance",
+        "plant_plot",
+        "plant_ksens",
+        "plant_design",
+        "plant_discriminate"
+      ],
+      "status": "skipped",
+      "reason": "unmet dependency or scheduler deadlock"
+    }
+  ],
+  "baseline_manifest": "outputs/audits/task2/reproduction/level2_repro/root/logs/baseline_manifest.json",
+  "files_with_hash_changed_vs_copied_baseline": [
+    "outputs/figures/carbon_balance_all_runs.png",
+    "outputs/figures/ethanol_yield_gap.png",
+    "outputs/figures/heldout_prediction.png",
+    "outputs/figures/raw_curves.png",
+    "outputs/tables/heldout_metrics.csv",
+    "outputs/tables/heldout_predictions.csv",
+    "outputs/tables/level1_correlations.csv",
+    "outputs/tables/level1_summary_numbers.csv",
+    "outputs/tables/work/fit_M0.json",
+    "outputs/tables/work/fit_M1.json",
+    "outputs/tables/work/fit_M2.json",
+    "outputs/tables/work/fit_M3.json",
+    "outputs/tables/work/fit_M4.json",
+    "outputs/tables/work/fit_M5.json",
+    "outputs/tables/work/fit_M6.json",
+    "outputs/tables/yield_gap_decomposition.csv"
+  ],
+  "level1_fit_and_sensitivity_not_refit": true,
+  "note": "Level 1 frozen parameters were copied as inputs; fit.py --stage predict and level1_summary.py were run as prerequisite verification only."
+}

@@ -1,0 +1,55 @@
+# stage level1_summary
+# started 2026-10-27 14:50:36
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/level1_summary.py --data-dir data/raw --root .
+
+                                     name     value                                 note
+    relative_jacobian_singular_values_min   55.7040                                     
+    relative_jacobian_singular_values_max 1181.2298                                     
+       relative_jacobian_condition_number   21.2055                                     
+                    train_pooled_rms_z[X]    2.5037          training runs, in objective
+                   train_pooled_mean_z[X]   -1.4382                                     
+                              R6_rms_z[X]    2.0571                                     
+                             R6_mean_z[X]   -0.3029                                     
+                    train_pooled_rms_z[S]    4.6666          training runs, in objective
+                   train_pooled_mean_z[S]   -0.6250                                     
+                              R6_rms_z[S]    5.6075                                     
+                             R6_mean_z[S]   -3.8927                                     
+                    train_pooled_rms_z[P]    3.3898          training runs, in objective
+                   train_pooled_mean_z[P]   -0.6592                                     
+                              R6_rms_z[P]    3.0583                                     
+                             R6_mean_z[P]    1.6130                                     
+                    train_pooled_rms_z[C]    2.9371          training runs, in objective
+                   train_pooled_mean_z[C]   -0.4500                                     
+                              R6_rms_z[C]    2.6852                                     
+                             R6_mean_z[C]    2.1894                                     
+                      train_overall_rms_z    3.5060                                     
+obs_ethanol_per_TRS_dropped_nominalS0[R1]    0.4496                                     
+             obs_CO2_over_ethanol_48h[R1]    1.0223                                     
+obs_ethanol_per_TRS_dropped_nominalS0[R2]    0.4568                                     
+             obs_CO2_over_ethanol_48h[R2]    0.9692                                     
+obs_ethanol_per_TRS_dropped_nominalS0[R3]    0.4659                                     
+             obs_CO2_over_ethanol_48h[R3]    0.9787                                     
+obs_ethanol_per_TRS_dropped_nominalS0[R4]    0.4671                                     
+             obs_CO2_over_ethanol_48h[R4]    0.9383                                     
+obs_ethanol_per_TRS_dropped_nominalS0[R5]    0.4527                                     
+             obs_CO2_over_ethanol_48h[R5]    0.9886                                     
+obs_ethanol_per_TRS_dropped_nominalS0[R8]    0.4672                                     
+             obs_CO2_over_ethanol_48h[R8]    0.9536                                     
+obs_ethanol_per_TRS_dropped_nominalS0[R6]    0.4737                                     
+             obs_CO2_over_ethanol_48h[R6]    0.9401                                     
+obs_ethanol_per_TRS_dropped_nominalS0[R7]    0.4401                                     
+             obs_CO2_over_ethanol_48h[R7]    0.9751                                     
+          pred_R6_ethanol_per_TRS_dropped    0.4600                                     
+        pred_R6_biomass_sugar_use_g_per_L    8.3444                                     
+         obs_R6_biomass_sugar_use_g_per_L   10.2164 DW biomass, uses observed 48 h value
+                   rho_minus_stoich_in_SE    2.6059                                     
+            min_positive_time_CO2_g_per_L    3.0000                                     
+CO2_sd_floor_vs_pure2pct_ratio_at_min_CO2    2.6667                                     
+    CO2_sd_floor_vs_pure2pct_ratio_median    1.1180                                     
+                R6_ethanol_0_12h_rate_obs    2.5417                                     
+               R6_ethanol_0_12h_rate_pred    2.6719                                     
+               R6_ethanol_36_48h_rate_obs    0.9500                                     
+              R6_ethanol_36_48h_rate_pred    1.0424                                     
+                   R6_TRS_36_48h_rate_obs    1.9750                                     
+                  R6_TRS_36_48h_rate_pred    2.1820                                     

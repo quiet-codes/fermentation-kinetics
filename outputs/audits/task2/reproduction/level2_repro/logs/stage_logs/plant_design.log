@@ -1,0 +1,44 @@
+# stage plant_design
+# started 2026-10-27 14:59:10
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py --stage design --data-dir data/raw --root .
+
+/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py:140: RuntimeWarning: invalid value encountered in scalar divide
+  rows.append(dict(T_C=T, S0_gL=S0, quantity=key, value=base, sd_linearised=np.sqrt(var), rel_sd_pct=100 * np.sqrt(var) / abs(base)))
+/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py:141: RuntimeWarning: invalid value encountered in scalar divide
+  for n, c in zip(names, contrib): var_rows.append(dict(T_C=T, S0_gL=S0, quantity=key, parameter=n, variance_share_pct=100 * c / var))
+/home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/plant_uncertainty.py:165: RuntimeWarning: invalid value encountered in scalar divide
+  s0 = np.sqrt(g @ cov @ g); s1 = np.sqrt(g @ post @ g); d[f"TRS96_sd_reduction_pct_{int(T2)}C_{int(S02)}"] = 100 * (1 - s1 / s0)
+ T_C  S0_gL        quantity      value  sd_linearised  rel_sd_pct
+33.0  220.0 daily_margin_Rs 112479.839       2627.337       2.336
+33.0  220.0             S96      0.000          0.000         NaN
+33.0  220.0           P_end     98.294          0.470       0.478
+34.0  260.0 daily_margin_Rs  80651.769       4165.158       5.164
+34.0  260.0             S96      1.083          1.911     176.404
+34.0  260.0           P_end    117.511          0.562       0.478
+36.0  260.0             S96     27.374          2.599       9.493
+37.0  260.0             S96     41.267          2.321       5.624
+T_C        33.0   34.0
+S0_gL     220.0  260.0
+parameter             
+P_max      77.4  407.6
+X_max      -0.9   -2.5
+Y_P        69.6    5.0
+beta_P     -2.6  -11.6
+k34         0.5   -0.1
+k37         0.0    0.0
+mu_max      2.1    2.0
+n_inh     -33.5 -298.9
+q_max     -12.5   -1.5
+rho_CO2     0.0    0.0
+ T_C  S0_gL  horizon_h  mean_margin_sd_reduction_pct  margin_sd_reduction_pct_33C_220  margin_sd_reduction_pct_34C_260
+34.0  260.0         96                          36.2                             13.6                             58.7
+33.0  260.0         96                          32.9                             13.7                             52.0
+36.0  260.0         96                          28.1                             11.0                             45.2
+37.0  220.0         96                          25.0                             10.2                             39.7
+37.0  260.0         96                          21.9                              9.6                             34.2
+36.0  220.0         96                          21.4                             11.0                             31.8
+34.0  220.0         96                          14.3                             12.4                             16.2
+33.0  220.0         96                          12.6                             12.3                             12.8
+34.0  220.0         48                          11.8                              8.4                             15.3
+33.0  220.0         48                          10.1                              8.2                             12.0

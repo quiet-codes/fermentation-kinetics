@@ -1,0 +1,109 @@
+{
+  "created": "2026-10-27 15:10:37",
+  "task": "Task 2 only",
+  "status": "complete_pending_user_review",
+  "branch": "arena/30692720-fermentation-kinetics",
+  "original_project_preserved": true,
+  "frozen_level2_decision_unchanged": true,
+  "level3_started": false,
+  "final_zip_built": false,
+  "modified_tracked_files": [
+    "src/compare.py",
+    "src/fit.py",
+    "src/make_level1_report.py",
+    "src/make_level2_report.py",
+    "src/plant_uncertainty.py",
+    "src/uncertainty.py"
+  ],
+  "new_source_test_files": [
+    "src/reproduce_level2.py",
+    "src/run_task2_sensitivities.py",
+    "src/task2_co2_floor_sensitivity.py",
+    "src/task2_consistency_audit.py",
+    "tests/test_task2_consistency.py"
+  ],
+  "evidence_root": "outputs/audits/task2",
+  "evidence_file_count": 284,
+  "evidence_total_bytes": 5436429,
+  "main_report": "outputs/audits/task2/task2_report.md",
+  "file_manifest": "outputs/audits/task2/task2_file_manifest.json",
+  "test_results": {
+    "default": "60 passed",
+    "cp1252_simulation": "60 passed",
+    "report_equality_simulation": "2 passed",
+    "final_default": "60 passed in 4.81s",
+    "final_cp1252_sim": "60 passed in 4.15s"
+  },
+  "reproduction": {
+    "stages_passed": 20,
+    "stages_total": 20,
+    "runtime_s": 538.56,
+    "files_compared": 68,
+    "byte_equal": 24,
+    "csv_json_not_allclose": 31,
+    "hash_changed": 44,
+    "d24_preferred": "M5",
+    "frozen_hashes_ok": true,
+    "first_attempt_failed": true
+  },
+  "sensitivity": {
+    "level1_cases": [
+      {
+        "case": "CO2_floor_0",
+        "max_abs_change_pct": 13.887945897949495
+      },
+      {
+        "case": "CO2_floor_0.5",
+        "max_abs_change_pct": 4.373036634457823
+      }
+    ],
+    "level2": [
+      {
+        "floor": 0.0,
+        "preferred": "M5",
+        "m5_max_change_pct": 2.229879480076361,
+        "convergence_changes_selection": false
+      },
+      {
+        "floor": 0.5,
+        "preferred": "M5",
+        "m5_max_change_pct": 2.9642365909705504,
+        "convergence_changes_selection": false
+      }
+    ]
+  },
+  "d03": {
+    "pdf_available": false,
+    "source_patterns_present": true,
+    "limits": "Original assignment PDF is unavailable. The extracted brief's uncertainty table is unlabelled and read in row order; the exact meaning of 'about \u00b12%' / 'about \u00b13%' and row alignment cannot be definitively verified. Do not infer additional requirements."
+  },
+  "d24": {
+    "current_results_satisfy_written_condition": true,
+    "code_enforces_convergence_explicitly": false,
+    "frozen_preferred": "M5"
+  },
+  "windows": {
+    "actual_windows_execution": false,
+    "added_explicit_encoding_calls": 35,
+    "windows_commands": [
+      "python -m pip install -r requirements.txt",
+      "python -c \"import sys,locale; print(sys.version); print(locale.getpreferredencoding(False)); print(sys.stdout.encoding)\"",
+      "chcp",
+      "python -m pytest -q",
+      "python -m pytest -q tests/test_report_claims.py::test_level1_report_equals_generator_output tests/test_report_claims.py::test_level2_report_equals_generator_output -vv",
+      "python -m pytest -q tests/test_task2_consistency.py -vv",
+      "python src/make_level1_report.py \"%TEMP%\\fk_level1.md\"",
+      "python src/make_level2_report.py \"%TEMP%\\fk_level2.md\"",
+      "fc /B reports\\level1.md \"%TEMP%\\fk_level1.md\"",
+      "fc /B reports\\level2.md \"%TEMP%\\fk_level2.md\"",
+      "git status --short"
+    ]
+  },
+  "unresolved": [
+    "Original assignment PDF unavailable; D-03 row alignment and exact meaning of \u201cabout \u00b12%\u201d / \u201cabout \u00b13%\u201d cannot be definitively verified.",
+    "Actual Windows pytest run and full Windows traceback are still missing; only Linux cp1252 simulation was executed.",
+    "Full Level 2 numerical reproduction is not bit-exact under Python 3.11.2/numpy 2.4.6/pandas 3.1.0 vs frozen Python 3.12.3/numpy 2.4.4/pandas 3.0.2.",
+    "M5 selected a different near-equivalent minimum in the reproduction (P_max -0.48 g/L, chi-square +0.000371), causing large LORO-R8 (1629.2 -> 731.1) and downstream plant differences.",
+    "Historical execution-claim conflict from the Task 1 audit (real pytest vs fallback runners) remains unresolved; Task 2 did not assume either claim."
+  ]
+}

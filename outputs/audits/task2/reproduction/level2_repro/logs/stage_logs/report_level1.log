@@ -1,0 +1,6 @@
+# stage report_level1
+# started 2026-10-27 14:50:38
+# cwd /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root
+# command: /tmp/fk-audit-venv/bin/python /home/user/fermentation-kinetics/outputs/audits/task2/reproduction/level2_repro/root/src/make_level1_report.py reports/level1.md
+
+20672

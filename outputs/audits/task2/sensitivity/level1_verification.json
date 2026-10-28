@@ -1,0 +1,109 @@
+{
+  "purpose": "Verify the two existing Level 1 M0 CO2-floor sensitivity cases from level1_sensitivity.csv.",
+  "original_root": "/home/user/fermentation-kinetics",
+  "data_dir": "data/raw",
+  "seed": 20261026,
+  "multistart_seed": 20261027,
+  "multistart_starts": 8,
+  "extra_starts": [
+    "frozen Level 1 optimum"
+  ],
+  "cases": [
+    {
+      "case": "CO2_floor_0",
+      "floor": 0.0,
+      "chi2": 4252.224209977155,
+      "n_residuals": 299,
+      "reduced_chi2": 14.612454329818402,
+      "ode_failures": 0,
+      "best_status": 3,
+      "n_starts": 10,
+      "max_abs_change_pct_original": 13.878763708121166,
+      "max_abs_change_pct_reproduced": 13.887945897949495,
+      "comparison_to_existing_evidence": {
+        "value": {
+          "max_abs_diff": 0.007753494724056509,
+          "allclose": false
+        },
+        "primary_value": {
+          "max_abs_diff": 1.4210854715202004e-14,
+          "allclose": true
+        },
+        "change_pct": {
+          "max_abs_diff": 0.009182189828328191,
+          "allclose": false
+        },
+        "change_in_primary_se": {
+          "max_abs_diff": 0.003381968072101227,
+          "allclose": false
+        },
+        "chi2": {
+          "max_abs_diff": 0.00021818852019350743,
+          "allclose": true
+        },
+        "n_residuals": {
+          "max_abs_diff": 0.0,
+          "allclose": true
+        },
+        "reduced_chi2": {
+          "max_abs_diff": 7.497887288820948e-07,
+          "allclose": true
+        }
+      },
+      "runtime_s": 28.55
+    },
+    {
+      "case": "CO2_floor_0.5",
+      "floor": 0.5,
+      "chi2": 3178.4258681816464,
+      "n_residuals": 299,
+      "reduced_chi2": 10.922425663854455,
+      "ode_failures": 0,
+      "best_status": 3,
+      "n_starts": 10,
+      "max_abs_change_pct_original": 4.373036634457836,
+      "max_abs_change_pct_reproduced": 4.373036634457823,
+      "comparison_to_existing_evidence": {
+        "value": {
+          "max_abs_diff": 0.0,
+          "allclose": true
+        },
+        "primary_value": {
+          "max_abs_diff": 1.4210854715202004e-14,
+          "allclose": true
+        },
+        "change_pct": {
+          "max_abs_diff": 1.6431300764452317e-14,
+          "allclose": true
+        },
+        "change_in_primary_se": {
+          "max_abs_diff": 2.1038726316646716e-14,
+          "allclose": true
+        },
+        "chi2": {
+          "max_abs_diff": 0.0,
+          "allclose": true
+        },
+        "n_residuals": {
+          "max_abs_diff": 0.0,
+          "allclose": true
+        },
+        "reduced_chi2": {
+          "max_abs_diff": 0.0,
+          "allclose": true
+        }
+      },
+      "runtime_s": 27.3
+    }
+  ],
+  "environment": {
+    "python": "3.11.2",
+    "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+    "numpy": "2.4.6",
+    "pandas": "3.1.0",
+    "scipy": "1.17.1",
+    "co2_floor": null,
+    "default_co2_floor": 0.1
+  },
+  "note": "This is a reproduction of the two existing cases; no new Level 1 decision is made."
+}
