@@ -1,0 +1,20 @@
+{
+  "created": "2026-10-28 19:52:29",
+  "snapshot": "submission",
+  "n_files": 127,
+  "total_bytes": 4079627,
+  "required_items": 28,
+  "missing_required": [],
+  "missing_sources": [],
+  "pending_sources": [],
+  "passed": true,
+  "excluded": [
+    ".git",
+    "__pycache__",
+    "*.pyc",
+    ".pytest_cache",
+    ".venv",
+    "*.zip"
+  ],
+  "note": "The snapshot is generated output; the canonical project tree remains authoritative."
+}

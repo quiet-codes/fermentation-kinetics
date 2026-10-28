@@ -1,0 +1,42 @@
+{
+  "n_draws": 200,
+  "seed": 20261028,
+  "method": "Gaussian draws from the linearised fit covariance in fit_{model}.json, rejected outside the fitted parameter bounds. Parameter uncertainty only; conditional on the model structure.",
+  "candidates": [
+    {
+      "candidate_id": "normal_33_37_M5_optimum",
+      "scenario": "normal_33_37",
+      "role": "optimum",
+      "s0_g_per_l": 195.0,
+      "temperature_c": 33.0
+    },
+    {
+      "candidate_id": "normal_33_37_M5_runner_up",
+      "scenario": "normal_33_37",
+      "role": "runner_up",
+      "s0_g_per_l": 192.5,
+      "temperature_c": 33.0
+    },
+    {
+      "candidate_id": "warm_min_36_M5_optimum",
+      "scenario": "warm_min_36",
+      "role": "optimum",
+      "s0_g_per_l": 175.0,
+      "temperature_c": 36.0
+    },
+    {
+      "candidate_id": "warm_min_36_M5_runner_up",
+      "scenario": "warm_min_36",
+      "role": "runner_up",
+      "s0_g_per_l": 172.5,
+      "temperature_c": 36.0
+    },
+    {
+      "candidate_id": "brief_q5_37C_260",
+      "scenario": "not_applicable",
+      "role": "brief_Q5_prediction_point",
+      "s0_g_per_l": 260.0,
+      "temperature_c": 37.0
+    }
+  ]
+}

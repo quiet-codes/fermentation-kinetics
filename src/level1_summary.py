@@ -26,7 +26,7 @@ for i in range(len(theta)):
     h = 1e-5 * abs(theta[i]); tp, tm = theta.copy(), theta.copy(); tp[i] += h; tm[i] -= h
     J[:, i] = (fun(tp) - fun(tm)) / (2 * h)
 cov = np.linalg.inv(J.T @ J); sd = np.sqrt(np.diag(cov)); corr = cov / np.outer(sd, sd)
-cdf = pd.DataFrame(corr, index=K.PARAM_NAMES, columns=K.PARAM_NAMES); cdf.to_csv(os.path.join(tdir, "level1_correlations.csv"))
+cdf = pd.DataFrame(corr, index=K.PARAM_NAMES, columns=K.PARAM_NAMES); cdf.to_csv(os.path.join(tdir, "level1_correlations.csv"), lineterminator='\n', encoding='utf-8')
 for i in range(len(theta)):
     for j in range(i + 1, len(theta)):
         if abs(corr[i, j]) >= 0.8:
@@ -71,6 +71,6 @@ add("R6_ethanol_36_48h_rate_obs", (rec6["obs"]["P"][-1] - rec6["obs"]["P"][k36])
 add("R6_ethanol_36_48h_rate_pred", (s6[-1, 2] - s6[k36, 2]) / 12)
 add("R6_TRS_36_48h_rate_obs", (rec6["obs"]["S"][k36] - rec6["obs"]["S"][-1]) / 12)
 add("R6_TRS_36_48h_rate_pred", (s6[k36, 1] - s6[-1, 1]) / 12)
-pd.DataFrame(out).to_csv(os.path.join(tdir, "level1_summary_numbers.csv"), index=False)
+pd.DataFrame(out).to_csv(os.path.join(tdir, "level1_summary_numbers.csv"), index=False, lineterminator='\n', encoding='utf-8')
 pd.set_option("display.width", 200); pd.set_option("display.max_rows", 200)
 print(pd.DataFrame(out).round(4).to_string(index=False))

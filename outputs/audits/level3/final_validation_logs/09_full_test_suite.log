@@ -1,0 +1,7 @@
+$ /tmp/fk-venv/bin/python -m pytest -q
+# cwd: /home/user/fermentation-kinetics
+# exit: 0
+
+........................................................................ [ 88%]
+.........                                                                [100%]
+81 passed in 4.68s

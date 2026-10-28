@@ -1,0 +1,97 @@
+{
+  "created": "2026-10-28 19:52:29",
+  "snapshot_files": 127,
+  "n_checks": 14,
+  "n_passed": 14,
+  "passed": true,
+  "archive": {
+    "path": "/home/user/fermentation-kinetics/fermentation_kinetics_final_submission.zip",
+    "exists": false
+  },
+  "checks": [
+    {
+      "id": "S-01",
+      "description": "submission snapshot exists",
+      "passed": true,
+      "detail": "/home/user/fermentation-kinetics/submission"
+    },
+    {
+      "id": "S-02",
+      "description": "manifest.csv exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "S-03",
+      "description": "every manifest entry exists with the recorded SHA-256",
+      "passed": true,
+      "detail": "missing=[] hash_mismatch=[]"
+    },
+    {
+      "id": "S-04",
+      "description": "every manifest entry has the recorded size",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "S-05",
+      "description": "manifest covers source, data, reports, figures and logs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "S-06",
+      "description": "required snapshot structure present",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "S-07",
+      "description": "all required Level 3 deliverables present",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "S-08",
+      "description": "every figure referenced by a snapshot report exists in the snapshot",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "S-09",
+      "description": "no caches, virtual environments, secrets or nested archives",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "S-10",
+      "description": "raw data match CHECKSUMS.sha256 in both the snapshot and the canonical tree",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "id": "S-11",
+      "description": "snapshot frozen selection is still M5 under D-24 without R6",
+      "passed": true,
+      "detail": "{'preferred': 'M5', 'best_QAICc_model': 'M5', 'rule': 'D-24', 'c_hat': 3.8629121857647286, 'model_comparison_sha256': '5521863023a9d33804093d73c35ce75ef4b73fd160f06455923e6592ed2a5431', 'candidate_parameters_sha256': 'b63aafe20fd6d583f87eca08357174c489c1366d8aad1307697401a28bc57199', 'r6_used_for_selection': False}"
+    },
+    {
+      "id": "S-12",
+      "description": "snapshot Level 1 frozen parameter hash still matches its parameter table",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "S-13",
+      "description": "snapshot contains all eight carbon balances",
+      "passed": true,
+      "detail": "8"
+    },
+    {
+      "id": "S-15",
+      "description": "archive not checked at this stage (created after this audit)",
+      "passed": true,
+      "detail": "create_final_zip.py runs afterwards"
+    }
+  ]
+}

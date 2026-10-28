@@ -1,0 +1,5 @@
+$ /tmp/fk-venv/bin/python src/make_level3_report.py
+# cwd: /home/user/fermentation-kinetics
+# exit: 0
+
+wrote reports/level3.md: 46575 characters, 21 tracked claims

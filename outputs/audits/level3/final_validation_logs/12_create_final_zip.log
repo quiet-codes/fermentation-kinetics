@@ -1,0 +1,10 @@
+$ /tmp/fk-venv/bin/python scripts/create_final_zip.py
+# cwd: /home/user/fermentation-kinetics
+# exit: 0
+
+archive: fermentation_kinetics_final_submission.zip
+  bytes   : 9,269,877
+  sha256  : 85bccfa4fdf4ac82f6dc739307acc95e79f9ad5131a8a6a7fce6f2e324bca341
+  entries : 575
+  testzip : OK
+  missing : none

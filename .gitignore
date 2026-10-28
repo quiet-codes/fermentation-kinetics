@@ -1,0 +1,17 @@
+# Python caches - never committed, never packaged.
+__pycache__/
+*.py[cod]
+
+# Environments and tool caches.
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editor/OS noise.
+.DS_Store
+Thumbs.db
+
+# Raw data, reports, tables and the final archive are intentionally tracked: they are the
+# project evidence. The archive is excluded from its own contents by scripts/create_final_zip.py.

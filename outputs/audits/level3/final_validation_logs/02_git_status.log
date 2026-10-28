@@ -1,0 +1,6 @@
+$ git status --short --branch
+# cwd: /home/user/fermentation-kinetics
+# exit: 0
+
+## arena/b48e5f7c-fermentation-kinetics...origin/arena/b48e5f7c-fermentation-kinetics
+ D fermentation_kinetics_final_submission.zip

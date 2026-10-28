@@ -164,11 +164,11 @@ def stage_assemble(a):
         for i, ni in enumerate(names):
             for j in range(i + 1, len(names)):
                 if np.isfinite(corr[i, j]) and abs(corr[i, j]) >= 0.7: corr_rows.append(dict(model=v, parameter_1=ni, parameter_2=names[j], correlation_linearised=corr[i, j]))
-    pd.DataFrame(rows).to_csv(os.path.join(t, "parameter_uncertainty.csv"), index=False)
-    pd.DataFrame(prof_rows).to_csv(os.path.join(t, "parameter_profiles.csv"), index=False)
-    if fx_rows: pd.DataFrame(fx_rows).to_csv(os.path.join(t, "fixed_parameter_sensitivity.csv"), index=False)
-    if r7_rows: pd.DataFrame(r7_rows).to_csv(os.path.join(t, "r7_inclusion_effect.csv"), index=False)
-    pd.DataFrame(corr_rows).to_csv(os.path.join(t, "parameter_correlations_material.csv"), index=False)
+    pd.DataFrame(rows).to_csv(os.path.join(t, "parameter_uncertainty.csv"), index=False, lineterminator='\n', encoding='utf-8')
+    pd.DataFrame(prof_rows).to_csv(os.path.join(t, "parameter_profiles.csv"), index=False, lineterminator='\n', encoding='utf-8')
+    if fx_rows: pd.DataFrame(fx_rows).to_csv(os.path.join(t, "fixed_parameter_sensitivity.csv"), index=False, lineterminator='\n', encoding='utf-8')
+    if r7_rows: pd.DataFrame(r7_rows).to_csv(os.path.join(t, "r7_inclusion_effect.csv"), index=False, lineterminator='\n', encoding='utf-8')
+    pd.DataFrame(corr_rows).to_csv(os.path.join(t, "parameter_correlations_material.csv"), index=False, lineterminator='\n', encoding='utf-8')
     pr = pd.DataFrame(prof_rows)
     for v in a.models.split(","):
         d = pr[pr.model == v]; ps = list(dict.fromkeys(d.parameter)); nc = 5; nr = int(np.ceil(len(ps) / nc))

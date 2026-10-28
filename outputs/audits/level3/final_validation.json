@@ -1,0 +1,231 @@
+{
+  "created": "2026-10-28 19:52:30",
+  "phase": "full",
+  "status": "passed",
+  "all_passed": true,
+  "command_count": 13,
+  "stages": [
+    {
+      "label": "environment",
+      "command": [
+        "python",
+        "-c",
+        "<environment report>"
+      ],
+      "exit_code": 0,
+      "runtime_s": 0.0,
+      "log": "outputs/audits/level3/final_validation_logs/01_environment.log",
+      "tail": [
+        "python 3.11.2",
+        "platform Linux-6.1.158+-x86_64-with-glibc2.36",
+        "executable /tmp/fk-venv/bin/python",
+        "cpu_count 2"
+      ]
+    },
+    {
+      "label": "git_status",
+      "command": [
+        "git",
+        "status",
+        "--short",
+        "--branch"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 0.01,
+      "log": "outputs/audits/level3/final_validation_logs/02_git_status.log",
+      "tail": [
+        "## arena/b48e5f7c-fermentation-kinetics...origin/arena/b48e5f7c-fermentation-kinetics",
+        " D fermentation_kinetics_final_submission.zip"
+      ]
+    },
+    {
+      "label": "raw_checksums",
+      "command": [
+        "sha256sum -c CHECKSUMS.sha256"
+      ],
+      "cwd": "data/raw",
+      "exit_code": 0,
+      "runtime_s": 0.0,
+      "log": "outputs/audits/level3/final_validation_logs/03_raw_checksums.log",
+      "tail": [
+        "runs.csv: OK",
+        "timecourse.csv: OK",
+        "endpoint_hplc.csv: OK"
+      ]
+    },
+    {
+      "label": "level3_workflow",
+      "command": [
+        "/tmp/fk-venv/bin/python",
+        "src/level3_optimize.py",
+        "--stage",
+        "all",
+        "--n-draws",
+        "200"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 35.22,
+      "log": "outputs/audits/level3/final_validation_logs/04_level3_workflow.log",
+      "tail": [
+        "[level3] === stage answers ===",
+        "[level3] answers written (0.0s)",
+        "[level3] done in 34.1s"
+      ]
+    },
+    {
+      "label": "level3_report",
+      "command": [
+        "/tmp/fk-venv/bin/python",
+        "src/make_level3_report.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 1.01,
+      "log": "outputs/audits/level3/final_validation_logs/05_level3_report.log",
+      "tail": [
+        "wrote reports/level3.md: 46575 characters, 21 tracked claims"
+      ]
+    },
+    {
+      "label": "consistency_audit",
+      "command": [
+        "/tmp/fk-venv/bin/python",
+        "src/level3_consistency_audit.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 1.06,
+      "log": "outputs/audits/level3/final_validation_logs/06_consistency_audit.log",
+      "tail": [
+        "[PASS] G-05 Level 3 audit JSON files parse",
+        "==============================================================================",
+        "31/31 checks passed"
+      ]
+    },
+    {
+      "label": "submission_snapshot_provisional",
+      "command": [
+        "/tmp/fk-venv/bin/python",
+        "scripts/build_submission.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 1.1,
+      "log": "outputs/audits/level3/final_validation_logs/07_submission_snapshot_provisional.log",
+      "tail": [
+        "submission snapshot: 127 files, 4.08 MB, OK"
+      ]
+    },
+    {
+      "label": "submission_verification",
+      "command": [
+        "/tmp/fk-venv/bin/python",
+        "scripts/verify_submission.py",
+        "--zip",
+        "fermentation_kinetics_final_submission.zip"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 0.29,
+      "log": "outputs/audits/level3/final_validation_logs/08_submission_verification.log",
+      "tail": [
+        "[PASS] S-15 archive not checked at this stage (created after this audit)",
+        "==============================================================================",
+        "14/14 checks passed"
+      ]
+    },
+    {
+      "label": "full_test_suite",
+      "command": [
+        "/tmp/fk-venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 5.06,
+      "log": "outputs/audits/level3/final_validation_logs/09_full_test_suite.log",
+      "tail": [
+        "........................................................................ [ 88%]",
+        ".........                                                                [100%]",
+        "81 passed in 4.68s"
+      ]
+    },
+    {
+      "label": "submission_snapshot_final",
+      "command": [
+        "/tmp/fk-venv/bin/python",
+        "scripts/build_submission.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 1.1,
+      "log": "outputs/audits/level3/final_validation_logs/10_submission_snapshot_final.log",
+      "tail": [
+        "submission snapshot: 127 files, 4.08 MB, OK"
+      ]
+    },
+    {
+      "label": "submission_verification_final",
+      "command": [
+        "/tmp/fk-venv/bin/python",
+        "scripts/verify_submission.py",
+        "--zip",
+        "fermentation_kinetics_final_submission.zip"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 0.27,
+      "log": "outputs/audits/level3/final_validation_logs/11_submission_verification_final.log",
+      "tail": [
+        "[PASS] S-15 archive not checked at this stage (created after this audit)",
+        "==============================================================================",
+        "14/14 checks passed"
+      ]
+    },
+    {
+      "label": "create_final_zip",
+      "command": [
+        "/tmp/fk-venv/bin/python",
+        "scripts/create_final_zip.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_s": 0.77,
+      "log": "outputs/audits/level3/final_validation_logs/12_create_final_zip.log",
+      "tail": [
+        "  entries : 575",
+        "  testzip : OK",
+        "  missing : none"
+      ]
+    },
+    {
+      "label": "zip_integrity_and_listing",
+      "command": [
+        "python",
+        "-c",
+        "<zip integrity check>"
+      ],
+      "exit_code": 0,
+      "runtime_s": 0.0,
+      "log": "outputs/audits/level3/final_validation_logs/13_zip_integrity_and_listing.log",
+      "tail": [
+        "exists: True",
+        "bytes: 9269877",
+        "sha256: 85bccfa4fdf4ac82f6dc739307acc95e79f9ad5131a8a6a7fce6f2e324bca341",
+        "entries: 575",
+        "testzip: None"
+      ]
+    }
+  ],
+  "actual_windows_execution": false,
+  "original_assignment_pdf_available": false,
+  "environment": {
+    "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+    "python": "3.11.2"
+  },
+  "note": "Linux/sandbox validation only. Stages 1-9 were recorded before the submission snapshot was built, so the archive contains this run's checks; stages 10-13 build and validate the archive itself and can only exist outside it. Actual Windows execution has not been performed."
+}

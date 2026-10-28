@@ -1,0 +1,209 @@
+{
+  "created": "2026-10-28 19:52:30",
+  "archive": {
+    "name": "fermentation_kinetics_final_submission.zip",
+    "path": "/home/user/fermentation-kinetics/fermentation_kinetics_final_submission.zip",
+    "bytes": 9269877,
+    "sha256": "85bccfa4fdf4ac82f6dc739307acc95e79f9ad5131a8a6a7fce6f2e324bca341",
+    "entries": 575,
+    "testzip_bad_member": null,
+    "validated": true
+  },
+  "snapshot": {
+    "files": 127,
+    "verification_passed": true,
+    "build_passed": true
+  },
+  "results": {
+    "normal_scenario": {
+      "s0_g_per_l": 195.0,
+      "temperature_c": 33.0,
+      "completion_time_h": 35.5707,
+      "final_trs_g_per_l": 5.0,
+      "final_ethanol_g_per_l": 86.3204,
+      "wash_pct_vv": 10.9405,
+      "steam_kg_per_L": 2.5365,
+      "batch_margin_inr": 211696.31,
+      "cycle_time_h": 43.5707,
+      "margin_per_cycle_inr_per_h": 4858.69,
+      "margin_24h_equivalent_inr_per_day": 116608.5
+    },
+    "warm_scenario": {
+      "s0_g_per_l": 175.0,
+      "temperature_c": 36.0,
+      "completion_time_h": 39.8165,
+      "final_trs_g_per_l": 5.0,
+      "final_ethanol_g_per_l": 76.729,
+      "wash_pct_vv": 9.7248,
+      "batch_margin_inr": 177405.37,
+      "cycle_time_h": 47.8165,
+      "margin_per_cycle_inr_per_h": 3710.13,
+      "margin_24h_equivalent_inr_per_day": 89043.0
+    },
+    "model_policy_all_checks_passed": true,
+    "frozen_model": "M5",
+    "consistency_audit": {
+      "n_checks": 31,
+      "n_passed": 31,
+      "passed": true
+    }
+  },
+  "execution": {
+    "platform": "Linux-6.1.158+-x86_64-with-glibc2.36",
+    "python": "3.11.2",
+    "stages": [
+      {
+        "label": "environment",
+        "command": [
+          "python",
+          "-c",
+          "<environment report>"
+        ],
+        "exit_code": 0,
+        "runtime_s": 0.0,
+        "log": "outputs/audits/level3/final_validation_logs/01_environment.log"
+      },
+      {
+        "label": "git_status",
+        "command": [
+          "git",
+          "status",
+          "--short",
+          "--branch"
+        ],
+        "exit_code": 0,
+        "runtime_s": 0.01,
+        "log": "outputs/audits/level3/final_validation_logs/02_git_status.log"
+      },
+      {
+        "label": "raw_checksums",
+        "command": [
+          "sha256sum -c CHECKSUMS.sha256"
+        ],
+        "exit_code": 0,
+        "runtime_s": 0.0,
+        "log": "outputs/audits/level3/final_validation_logs/03_raw_checksums.log"
+      },
+      {
+        "label": "level3_workflow",
+        "command": [
+          "/tmp/fk-venv/bin/python",
+          "src/level3_optimize.py",
+          "--stage",
+          "all",
+          "--n-draws",
+          "200"
+        ],
+        "exit_code": 0,
+        "runtime_s": 35.22,
+        "log": "outputs/audits/level3/final_validation_logs/04_level3_workflow.log"
+      },
+      {
+        "label": "level3_report",
+        "command": [
+          "/tmp/fk-venv/bin/python",
+          "src/make_level3_report.py"
+        ],
+        "exit_code": 0,
+        "runtime_s": 1.01,
+        "log": "outputs/audits/level3/final_validation_logs/05_level3_report.log"
+      },
+      {
+        "label": "consistency_audit",
+        "command": [
+          "/tmp/fk-venv/bin/python",
+          "src/level3_consistency_audit.py"
+        ],
+        "exit_code": 0,
+        "runtime_s": 1.06,
+        "log": "outputs/audits/level3/final_validation_logs/06_consistency_audit.log"
+      },
+      {
+        "label": "submission_snapshot_provisional",
+        "command": [
+          "/tmp/fk-venv/bin/python",
+          "scripts/build_submission.py"
+        ],
+        "exit_code": 0,
+        "runtime_s": 1.1,
+        "log": "outputs/audits/level3/final_validation_logs/07_submission_snapshot_provisional.log"
+      },
+      {
+        "label": "submission_verification",
+        "command": [
+          "/tmp/fk-venv/bin/python",
+          "scripts/verify_submission.py",
+          "--zip",
+          "fermentation_kinetics_final_submission.zip"
+        ],
+        "exit_code": 0,
+        "runtime_s": 0.29,
+        "log": "outputs/audits/level3/final_validation_logs/08_submission_verification.log"
+      },
+      {
+        "label": "full_test_suite",
+        "command": [
+          "/tmp/fk-venv/bin/python",
+          "-m",
+          "pytest",
+          "-q"
+        ],
+        "exit_code": 0,
+        "runtime_s": 5.06,
+        "log": "outputs/audits/level3/final_validation_logs/09_full_test_suite.log"
+      },
+      {
+        "label": "submission_snapshot_final",
+        "command": [
+          "/tmp/fk-venv/bin/python",
+          "scripts/build_submission.py"
+        ],
+        "exit_code": 0,
+        "runtime_s": 1.1,
+        "log": "outputs/audits/level3/final_validation_logs/10_submission_snapshot_final.log"
+      },
+      {
+        "label": "submission_verification_final",
+        "command": [
+          "/tmp/fk-venv/bin/python",
+          "scripts/verify_submission.py",
+          "--zip",
+          "fermentation_kinetics_final_submission.zip"
+        ],
+        "exit_code": 0,
+        "runtime_s": 0.27,
+        "log": "outputs/audits/level3/final_validation_logs/11_submission_verification_final.log"
+      },
+      {
+        "label": "create_final_zip",
+        "command": [
+          "/tmp/fk-venv/bin/python",
+          "scripts/create_final_zip.py"
+        ],
+        "exit_code": 0,
+        "runtime_s": 0.77,
+        "log": "outputs/audits/level3/final_validation_logs/12_create_final_zip.log"
+      },
+      {
+        "label": "zip_integrity_and_listing",
+        "command": [
+          "python",
+          "-c",
+          "<zip integrity check>"
+        ],
+        "exit_code": 0,
+        "runtime_s": 0.0,
+        "log": "outputs/audits/level3/final_validation_logs/13_zip_integrity_and_listing.log"
+      }
+    ],
+    "command_count": 13
+  },
+  "actual_windows_execution": false,
+  "original_assignment_pdf_available": false,
+  "limitations": [
+    "All checks in this run are Linux/sandbox checks. Actual Windows execution of the test suite and the reproduction scripts has not been performed and remains pending.",
+    "The original assignment PDF is unavailable; docs/assignment_brief.md is the governing specification and PDF-only requirements cannot be confirmed.",
+    "Level 3 recommendations are model predictions from the frozen M5 fit, not plant-validated optima.",
+    "Parameter uncertainty is quantified; predictive uncertainty (measurement error, model inadequacy, run-to-run variability) is not."
+  ]
+}

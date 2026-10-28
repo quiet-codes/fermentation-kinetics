@@ -106,7 +106,7 @@ def stage_predict(a):
     for (T, S0) in SCEN:
         r = margin(pref, best["theta"], T, S0)
         spread.append(dict(model=pref + "+R6 refit (secondary, R6 used as training)", k=len(th0), reduced_chi2=best["chi2"] / (len(fun(best["theta"])) - len(th0)), params_at_bound=int(C.at_bound(best["theta"], *M.spec(pref)[2:4]).sum()), T_C=T, S0_gL=S0, **{k: r[k] for k in ("P48", "S48", "S96", "t_end", "P_end", "wash", "daily_margin_Rs", "feasible")}))
-    pd.DataFrame(rows).to_csv(os.path.join(t, "plant_prediction_uncertainty.csv"), index=False); pd.DataFrame(spread).to_csv(os.path.join(t, "structure_spread.csv"), index=False)
+    pd.DataFrame(rows).to_csv(os.path.join(t, "plant_prediction_uncertainty.csv"), index=False, lineterminator='\n', encoding='utf-8'); pd.DataFrame(spread).to_csv(os.path.join(t, "structure_spread.csv"), index=False, lineterminator='\n', encoding='utf-8')
     pd.set_option("display.width", 250); d = pd.DataFrame(rows); print(d[d.quantity.isin(["P48", "S48", "t_end", "daily_margin_Rs"])][["model", "T_C", "S0_gL", "quantity", "point_estimate", "ens_median", "ens_95_lo", "ens_95_hi", "ens_frac_defined", "profile_ensemble_min", "profile_ensemble_max"]].round(1).to_string(index=False))
     print(pd.DataFrame(spread)[["model", "T_C", "S0_gL", "P48", "S48", "S96", "t_end", "daily_margin_Rs"]].round(1).to_string(index=False))
 
@@ -139,7 +139,7 @@ def stage_design(a):
         var = g @ cov @ g; contrib = (g * (cov @ g))                     # additive (Euler) decomposition: sum = var
         rows.append(dict(T_C=T, S0_gL=S0, quantity=key, value=base, sd_linearised=np.sqrt(var), rel_sd_pct=100 * np.sqrt(var) / abs(base)))
         for n, c in zip(names, contrib): var_rows.append(dict(T_C=T, S0_gL=S0, quantity=key, parameter=n, variance_share_pct=100 * c / var))
-    pd.DataFrame(rows).to_csv(os.path.join(t, "plant_linearised_sd.csv"), index=False); vd = pd.DataFrame(var_rows); vd.to_csv(os.path.join(t, "variance_decomposition.csv"), index=False)
+    pd.DataFrame(rows).to_csv(os.path.join(t, "plant_linearised_sd.csv"), index=False, lineterminator='\n', encoding='utf-8'); vd = pd.DataFrame(var_rows); vd.to_csv(os.path.join(t, "variance_decomposition.csv"), index=False, lineterminator='\n', encoding='utf-8')
     # candidate experiments
     tdense = np.array([0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 30, 36, 42, 48.0]); t96 = np.concatenate([tdense, [60, 72, 84, 96.0]])
     cand = []; Sig_inv = np.linalg.inv(cov)
@@ -164,7 +164,7 @@ def stage_design(a):
                     if key != "S96" or not np.isfinite(base): continue
                     s0 = np.sqrt(g @ cov @ g); s1 = np.sqrt(g @ post @ g); d[f"TRS96_sd_reduction_pct_{int(T2)}C_{int(S02)}"] = 100 * (1 - s1 / s0)
                 d["mean_margin_sd_reduction_pct"] = 100 * float(np.mean(rel)) if rel else np.nan; cand.append(d)
-    cd = pd.DataFrame(cand).sort_values("mean_margin_sd_reduction_pct", ascending=False); cd.to_csv(os.path.join(t, "experiment_design.csv"), index=False)
+    cd = pd.DataFrame(cand).sort_values("mean_margin_sd_reduction_pct", ascending=False); cd.to_csv(os.path.join(t, "experiment_design.csv"), index=False, lineterminator='\n', encoding='utf-8')
     pd.set_option("display.width", 250)
     print(pd.DataFrame(rows).round(3).to_string(index=False))
     print(vd[vd.quantity == "daily_margin_Rs"].pivot_table(index="parameter", columns=["T_C", "S0_gL"], values="variance_share_pct").round(1).to_string())
@@ -180,7 +180,7 @@ def stage_ksens(a):
         for (T, S0) in SCEN:
             m = margin(v, th, T, S0, fixed={"K_s": r["value"]})
             out.append(dict(model=v, K_s=r["value"], chi2=r["chi2"], T_C=T, S0_gL=S0, **{k: m[k] for k in ("P48", "S48", "S96", "t_end", "P_end", "daily_margin_Rs", "feasible")}))
-    pd.DataFrame(out).to_csv(os.path.join(t, "plant_Ks_sensitivity.csv"), index=False); pd.set_option("display.width", 250)
+    pd.DataFrame(out).to_csv(os.path.join(t, "plant_Ks_sensitivity.csv"), index=False, lineterminator='\n', encoding='utf-8'); pd.set_option("display.width", 250)
     print(pd.DataFrame(out).round(1).to_string(index=False))
 
 
@@ -198,7 +198,7 @@ def stage_discriminate(a):
                         sd = fit.sd_of(var, sims["M5"][1:, j], pol); tot += float(np.sum(((sims[a_][1:, j] - sims[b_][1:, j]) / sd) ** 2))
                     d[f"sep_{a_}_{b_}"] = tot
                 d["min_sep_among_M2_M5_M6"] = min(d["sep_M5_M2"], d["sep_M5_M6"], d["sep_M2_M6"]); rows.append(d)
-    df = pd.DataFrame(rows).sort_values("min_sep_among_M2_M5_M6", ascending=False); df.to_csv(os.path.join(t, "experiment_discrimination.csv"), index=False)
+    df = pd.DataFrame(rows).sort_values("min_sep_among_M2_M5_M6", ascending=False); df.to_csv(os.path.join(t, "experiment_discrimination.csv"), index=False, lineterminator='\n', encoding='utf-8')
     pd.set_option("display.width", 250); print(df.round(0).to_string(index=False))
 
 

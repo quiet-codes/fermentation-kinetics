@@ -1,0 +1,23 @@
+$ /tmp/fk-venv/bin/python scripts/verify_submission.py --zip fermentation_kinetics_final_submission.zip
+# cwd: /home/user/fermentation-kinetics
+# exit: 0
+
+Submission verification
+==============================================================================
+[PASS] S-01 submission snapshot exists
+[PASS] S-02 manifest.csv exists
+[PASS] S-03 every manifest entry exists with the recorded SHA-256
+[PASS] S-04 every manifest entry has the recorded size
+[PASS] S-05 manifest covers source, data, reports, figures and logs
+[PASS] S-06 required snapshot structure present
+[PASS] S-07 all required Level 3 deliverables present
+[PASS] S-08 every figure referenced by a snapshot report exists in the snapshot
+[PASS] S-09 no caches, virtual environments, secrets or nested archives
+[PASS] S-10 raw data match CHECKSUMS.sha256 in both the snapshot and the canonical tree
+[PASS] S-11 snapshot frozen selection is still M5 under D-24 without R6
+[PASS] S-12 snapshot Level 1 frozen parameter hash still matches its parameter table
+[PASS] S-13 snapshot contains all eight carbon balances
+snapshot file count: 127
+[PASS] S-15 archive not checked at this stage (created after this audit)
+==============================================================================
+14/14 checks passed

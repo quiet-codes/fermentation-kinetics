@@ -1,0 +1,39 @@
+$ /tmp/fk-venv/bin/python src/level3_consistency_audit.py
+# cwd: /home/user/fermentation-kinetics
+# exit: 0
+
+Level 3 consistency audit
+==============================================================================
+[PASS] A-01 all required Level 3 tables exist
+[PASS] A-02 all required Level 3 figures exist
+[PASS] A-03 reports/level3.md exists
+[PASS] A-04 report is ASCII with LF line endings
+[PASS] B-01 frozen model policy verifies (M5, D-24, R6 held out)
+[PASS] B-02 R6 is not in the training set
+[PASS] B-03 frozen selection file still records M5 under D-24 without R6
+[PASS] B-04 stored model policy record matches a fresh verification
+[PASS] C-01 every completed M5 row has residual TRS <= 5 g/L
+[PASS] C-02 unfinished rows have no completion time, cycle time or margin
+[PASS] C-03 no row outside the steam curve carries a margin
+[PASS] C-04 every M5 row quotes the frozen parameter-set id
+[PASS] C-05 operating window respected (160-260 g/L, 33-37 C) for all ranked rows
+[PASS] D-01 batch margin reproduces from the saved columns
+[PASS] D-02 margin per cycle time reproduces as margin / (completion + 8 h)
+[PASS] D-03 24 h equivalent reproduces as 24 x margin / cycle time
+[PASS] D-04 steam cost reproduces as intensity x ethanol volume x 1.6 INR/kg
+[PASS] D-05 sugar cost charges all sugar (S0 x 170 m3 x 25 INR/kg)
+[PASS] E-01 published optimum of each scenario is the grid maximum
+[PASS] E-02 36 C scenario only recommends temperatures >= 36 C
+[PASS] F-01 every tracked numeric claim appears in the report
+[PASS] F-02 all 10 user questions and both brief questions are answered
+[PASS] F-03 report normal optimum agrees with the recommendation table
+[PASS] F-04 report warm optimum agrees with the recommendation table
+[PASS] F-05 report contains every required section
+[PASS] F-06 report references every generated figure
+[PASS] G-01 carbon balance still present for all eight runs
+[PASS] G-02 all eight carbon balances close within 95-105 %
+[PASS] G-03 raw CSV checksums verify
+[PASS] G-04 generated Level 3 tables are ASCII with LF endings
+[PASS] G-05 Level 3 audit JSON files parse
+==============================================================================
+31/31 checks passed

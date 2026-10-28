@@ -1,0 +1,133 @@
+{
+  "generated": "2026-10-28 19:52:20",
+  "report": "reports/level3.md",
+  "n_claims": 21,
+  "claims": [
+    {
+      "id": "C-LEVEL3-01",
+      "text": "195.0 g/L TRS at 33.0 C",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "s0_g_per_l, temperature_c"
+    },
+    {
+      "id": "C-LEVEL3-02",
+      "text": "4,858.69 INR/h",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "margin_per_cycle_inr_per_h"
+    },
+    {
+      "id": "C-LEVEL3-03",
+      "text": "116,608.5 INR/day",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "margin_24h_equivalent_inr_per_day"
+    },
+    {
+      "id": "C-LEVEL3-04",
+      "text": "35.57 h",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "completion_time_h"
+    },
+    {
+      "id": "C-LEVEL3-05",
+      "text": "86.32 g/L ethanol",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "final_ethanol_g_per_l"
+    },
+    {
+      "id": "C-LEVEL3-06",
+      "text": "175.0 g/L TRS at 36.0 C",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "s0_g_per_l, temperature_c (warm)"
+    },
+    {
+      "id": "C-LEVEL3-07",
+      "text": "3,710.13 INR/h",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "margin_per_cycle_inr_per_h (warm)"
+    },
+    {
+      "id": "C-LEVEL3-08",
+      "text": "89,043.0 INR/day",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "margin_24h (warm)"
+    },
+    {
+      "id": "C-LEVEL3-09",
+      "text": "39.82 h",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "completion_time_h (warm)"
+    },
+    {
+      "id": "C-LEVEL3-10",
+      "text": "27 unfinished rows",
+      "source": "outputs/tables/optimization_grid.csv",
+      "field": "feasibility_status"
+    },
+    {
+      "id": "C-LEVEL3-11",
+      "text": "31 completed rows outside the 7-14 % v/v steam curve",
+      "source": "outputs/tables/optimization_grid.csv",
+      "field": "feasibility_status"
+    },
+    {
+      "id": "C-LEVEL3-12",
+      "text": "443 completed feasible rows",
+      "source": "outputs/tables/optimization_grid.csv",
+      "field": "feasibility_status"
+    },
+    {
+      "id": "C-LEVEL3-13",
+      "text": "105.37 g/L ethanol",
+      "source": "outputs/tables/optimization_grid.csv",
+      "field": "final_ethanol_g_per_l (37 C, 260 g/L)"
+    },
+    {
+      "id": "C-LEVEL3-14",
+      "text": "4,641.97 to 5,038.55 INR/h",
+      "source": "outputs/tables/optimization_uncertainty.csv",
+      "field": "p2_5, p97_5 (normal optimum)"
+    },
+    {
+      "id": "C-LEVEL3-15",
+      "text": "3,538.06 to 3,858.37 INR/h",
+      "source": "outputs/tables/optimization_uncertainty.csv",
+      "field": "p2_5, p97_5 (warm optimum)"
+    },
+    {
+      "id": "C-LEVEL3-16",
+      "text": "1,148.56 INR/h",
+      "source": "outputs/audits/level3/level3_answers.json",
+      "field": "penalty_vs_normal_inr_per_h"
+    },
+    {
+      "id": "C-LEVEL3-17",
+      "text": "25.67 h",
+      "source": "outputs/tables/optimization_recommendations.csv",
+      "field": "completion_time_h (fastest)"
+    },
+    {
+      "id": "C-LEVEL3-18",
+      "text": "26 of 27",
+      "source": "outputs/audits/level3/horizon_sensitivity.json",
+      "field": "n_completing_by_240h"
+    },
+    {
+      "id": "C-LEVEL3-19",
+      "text": "195.0 g/L",
+      "source": "outputs/tables/work/fit_M5.json",
+      "field": "P_max"
+    },
+    {
+      "id": "C-LEVEL3-20",
+      "text": "7 of 8",
+      "source": "outputs/tables/carbon_balance_all_runs.csv",
+      "field": "closes_within_95"
+    },
+    {
+      "id": "C-LEVEL3-21",
+      "text": "1,572 scenario rows",
+      "source": "outputs/tables/optimization_grid.csv",
+      "field": "row count"
+    }
+  ]
+}

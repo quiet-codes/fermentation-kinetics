@@ -1,0 +1,13 @@
+scenario,model,case,s0_g_per_l,temperature_c,completion_time_h,final_ethanol_g_per_l,margin_per_cycle_inr_per_h,parameter_set_id,delta_margin_vs_M5_optimum_inr_per_h,same_condition_as_M5_optimum,note
+normal_33_37,M5,own_optimum,195.0,33.0,35.57068797913862,86.32040209875869,4858.686335750817,M5_a29043ff3379ad5d,0.0,True,model's own best completed feasible condition
+normal_33_37,M5,at_M5_optimum,195.0,33.0,35.57068797913862,86.32040209875869,4858.686335750817,M5_a29043ff3379ad5d,0.0,True,this model evaluated at the M5 optimum
+normal_33_37,M2,own_optimum,190.0,33.0,33.26892569487095,84.48305750694999,5089.887235091947,M2_6e9b23aa9ac14c14,231.20089934113003,False,model's own best completed feasible condition
+normal_33_37,M2,at_M5_optimum,195.0,33.0,35.04016550372313,86.87251236340761,5078.403351069812,M2_6e9b23aa9ac14c14,219.71701531899453,True,this model evaluated at the M5 optimum
+normal_33_37,M6,own_optimum,190.0,33.0,33.2290039033508,84.34895563123929,5054.321137362913,M6_e4a9bd02db37c356,195.63480161209554,False,model's own best completed feasible condition
+normal_33_37,M6,at_M5_optimum,195.0,33.0,34.977394762223994,86.71984547859982,5041.65989076752,M6_e4a9bd02db37c356,182.97355501670245,True,this model evaluated at the M5 optimum
+warm_min_36,M5,own_optimum,175.0,36.0,39.81653430193492,76.72898875233305,3710.126052004815,M5_a29043ff3379ad5d,0.0,True,model's own best completed feasible condition
+warm_min_36,M5,at_M5_optimum,175.0,36.0,39.81653430193492,76.72898875233305,3710.126052004815,M5_a29043ff3379ad5d,0.0,True,this model evaluated at the M5 optimum
+warm_min_36,M2,own_optimum,170.0,36.0,36.64630343058271,74.9131176231459,3943.9455432704435,M2_6e9b23aa9ac14c14,233.81949126562859,False,model's own best completed feasible condition
+warm_min_36,M2,at_M5_optimum,175.0,36.0,38.84791926201936,77.29679718959368,3937.6644469252374,M2_6e9b23aa9ac14c14,227.53839492042243,True,this model evaluated at the M5 optimum
+warm_min_36,M6,own_optimum,170.0,36.0,36.70388186943357,74.88667760724903,3931.519758549495,M6_e4a9bd02db37c356,221.39370654467984,False,model's own best completed feasible condition
+warm_min_36,M6,at_M5_optimum,175.0,36.0,38.85820027420404,77.24877188082831,3924.0431485915615,M6_e4a9bd02db37c356,213.91709658674654,True,this model evaluated at the M5 optimum
